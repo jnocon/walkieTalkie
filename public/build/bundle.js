@@ -21643,6 +21643,9 @@
 	    key: 'handleChatExit',
 	    value: function handleChatExit() {
 	      var self = this;
+	      self.setState({
+	        dashboard_view: false
+	      });
 	      if (this.state.roomId) {
 	        _axios2.default.post('/exitChat', { id: this.state.userId }).then(function (res) {
 	          self.setState({

@@ -96,6 +96,9 @@ class App extends React.Component {
 
  handleChatExit(){
    var self = this;
+   self.setState({
+     dashboard_view : false
+   })
    if (this.state.roomId) {
     axios.post('/exitChat', {id : this.state.userId})
     .then(res => {

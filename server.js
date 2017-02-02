@@ -31,6 +31,9 @@ app.use(session({
   activeDuration : 15 * 60 * 1000
 }));
 
+// app.use('/core', routes)
+
+
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, './public/index.html'))
 });
@@ -79,7 +82,7 @@ app.get('/findGlobalRoom', (req, res) => {
       } else {
         req.session.roomId = result;
         res.status(200).json({'host' : host, 'roomId' : result});
-      } 
+      }
     })
   })
   .catch(error => {
@@ -127,7 +130,7 @@ app.get('/findCommonUser', (req, res) => {
         } else {
           req.session.roomId = result;
           res.status(200).json({'roomId' : result, 'interests' : commonInterests});
-        } 
+        }
       })
     }
   })

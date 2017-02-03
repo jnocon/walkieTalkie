@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import ChatLine from './ChatLineItem';
 import UserItem from './UserItem';
 import ChatJoinModal from './ChatJoinModal.js';
+import PostEventModal from './PostEventModal.js'
+import EventList from './EventList.js'
 import io from 'socket.io-client';
 import axios from 'axios';
 import { Modal } from 'react-bootstrap';
@@ -22,8 +24,26 @@ import { Thumbnail } from 'react-bootstrap';
 class Dashboard extends Component {
   constructor(props){
     super(props);
+
+    this.state={
+      showPostEventModal: false,
+      showEventlist: false
+    }
+    this.togglePostEventModal = this.togglePostEventModal.bind(this)
+    this.toggleEventList = this.toggleEventList.bind(this)
   }
 
+  togglePostEventModal() {
+    this.setState({
+      showPostEventModal: !this.state.showPostEventModal
+    })
+  }
+
+  toggleEventList() {
+    this.setState({
+      showEventlist: !this.state.showEventlist
+    })
+  }
 
   render() {
     return (
@@ -38,8 +58,8 @@ class Dashboard extends Component {
                      <h3>Events</h3>
                      <p>Description</p>
                      <p>
-                       <Button bsStyle="primary">View Events</Button>&nbsp;
-                       <Button bsStyle="default">Post Event</Button>
+                       <Button onClick={this.toggleEventList} bsStyle="primary">View Events</Button>&nbsp;
+                       <Button onClick={this.togglePostEventModal} bsStyle="default">Post Event</Button>
                      </p>
                    </Thumbnail>
                  </Col>
@@ -70,7 +90,13 @@ class Dashboard extends Component {
             </Grid>
           </div>
         </Jumbotron>
+        {this.state.showPostEventModal ? 
+        <PostEventModal show={this.state.showPostEventModal} toggleModal={this.togglePostEventModal}/>
+        : this.state.showEventlist ?
+        <EventList />
+        : <div></div>}
       </div>
+
     )
   }
 }

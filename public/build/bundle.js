@@ -21536,11 +21536,11 @@
 
 	var _Dashboard2 = _interopRequireDefault(_Dashboard);
 
-	var _JobBoard = __webpack_require__(661);
+	var _JobBoard = __webpack_require__(665);
 
 	var _JobBoard2 = _interopRequireDefault(_JobBoard);
 
-	var _jobpost = __webpack_require__(662);
+	var _jobpost = __webpack_require__(666);
 
 	var _jobpost2 = _interopRequireDefault(_jobpost);
 
@@ -68169,6 +68169,14 @@
 
 	var _ChatJoinModal2 = _interopRequireDefault(_ChatJoinModal);
 
+	var _PostEventModal = __webpack_require__(661);
+
+	var _PostEventModal2 = _interopRequireDefault(_PostEventModal);
+
+	var _EventList = __webpack_require__(663);
+
+	var _EventList2 = _interopRequireDefault(_EventList);
+
 	var _socket = __webpack_require__(604);
 
 	var _socket2 = _interopRequireDefault(_socket);
@@ -68193,10 +68201,32 @@
 	  function Dashboard(props) {
 	    _classCallCheck(this, Dashboard);
 
-	    return _possibleConstructorReturn(this, (Dashboard.__proto__ || Object.getPrototypeOf(Dashboard)).call(this, props));
+	    var _this = _possibleConstructorReturn(this, (Dashboard.__proto__ || Object.getPrototypeOf(Dashboard)).call(this, props));
+
+	    _this.state = {
+	      showPostEventModal: false,
+	      showEventlist: false
+	    };
+	    _this.togglePostEventModal = _this.togglePostEventModal.bind(_this);
+	    _this.toggleEventList = _this.toggleEventList.bind(_this);
+	    return _this;
 	  }
 
 	  _createClass(Dashboard, [{
+	    key: 'togglePostEventModal',
+	    value: function togglePostEventModal() {
+	      this.setState({
+	        showPostEventModal: !this.state.showPostEventModal
+	      });
+	    }
+	  }, {
+	    key: 'toggleEventList',
+	    value: function toggleEventList() {
+	      this.setState({
+	        showEventlist: !this.state.showEventlist
+	      });
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      var _this2 = this;
@@ -68244,13 +68274,13 @@
 	                    null,
 	                    _react2.default.createElement(
 	                      _reactBootstrap.Button,
-	                      { bsStyle: 'primary' },
+	                      { onClick: this.toggleEventList, bsStyle: 'primary' },
 	                      'View Events'
 	                    ),
 	                    '\xA0',
 	                    _react2.default.createElement(
 	                      _reactBootstrap.Button,
-	                      { bsStyle: 'default' },
+	                      { onClick: this.togglePostEventModal, bsStyle: 'default' },
 	                      'Post Event'
 	                    )
 	                  )
@@ -68330,7 +68360,8 @@
 	              )
 	            )
 	          )
-	        )
+	        ),
+	        this.state.showPostEventModal ? _react2.default.createElement(_PostEventModal2.default, { show: this.state.showPostEventModal, toggleModal: this.togglePostEventModal }) : this.state.showEventlist ? _react2.default.createElement(_EventList2.default, null) : _react2.default.createElement('div', null)
 	      );
 	    }
 	  }]);
@@ -68342,6 +68373,285 @@
 
 /***/ },
 /* 661 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _Container = __webpack_require__(463);
+
+	var _Container2 = _interopRequireDefault(_Container);
+
+	var _reactBootstrap = __webpack_require__(206);
+
+	var _axios = __webpack_require__(179);
+
+	var _axios2 = _interopRequireDefault(_axios);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var PostEventModal = function (_Component) {
+	  _inherits(PostEventModal, _Component);
+
+	  function PostEventModal(props) {
+	    _classCallCheck(this, PostEventModal);
+
+	    var _this = _possibleConstructorReturn(this, (PostEventModal.__proto__ || Object.getPrototypeOf(PostEventModal)).call(this, props));
+
+	    _this.state = {};
+	    _this.submitEvent = _this.submitEvent.bind(_this);
+	    return _this;
+	  }
+
+	  _createClass(PostEventModal, [{
+	    key: 'submitEvent',
+	    value: function submitEvent(e) {
+	      e.preventDefault();
+	      var url = document.getElementById('eventUrl');
+	      console.log('got this url', url.value);
+	      _axios2.default.post('/saveEvent', {
+	        eventObj: {
+	          url: url.value,
+	          title: 'test',
+	          organizer: 'test',
+	          location: 'test',
+	          description: 'test'
+	        }
+	      }).then(function (result) {
+	        console.log('result is', result);
+	      }).catch(function (error) {
+	        console.log('error in posting event to database', error);
+	      });
+	      url.value = '';
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        _reactBootstrap.Modal,
+	        { show: this.props.show,
+	          onHide: this.props.toggleModal },
+	        _react2.default.createElement(
+	          _reactBootstrap.Modal.Body,
+	          null,
+	          _react2.default.createElement(
+	            'form',
+	            null,
+	            _react2.default.createElement(
+	              'p',
+	              null,
+	              'Paste your EventBrite url here:'
+	            ),
+	            _react2.default.createElement('input', { type: 'text', id: 'eventUrl' }),
+	            _react2.default.createElement(
+	              'button',
+	              { onClick: this.submitEvent },
+	              'Submit!'
+	            )
+	          )
+	        )
+	      );
+	    }
+	  }]);
+
+	  return PostEventModal;
+	}(_react.Component);
+
+	exports.default = PostEventModal;
+
+/***/ },
+/* 662 */,
+/* 663 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactBootstrap = __webpack_require__(206);
+
+	var _axios = __webpack_require__(179);
+
+	var _axios2 = _interopRequireDefault(_axios);
+
+	var _EventEntry = __webpack_require__(664);
+
+	var _EventEntry2 = _interopRequireDefault(_EventEntry);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var EventList = function (_Component) {
+	  _inherits(EventList, _Component);
+
+	  function EventList(props) {
+	    _classCallCheck(this, EventList);
+
+	    var _this = _possibleConstructorReturn(this, (EventList.__proto__ || Object.getPrototypeOf(EventList)).call(this, props));
+
+	    _this.state = {
+	      events: ["http://www.eventbrite.com/e/coding-tickets-31696280428"]
+	    };
+	    return _this;
+	  }
+
+	  _createClass(EventList, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      console.log('in componentDidMount of eventlist');
+	      var context = this;
+	      _axios2.default.get('/findAllEvents').then(function (result) {
+	        console.log('received these events from eventlist axios call', result.data);
+	        context.setState({
+	          events: result.data[0]
+	        });
+	      }).catch(function (err) {
+	        console.log('error fetching events', err);
+	      });
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      console.log('in render of eventlist and events are', this.state.events);
+	      var events = this.state.events;
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(
+	          'p',
+	          null,
+	          'hello world'
+	        ),
+	        events.map(function (event, i) {
+	          return _react2.default.createElement(_EventEntry2.default, {
+	            eventUrl: event.url,
+	            key: i
+	          });
+	        })
+	      );
+	    }
+	  }]);
+
+	  return EventList;
+	}(_react.Component);
+
+	exports.default = EventList;
+
+/***/ },
+/* 664 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _Container = __webpack_require__(463);
+
+	var _Container2 = _interopRequireDefault(_Container);
+
+	var _reactBootstrap = __webpack_require__(206);
+
+	var _axios = __webpack_require__(179);
+
+	var _axios2 = _interopRequireDefault(_axios);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var EventEntry = function (_Component) {
+	  _inherits(EventEntry, _Component);
+
+	  function EventEntry(props) {
+	    _classCallCheck(this, EventEntry);
+
+	    var _this = _possibleConstructorReturn(this, (EventEntry.__proto__ || Object.getPrototypeOf(EventEntry)).call(this, props));
+
+	    _this.state = {
+	      showModal: false
+	    };
+	    _this.toggleModal = _this.toggleModal.bind(_this);
+	    return _this;
+	  }
+
+	  _createClass(EventEntry, [{
+	    key: 'toggleModal',
+	    value: function toggleModal() {
+	      this.setState({
+	        showModal: !this.state.showModal
+	      });
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(
+	          _reactBootstrap.Button,
+	          { onClick: this.toggleModal },
+	          'show event'
+	        ),
+	        this.state.showModal ? _react2.default.createElement(
+	          _reactBootstrap.Modal,
+	          { onHide: this.toggleModal, show: this.state.showModal, bsSize: 'large' },
+	          _react2.default.createElement(
+	            _reactBootstrap.Modal.Body,
+	            null,
+	            _react2.default.createElement('iframe', { src: this.props.eventUrl, width: '98%', height: '600px' })
+	          )
+	        ) : _react2.default.createElement('div', null)
+	      );
+	    }
+	  }]);
+
+	  return EventEntry;
+	}(_react.Component);
+
+	exports.default = EventEntry;
+
+/***/ },
+/* 665 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -68471,7 +68781,7 @@
 	exports.default = JobBoard;
 
 /***/ },
-/* 662 */
+/* 666 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';

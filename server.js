@@ -7,7 +7,9 @@ var Users = require('./db/schema/User.js')
 var ActiveUsers = require('./db/schema/ActiveUsers.js')
 var Interest = require('./db/schema/Interests.js')
 var UserInterests = require('./db/schema/UserInterests.js')
+var Events = require('./db/schema/Event.js')
 var dataHandler = require('./db/data_handler.js')
+var eventsHandler = require('./db/events_handler.js')
 var http = require('http');
 // var routes = require('./core/')
 var socketIo = require('socket.io');
@@ -219,6 +221,29 @@ app.post('/privateRoom', (req, res) => {
 //     }
 //   })
 // });
+
+app.get('/findAllEvents', (req, res) => {
+  console.log('got into findAllEvents with', req.body)
+  eventsHandler.getAllEvents((error, result)=>{
+    if(error) {
+      res.status(500).send(error);
+    } else {
+      console.log('result of finding all events is', result)
+      res.status(200).send(result)
+    }
+  })
+})
+
+app.post('/saveEvent', (req, res) => {
+  console.log('got into save event in server with', req.body)
+  eventsHandler.createEvent(req.body.eventObj, (error, result) => {
+    if(error) {
+      res.status(500).send(error)
+    } else {
+      res.status(200).send(result)
+    }
+  })
+})
 
 //listening for socket connection from client
 io.on('connection', socket => {

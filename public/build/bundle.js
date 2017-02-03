@@ -21536,6 +21536,14 @@
 
 	var _Dashboard2 = _interopRequireDefault(_Dashboard);
 
+	var _JobBoard = __webpack_require__(661);
+
+	var _JobBoard2 = _interopRequireDefault(_JobBoard);
+
+	var _jobpost = __webpack_require__(662);
+
+	var _jobpost2 = _interopRequireDefault(_jobpost);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -21560,7 +21568,10 @@
 	      login_signup_view: true,
 	      chat_view: false,
 	      mounted: false,
-	      dashboard_view: false
+	      dashboard_view: false,
+	      jobBoard_view: false,
+	      jobpost_view: false
+
 	    };
 	    _this.componentWillMount = _this.componentWillMount.bind(_this);
 	    _this.handleUserSignupLogin = _this.handleUserSignupLogin.bind(_this);
@@ -21569,6 +21580,8 @@
 	    _this.handleChatExit = _this.handleChatExit.bind(_this);
 	    _this.handleRoomChange = _this.handleRoomChange.bind(_this);
 	    _this.handleDashboardClick = _this.handleDashboardClick.bind(_this);
+	    _this.handleJobBoardClick = _this.handleJobBoardClick.bind(_this);
+	    _this.handleJobpostClick = _this.handleJobpostClick.bind(_this);
 	    return _this;
 	  }
 
@@ -21662,7 +21675,27 @@
 	    value: function handleDashboardClick() {
 	      console.log('dashboard clicked, dashbord view is', this.state.dashboard_view);
 	      this.setState({
-	        dashboard_view: true
+	        dashboard_view: true,
+	        chat_view: false
+	      });
+	    }
+	  }, {
+	    key: 'handleJobBoardClick',
+	    value: function handleJobBoardClick() {
+	      this.setState({
+	        jobBoard_view: true,
+	        dashboard_view: false,
+	        chat_view: false
+	      });
+	    }
+	  }, {
+	    key: 'handleJobpostClick',
+	    value: function handleJobpostClick() {
+	      this.setState({
+	        jobpost_view: true,
+	        jobBoard_view: false,
+	        dashboard_view: false,
+	        chat_view: false
 	      });
 	    }
 	  }, {
@@ -21686,7 +21719,8 @@
 	          userId: this.state.userId,
 	          roomId: this.state.roomId,
 	          name: this.state.name,
-	          searchResults: this.state.roomSearch }) : this.state.dashboard_view ? _react2.default.createElement(_Dashboard2.default, null) : _react2.default.createElement(_ChatSelection2.default, { selectRoom: this.handleChatSelection }) : _react2.default.createElement('div', null)
+	          searchResults: this.state.roomSearch }) : this.state.dashboard_view ? _react2.default.createElement(_Dashboard2.default, { showJobs: this.handleJobBoardClick,
+	          postJob: this.handleJobpostClick }) : this.state.jobBoard_view ? _react2.default.createElement(_JobBoard2.default, null) : this.state.jobpost_view ? _react2.default.createElement(_jobpost2.default, null) : _react2.default.createElement(_ChatSelection2.default, { selectRoom: this.handleChatSelection }) : _react2.default.createElement('div', null)
 	      );
 	    }
 	  }]);
@@ -68165,6 +68199,8 @@
 	  _createClass(Dashboard, [{
 	    key: 'render',
 	    value: function render() {
+	      var _this2 = this;
+
 	      return _react2.default.createElement(
 	        'div',
 	        null,
@@ -68237,51 +68273,23 @@
 	                    'Description'
 	                  ),
 	                  _react2.default.createElement(
-	                    'div',
-	                    { 'class': 'gdWidget' },
-	                    _react2.default.createElement(
-	                      'a',
-	                      { href: 'https://www.glassdoor.com/api/api.htm?version=1&action=search-salaries&t.s=w-m&t.a=c&format=300x250', target: '_blank' },
-	                      'Search Salaries'
-	                    ),
-	                    ' or see',
-	                    _react2.default.createElement(
-	                      'a',
-	                      { href: 'https://www.glassdoor.com/Reviews/index.htm?&t.s=w-m&t.a=c', target: '_blank' },
-	                      'company reviews'
-	                    ),
-	                    ',',
-	                    _react2.default.createElement(
-	                      'a',
-	                      { href: 'https://www.glassdoor.com/Salaries/index.htm?&t.s=w-m&t.a=c', target: '_blank' },
-	                      'salary'
-	                    ),
-	                    ' info, and ',
-	                    _react2.default.createElement(
-	                      'a',
-	                      { href: 'https://www.glassdoor.com/Interview/index.htm?&t.s=w-m&t.a=c', target: '_blank' },
-	                      'interview questions'
-	                    ),
-	                    'for thousands of ',
-	                    _react2.default.createElement(
-	                      'a',
-	                      { href: 'https://www.glassdoor.com/index.htm?&t.s=w-m&t.a=c', target: '_blank' },
-	                      'jobs'
-	                    ),
-	                    '.'
-	                  ),
-	                  _react2.default.createElement(
 	                    'p',
 	                    null,
 	                    _react2.default.createElement(
 	                      _reactBootstrap.Button,
-	                      { bsStyle: 'primary' },
+	                      { bsStyle: 'primary',
+	                        onClick: function onClick() {
+	                          _this2.props.showJobs();
+	                        } },
 	                      'View Jobs'
 	                    ),
 	                    '\xA0',
 	                    _react2.default.createElement(
 	                      _reactBootstrap.Button,
-	                      { bsStyle: 'default' },
+	                      { bsStyle: 'default',
+	                        onClick: function onClick() {
+	                          _this2.props.postJob();
+	                        } },
 	                      'Post Job'
 	                    )
 	                  )
@@ -68331,6 +68339,232 @@
 	}(_react.Component);
 
 	exports.default = Dashboard;
+
+/***/ },
+/* 661 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _ChatLineItem = __webpack_require__(483);
+
+	var _ChatLineItem2 = _interopRequireDefault(_ChatLineItem);
+
+	var _UserItem = __webpack_require__(484);
+
+	var _UserItem2 = _interopRequireDefault(_UserItem);
+
+	var _ChatJoinModal = __webpack_require__(486);
+
+	var _ChatJoinModal2 = _interopRequireDefault(_ChatJoinModal);
+
+	var _socket = __webpack_require__(604);
+
+	var _socket2 = _interopRequireDefault(_socket);
+
+	var _axios = __webpack_require__(179);
+
+	var _axios2 = _interopRequireDefault(_axios);
+
+	var _reactBootstrap = __webpack_require__(206);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var JobBoard = function (_Component) {
+	  _inherits(JobBoard, _Component);
+
+	  function JobBoard(props) {
+	    _classCallCheck(this, JobBoard);
+
+	    return _possibleConstructorReturn(this, (JobBoard.__proto__ || Object.getPrototypeOf(JobBoard)).call(this, props));
+	  }
+
+	  _createClass(JobBoard, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(
+	          _reactBootstrap.Jumbotron,
+	          null,
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'container' },
+	            _react2.default.createElement(
+	              'h1',
+	              null,
+	              'Job Board'
+	            ),
+	            _react2.default.createElement(
+	              _reactBootstrap.Grid,
+	              null,
+	              _react2.default.createElement(
+	                _reactBootstrap.Row,
+	                null,
+	                _react2.default.createElement(_reactBootstrap.Col, { xs: 12, md: 8 }),
+	                _react2.default.createElement(
+	                  _reactBootstrap.Col,
+	                  { xs: 6, md: 4 },
+	                  _react2.default.createElement(
+	                    'div',
+	                    { className: 'gdWidget' },
+	                    _react2.default.createElement(
+	                      'a',
+	                      { href: 'https://www.glassdoor.com/api/api.htm?version=1&action=search-salaries&t.s=w-m&t.a=c&format=300x250', target: '_blank' },
+	                      'Search Salaries '
+	                    ),
+	                    ' or see',
+	                    _react2.default.createElement(
+	                      'a',
+	                      { href: 'https://www.glassdoor.com/Reviews/index.htm?&t.s=w-m&t.a=c', target: '_blank' },
+	                      ' company reviews'
+	                    ),
+	                    ',',
+	                    _react2.default.createElement(
+	                      'a',
+	                      { href: 'https://www.glassdoor.com/Salaries/index.htm?&t.s=w-m&t.a=c', target: '_blank' },
+	                      'salary'
+	                    ),
+	                    ' info, and ',
+	                    _react2.default.createElement(
+	                      'a',
+	                      { href: 'https://www.glassdoor.com/Interview/index.htm?&t.s=w-m&t.a=c', target: '_blank' },
+	                      'interview questions'
+	                    ),
+	                    'for thousands of ',
+	                    _react2.default.createElement(
+	                      'a',
+	                      { href: 'https://www.glassdoor.com/index.htm?&t.s=w-m&t.a=c', target: '_blank' },
+	                      'jobs'
+	                    ),
+	                    '.'
+	                  )
+	                )
+	              )
+	            )
+	          )
+	        )
+	      );
+	    }
+	  }]);
+
+	  return JobBoard;
+	}(_react.Component);
+
+	exports.default = JobBoard;
+
+/***/ },
+/* 662 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _ChatLineItem = __webpack_require__(483);
+
+	var _ChatLineItem2 = _interopRequireDefault(_ChatLineItem);
+
+	var _UserItem = __webpack_require__(484);
+
+	var _UserItem2 = _interopRequireDefault(_UserItem);
+
+	var _ChatJoinModal = __webpack_require__(486);
+
+	var _ChatJoinModal2 = _interopRequireDefault(_ChatJoinModal);
+
+	var _socket = __webpack_require__(604);
+
+	var _socket2 = _interopRequireDefault(_socket);
+
+	var _axios = __webpack_require__(179);
+
+	var _axios2 = _interopRequireDefault(_axios);
+
+	var _reactBootstrap = __webpack_require__(206);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Jobpost = function (_Component) {
+	  _inherits(Jobpost, _Component);
+
+	  function Jobpost(props) {
+	    _classCallCheck(this, Jobpost);
+
+	    return _possibleConstructorReturn(this, (Jobpost.__proto__ || Object.getPrototypeOf(Jobpost)).call(this, props));
+	  }
+
+	  _createClass(Jobpost, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(
+	          _reactBootstrap.Jumbotron,
+	          null,
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'container' },
+	            _react2.default.createElement(
+	              'h1',
+	              null,
+	              'Know of a Job?!'
+	            ),
+	            _react2.default.createElement(
+	              _reactBootstrap.Grid,
+	              null,
+	              _react2.default.createElement(
+	                _reactBootstrap.Row,
+	                null,
+	                _react2.default.createElement(
+	                  'p',
+	                  null,
+	                  'this is all a dream'
+	                )
+	              )
+	            )
+	          )
+	        )
+	      );
+	    }
+	  }]);
+
+	  return Jobpost;
+	}(_react.Component);
+
+	exports.default = Jobpost;
 
 /***/ }
 /******/ ]);

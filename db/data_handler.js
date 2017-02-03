@@ -2,6 +2,8 @@ var db = require('./config.js')
 var Users = require('./schema/User.js')
 var ActiveUsers = require('./schema/ActiveUsers.js');
 var UserInterests = require('./schema/UserInterests.js');
+var Jobs = require('./schema/Jobs.js');
+
 var sequelize = require('sequelize')
 var util = require('./util.js')
 var Promise = require('bluebird')
@@ -61,7 +63,7 @@ module.exports.createSession = (inputId, lat, long) => {
 }
 
 module.exports.userLogin = (email, password, cb) => {
-  db.query('select * from Users where email = ?', 
+  db.query('select * from Users where email = ?',
   {replacements : [email], type : sequelize.QueryTypes.SELECT})
   .then(userFound => {
     if (userFound.length === 1) {
@@ -99,7 +101,7 @@ module.exports.userLogout = (inputId, cb) => {
 
 module.exports.exitRoom = (inputId, cb) => {
   console.log(inputId)
-  db.query('update ActiveUsers set roomId = 0 where userId = ?', 
+  db.query('update ActiveUsers set roomId = 0 where userId = ?',
   {replacements : [inputId], type : sequelize.QueryTypes.UPDATE})
   .then(result => {
     cb(false);
@@ -110,7 +112,7 @@ module.exports.exitRoom = (inputId, cb) => {
 }
 
 module.exports.findGlobalRoom = (inputId, cb) => {
-    db.query('select roomId from ActiveUsers where roomId != 0 group by roomId having count(roomId) < 10', 
+    db.query('select roomId from ActiveUsers where roomId != 0 group by roomId having count(roomId) < 10',
     {type : sequelize.QueryTypes.SELECT})
     .then(res1 => {
       if (res1.length === 0) {
@@ -204,7 +206,7 @@ module.exports.findLocalRoom = (user, lat, long, cb) => {
 }
 
 module.exports.getAllInterests = (cb) => {
-  db.query('select id, Interest from Interests', 
+  db.query('select id, Interest from Interests',
   {type : sequelize.QueryTypes.SELECT})
   .then(results => {
     cb(false, results);
@@ -245,7 +247,7 @@ module.exports.saveUserInterests = (inputId, interests, cb) => {
 }
 
 module.exports.findCommonUser = (user, cb) => {
-  db.query('select roomId from ActiveUsers where roomId != 0 group by roomId having count(roomId) < 10', 
+  db.query('select roomId from ActiveUsers where roomId != 0 group by roomId having count(roomId) < 10',
     {type : sequelize.QueryTypes.SELECT})
     .then(res1 => {
       if (res1.length === 0) {
@@ -309,7 +311,7 @@ module.exports.getActiveUsers = (inputRoomId, userId, cb) => {
 }
 
 module.exports.getMapLocations = (cb) => {
-  db.query('select latitude as lat, longitude as lng from ActiveUsers', 
+  db.query('select latitude as lat, longitude as lng from ActiveUsers',
     {type : sequelize.QueryTypes.SELECT})
     .then(locations => {
       cb(false, locations);
@@ -317,4 +319,11 @@ module.exports.getMapLocations = (cb) => {
     .catch(error => {
       cb(error);
     })
+}
+
+module.exports.createJob = (req, res) => {
+  var name = req.body.name;
+  var owner = req.body.owner;
+  var image = req.body.image;
+  var description = req.body.description;
 }

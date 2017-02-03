@@ -47,7 +47,7 @@ class Dashboard extends Component {
                    <Thumbnail alt="242x200" src="/images/job.jpg">
                      <h3>Jobs</h3>
                      <p>Description</p>
-                       <div class="gdWidget">
+                       <div className="gdWidget">
                        <a href="https://www.glassdoor.com/api/api.htm?version=1&action=search-salaries&t.s=w-m&t.a=c&format=300x250" target="_blank">
                        Search Salaries</a> or see
                        <a href="https://www.glassdoor.com/Reviews/index.htm?&t.s=w-m&t.a=c" target="_blank">company reviews</a>,

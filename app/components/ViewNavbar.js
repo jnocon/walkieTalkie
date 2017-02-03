@@ -42,6 +42,7 @@ class ViewNavBar extends Component {
               <NavItem onClick={this.toggleModal}>Interest</NavItem>
               <NavItem onClick={this.toggleMapModal}>Map</NavItem>
               <NavItem onClick={this.props.handleDashboardClick}>Dashboard</NavItem>
+              <NavItem onClick={this.props.handleUserProfileClick}>My User Profile</NavItem>
 
             </Nav>
             <Nav pullRight>

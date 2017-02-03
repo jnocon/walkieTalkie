@@ -21536,6 +21536,10 @@
 
 	var _Dashboard2 = _interopRequireDefault(_Dashboard);
 
+	var _userProfile = __webpack_require__(661);
+
+	var _userProfile2 = _interopRequireDefault(_userProfile);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -21560,7 +21564,8 @@
 	      login_signup_view: true,
 	      chat_view: false,
 	      mounted: false,
-	      dashboard_view: false
+	      dashboard_view: false,
+	      userprofile_view: false
 	    };
 	    _this.componentWillMount = _this.componentWillMount.bind(_this);
 	    _this.handleUserSignupLogin = _this.handleUserSignupLogin.bind(_this);
@@ -21569,6 +21574,7 @@
 	    _this.handleChatExit = _this.handleChatExit.bind(_this);
 	    _this.handleRoomChange = _this.handleRoomChange.bind(_this);
 	    _this.handleDashboardClick = _this.handleDashboardClick.bind(_this);
+	    _this.handleUserProfileClick = _this.handleUserProfileClick.bind(_this);
 	    return _this;
 	  }
 
@@ -21666,6 +21672,14 @@
 	      });
 	    }
 	  }, {
+	    key: 'handleUserProfileClick',
+	    value: function handleUserProfileClick() {
+	      console.log('up clicked, up view is', this.state.userprofile_view);
+	      this.setState({
+	        userprofile_view: true
+	      });
+	    }
+	  }, {
 	    key: 'handleRoomChange',
 	    value: function handleRoomChange(newRoom) {
 	      this.setState({
@@ -21681,12 +21695,13 @@
 	        _react2.default.createElement(_ViewNavbar2.default, { logout: this.handleUserLogout,
 	          home: this.handleChatExit,
 	          userId: this.state.userId,
-	          handleDashboardClick: this.handleDashboardClick }),
+	          handleDashboardClick: this.handleDashboardClick,
+	          handleUserProfileClick: this.handleUserProfileClick }),
 	        this.state.mounted ? this.state.login_signup_view ? _react2.default.createElement(_LoginSignupView2.default, { userSignupLogin: this.handleUserSignupLogin }) : this.state.chat_view ? _react2.default.createElement(_Chatroom2.default, { roomChange: this.handleRoomChange,
 	          userId: this.state.userId,
 	          roomId: this.state.roomId,
 	          name: this.state.name,
-	          searchResults: this.state.roomSearch }) : this.state.dashboard_view ? _react2.default.createElement(_Dashboard2.default, null) : _react2.default.createElement(_ChatSelection2.default, { selectRoom: this.handleChatSelection }) : _react2.default.createElement('div', null)
+	          searchResults: this.state.roomSearch }) : this.state.dashboard_view ? _react2.default.createElement(_Dashboard2.default, null) : this.state.userprofile_view ? _react2.default.createElement(_userProfile2.default, null) : _react2.default.createElement(_ChatSelection2.default, { selectRoom: this.handleChatSelection }) : _react2.default.createElement('div', null)
 	      );
 	    }
 	  }]);
@@ -42558,6 +42573,11 @@
 	                _reactBootstrap.NavItem,
 	                { onClick: this.props.handleDashboardClick },
 	                'Dashboard'
+	              ),
+	              _react2.default.createElement(
+	                _reactBootstrap.NavItem,
+	                { onClick: this.props.handleUserProfileClick },
+	                'My User Profile'
 	              )
 	            ),
 	            _react2.default.createElement(
@@ -68238,7 +68258,7 @@
 	                  ),
 	                  _react2.default.createElement(
 	                    'div',
-	                    { 'class': 'gdWidget' },
+	                    { className: 'gdWidget' },
 	                    _react2.default.createElement(
 	                      'a',
 	                      { href: 'https://www.glassdoor.com/api/api.htm?version=1&action=search-salaries&t.s=w-m&t.a=c&format=300x250', target: '_blank' },
@@ -68331,6 +68351,556 @@
 	}(_react.Component);
 
 	exports.default = Dashboard;
+
+/***/ },
+/* 661 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _ChatLineItem = __webpack_require__(483);
+
+	var _ChatLineItem2 = _interopRequireDefault(_ChatLineItem);
+
+	var _UserItem = __webpack_require__(484);
+
+	var _UserItem2 = _interopRequireDefault(_UserItem);
+
+	var _ChatJoinModal = __webpack_require__(486);
+
+	var _ChatJoinModal2 = _interopRequireDefault(_ChatJoinModal);
+
+	var _UserProfileBasicInfoContainer = __webpack_require__(662);
+
+	var _UserProfileBasicInfoContainer2 = _interopRequireDefault(_UserProfileBasicInfoContainer);
+
+	var _UserProfileNav = __webpack_require__(663);
+
+	var _UserProfileNav2 = _interopRequireDefault(_UserProfileNav);
+
+	var _UserProfilePictureColumn = __webpack_require__(664);
+
+	var _UserProfilePictureColumn2 = _interopRequireDefault(_UserProfilePictureColumn);
+
+	var _socket = __webpack_require__(604);
+
+	var _socket2 = _interopRequireDefault(_socket);
+
+	var _axios = __webpack_require__(179);
+
+	var _axios2 = _interopRequireDefault(_axios);
+
+	var _reactBootstrap = __webpack_require__(206);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var UserProfile = function (_Component) {
+	    _inherits(UserProfile, _Component);
+
+	    function UserProfile(props) {
+	        _classCallCheck(this, UserProfile);
+
+	        return _possibleConstructorReturn(this, (UserProfile.__proto__ || Object.getPrototypeOf(UserProfile)).call(this, props));
+	    }
+
+	    _createClass(UserProfile, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                null,
+	                _react2.default.createElement(
+	                    _reactBootstrap.Col,
+	                    { xs: 4 },
+	                    _react2.default.createElement(
+	                        'div',
+	                        null,
+	                        _react2.default.createElement(_UserProfilePictureColumn2.default, null)
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    _reactBootstrap.Col,
+	                    { xs: 8 },
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'basicInfo' },
+	                        _react2.default.createElement(_UserProfileBasicInfoContainer2.default, null)
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'userNav' },
+	                        _react2.default.createElement(_UserProfileNav2.default, null)
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+
+	    return UserProfile;
+	}(_react.Component);
+
+	exports.default = UserProfile;
+
+/***/ },
+/* 662 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _ChatLineItem = __webpack_require__(483);
+
+	var _ChatLineItem2 = _interopRequireDefault(_ChatLineItem);
+
+	var _UserItem = __webpack_require__(484);
+
+	var _UserItem2 = _interopRequireDefault(_UserItem);
+
+	var _ChatJoinModal = __webpack_require__(486);
+
+	var _ChatJoinModal2 = _interopRequireDefault(_ChatJoinModal);
+
+	var _socket = __webpack_require__(604);
+
+	var _socket2 = _interopRequireDefault(_socket);
+
+	var _axios = __webpack_require__(179);
+
+	var _axios2 = _interopRequireDefault(_axios);
+
+	var _reactBootstrap = __webpack_require__(206);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var UserProfileBasicInfo = function (_Component) {
+	  _inherits(UserProfileBasicInfo, _Component);
+
+	  function UserProfileBasicInfo(props) {
+	    _classCallCheck(this, UserProfileBasicInfo);
+
+	    return _possibleConstructorReturn(this, (UserProfileBasicInfo.__proto__ || Object.getPrototypeOf(UserProfileBasicInfo)).call(this, props));
+	  }
+
+	  _createClass(UserProfileBasicInfo, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(
+	          _reactBootstrap.Col,
+	          { xs: 6 },
+	          _react2.default.createElement(
+	            'form',
+	            null,
+	            _react2.default.createElement(
+	              _reactBootstrap.FormGroup,
+	              { bsSize: 'large' },
+	              _react2.default.createElement(_reactBootstrap.FormControl, { type: 'text', placeholder: 'Your Name' })
+	            )
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            null,
+	            _react2.default.createElement(
+	              'p',
+	              null,
+	              'Status ',
+	              _react2.default.createElement(
+	                _reactBootstrap.Label,
+	                { bsStyle: 'success' },
+	                'Online'
+	              )
+	            )
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            null,
+	            _react2.default.createElement(
+	              _reactBootstrap.Button,
+	              { type: 'submit' },
+	              'Save Info'
+	            )
+	          )
+	        ),
+	        _react2.default.createElement(
+	          _reactBootstrap.Col,
+	          { xs: 3 },
+	          _react2.default.createElement(
+	            'form',
+	            null,
+	            _react2.default.createElement(
+	              _reactBootstrap.FormGroup,
+	              { bsSize: 'small' },
+	              _react2.default.createElement(_reactBootstrap.FormControl, { type: 'text', placeholder: 'Location' })
+	            )
+	          )
+	        ),
+	        _react2.default.createElement(
+	          _reactBootstrap.Col,
+	          { xs: 3 },
+	          _react2.default.createElement(
+	            'form',
+	            null,
+	            _react2.default.createElement(
+	              _reactBootstrap.FormGroup,
+	              { bsSize: 'small' },
+	              _react2.default.createElement(_reactBootstrap.FormControl, { type: 'text', placeholder: 'Chat Handle' })
+	            )
+	          )
+	        )
+	      );
+	    }
+	  }]);
+
+	  return UserProfileBasicInfo;
+	}(_react.Component);
+
+	exports.default = UserProfileBasicInfo;
+
+/***/ },
+/* 663 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactBootstrap = __webpack_require__(206);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	// import { FieldGroup } from 'react-bootstrap';
+
+
+	function FieldGroup(_ref) {
+	  var id = _ref.id,
+	      label = _ref.label,
+	      help = _ref.help,
+	      props = _ref.props;
+
+	  return _react2.default.createElement(
+	    _reactBootstrap.FormGroup,
+	    { controlId: id },
+	    _react2.default.createElement(
+	      _reactBootstrap.ControlLabel,
+	      null,
+	      label
+	    ),
+	    _react2.default.createElement(_reactBootstrap.FormControl, props),
+	    help && _react2.default.createElement(
+	      _reactBootstrap.HelpBlock,
+	      null,
+	      help
+	    )
+	  );
+	}
+
+	var UserProfileNav = function (_Component) {
+	  _inherits(UserProfileNav, _Component);
+
+	  function UserProfileNav(props) {
+	    _classCallCheck(this, UserProfileNav);
+
+	    return _possibleConstructorReturn(this, (UserProfileNav.__proto__ || Object.getPrototypeOf(UserProfileNav)).call(this, props));
+	  }
+
+	  _createClass(UserProfileNav, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(
+	          _reactBootstrap.Nav,
+	          { bsStyle: 'tabs', activeKey: '1', onSelect: this.handleSelect },
+	          _react2.default.createElement(
+	            _reactBootstrap.NavItem,
+	            { eventKey: '1', href: '/home' },
+	            'Contact Info'
+	          ),
+	          _react2.default.createElement(
+	            _reactBootstrap.NavItem,
+	            { eventKey: '2', title: 'Item' },
+	            'Github'
+	          )
+	        ),
+	        _react2.default.createElement(
+	          _reactBootstrap.Col,
+	          { xs: 8 },
+	          _react2.default.createElement(
+	            _reactBootstrap.Form,
+	            { horizontal: true },
+	            _react2.default.createElement(
+	              _reactBootstrap.FormGroup,
+	              { controlId: 'formHorizontalEmail' },
+	              _react2.default.createElement(
+	                _reactBootstrap.Col,
+	                { componentClass: _reactBootstrap.ControlLabel, sm: 2 },
+	                'Email'
+	              ),
+	              _react2.default.createElement(
+	                _reactBootstrap.Col,
+	                { sm: 10 },
+	                _react2.default.createElement(_reactBootstrap.FormControl, { type: 'email', placeholder: 'Email' })
+	              )
+	            ),
+	            _react2.default.createElement(
+	              _reactBootstrap.FormGroup,
+	              { controlId: 'formHorizontalPassword' },
+	              _react2.default.createElement(
+	                _reactBootstrap.Col,
+	                { componentClass: _reactBootstrap.ControlLabel, sm: 2 },
+	                'Phone Number'
+	              ),
+	              _react2.default.createElement(
+	                _reactBootstrap.Col,
+	                { sm: 10 },
+	                _react2.default.createElement(_reactBootstrap.FormControl, { type: 'phoneNumber', placeholder: 'Phone Number' })
+	              )
+	            ),
+	            _react2.default.createElement(
+	              _reactBootstrap.FormGroup,
+	              { controlId: 'formHorizontalPassword' },
+	              _react2.default.createElement(
+	                _reactBootstrap.Col,
+	                { componentClass: _reactBootstrap.ControlLabel, sm: 2 },
+	                'Skype ID'
+	              ),
+	              _react2.default.createElement(
+	                _reactBootstrap.Col,
+	                { sm: 10 },
+	                _react2.default.createElement(_reactBootstrap.FormControl, { type: 'skype', placeholder: 'Skype ID' })
+	              )
+	            ),
+	            _react2.default.createElement(
+	              _reactBootstrap.FormGroup,
+	              { controlId: 'formHorizontalPassword' },
+	              _react2.default.createElement(
+	                _reactBootstrap.Col,
+	                { componentClass: _reactBootstrap.ControlLabel, sm: 2 },
+	                'Github ID'
+	              ),
+	              _react2.default.createElement(
+	                _reactBootstrap.Col,
+	                { sm: 10 },
+	                _react2.default.createElement(_reactBootstrap.FormControl, { type: 'github', placeholder: 'gitHub ID' })
+	              )
+	            ),
+	            _react2.default.createElement(
+	              _reactBootstrap.FormGroup,
+	              { controlId: 'formHorizontalPassword' },
+	              _react2.default.createElement(
+	                _reactBootstrap.Col,
+	                { componentClass: _reactBootstrap.ControlLabel, sm: 2 },
+	                'LinkedIn'
+	              ),
+	              _react2.default.createElement(
+	                _reactBootstrap.Col,
+	                { sm: 10 },
+	                _react2.default.createElement(_reactBootstrap.FormControl, { type: 'linkedIn', placeholder: 'LinkedIn URL' })
+	              )
+	            ),
+	            _react2.default.createElement(
+	              _reactBootstrap.FormGroup,
+	              null,
+	              _react2.default.createElement(
+	                _reactBootstrap.Col,
+	                { smOffset: 2, sm: 10 },
+	                _react2.default.createElement(
+	                  _reactBootstrap.Button,
+	                  { type: 'submit' },
+	                  'Save Info'
+	                )
+	              )
+	            )
+	          )
+	        )
+	      );
+	    }
+	  }]);
+
+	  return UserProfileNav;
+	}(_react.Component);
+
+	exports.default = UserProfileNav;
+
+	// <Nav bsStyle="tabs" activeKey="1" onSelect={this.handleSelect}>
+	//       <NavItem eventKey="1" href="/home">Contact Info</NavItem>
+	//       <NavItem eventKey="2" title="Item">Github</NavItem>
+	//     </Nav>
+
+	//     <Col xs={4}>
+	//         <Form>
+	//  <FieldGroup
+	//     id="formControlsText"
+	//     type="text"
+	//     label="Email"
+	//     placeholder="Enter Email"
+	// />
+	//            <FieldGroup
+	//               id="formControlsText"
+	//               type="text"
+	//               label="Phone Number"
+	//               placeholder="Enter Phone Number"
+	//           />
+	//            <FieldGroup
+	//               id="formControlsText"
+	//               type="text"
+	//               label="LinkedIn"
+	//               placeholder="Enter LinkedIn Url"
+	//           />
+	//           <FieldGroup
+	//               id="formControlsText"
+	//               type="text"
+	//               label="LinkedIn"
+	//               placeholder="Enter LinkedIn Url"
+	//           />
+	//         </Form>
+	//         <div>
+	//           <Button type="submit">
+	//               Save Info
+	//           </Button>
+	//         </div>
+	//       </Col>
+
+/***/ },
+/* 664 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactBootstrap = __webpack_require__(206);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var UserProfilePictureColumn = function (_Component) {
+	  _inherits(UserProfilePictureColumn, _Component);
+
+	  function UserProfilePictureColumn(props) {
+	    _classCallCheck(this, UserProfilePictureColumn);
+
+	    return _possibleConstructorReturn(this, (UserProfilePictureColumn.__proto__ || Object.getPrototypeOf(UserProfilePictureColumn)).call(this, props));
+	  }
+
+	  _createClass(UserProfilePictureColumn, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(
+	          _reactBootstrap.Col,
+	          { xs: 8 },
+	          _react2.default.createElement(_reactBootstrap.Thumbnail, { src: 'http://www.rknrmedia.com/wp-content/uploads/2015/08/iStock_Man-in-blue-top.jpg', rounded: true }),
+	          _react2.default.createElement(
+	            'form',
+	            null,
+	            _react2.default.createElement(
+	              _reactBootstrap.FormGroup,
+	              { controlId: 'formControlsTextarea' },
+	              _react2.default.createElement(
+	                _reactBootstrap.ControlLabel,
+	                null,
+	                'New Image Source'
+	              ),
+	              _react2.default.createElement(_reactBootstrap.FormControl, { componentClass: 'textarea', placeholder: 'Put Image URL Here' })
+	            ),
+	            _react2.default.createElement(
+	              _reactBootstrap.FormGroup,
+	              { controlId: 'formControlsTextarea' },
+	              _react2.default.createElement(
+	                _reactBootstrap.ControlLabel,
+	                null,
+	                'Languages'
+	              ),
+	              _react2.default.createElement(_reactBootstrap.FormControl, { componentClass: 'textarea', placeholder: 'JavaScript, C++, etc.,' })
+	            ),
+	            _react2.default.createElement(
+	              _reactBootstrap.FormGroup,
+	              { controlId: 'formControlsTextarea' },
+	              _react2.default.createElement(
+	                _reactBootstrap.ControlLabel,
+	                null,
+	                'Frameworks'
+	              ),
+	              _react2.default.createElement(_reactBootstrap.FormControl, { componentClass: 'textarea', placeholder: 'Angular, Express, etc.,' })
+	            )
+	          ),
+	          _react2.default.createElement(
+	            _reactBootstrap.Button,
+	            { type: 'submit' },
+	            'Save Info'
+	          )
+	        )
+	      );
+	    }
+	  }]);
+
+	  return UserProfilePictureColumn;
+	}(_react.Component);
+
+	exports.default = UserProfilePictureColumn;
 
 /***/ }
 /******/ ]);

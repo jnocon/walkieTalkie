@@ -22,7 +22,10 @@ class JobBoard extends Component {
     super(props);
 
   }
-
+  componentDidMount() {
+    var context = this;
+    axios.get('')
+  }
 
   render() {
     return (

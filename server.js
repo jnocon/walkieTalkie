@@ -11,7 +11,7 @@ var Events = require('./db/schema/Event.js')
 var dataHandler = require('./db/data_handler.js')
 var eventsHandler = require('./db/events_handler.js')
 var http = require('http');
-// var routes = require('./core/')
+var routes = require('./core/routes/Routes.js')
 var socketIo = require('socket.io');
 var port = process.env.PORT || 3000;
 
@@ -34,7 +34,7 @@ app.use(session({
   activeDuration : 15 * 60 * 1000
 }));
 
-// app.use('/core', routes);
+app.use('/core', routes);
 
 
 app.get('/', (req, res) => {

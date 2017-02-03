@@ -1,7 +1,13 @@
-var db = require('./config.js')
+var db = require('../../db/config.js');
 
-var Jobs = require('./schema/Jobs.js');
+
+var Jobs = require('../../db/schema/Jobs.js');
 
 module.exports.jobsGetAll = function(req, req) {
-  console.log(req.query);
+
+}
+
+module.exports.jobsAddOne = function(req, req) {
+
+
 }

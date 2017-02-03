@@ -10,6 +10,10 @@ var Jobs = db.define('Jobs', {
     type : Sequelize.STRING,
     allowNull : false
   },
+  salary: {
+    type : Sequelize.STRING,
+    allowNull : true
+  },
   link: {
     type : Sequelize.STRING,
     allowNull : false

@@ -24,6 +24,7 @@ class App extends React.Component {
       jobBoard_view : false,
       jobpost_view : false,
       userprofile_view: false
+
     }
     this.componentWillMount = this.componentWillMount.bind(this);
     this.handleUserSignupLogin = this.handleUserSignupLogin.bind(this);
@@ -33,10 +34,12 @@ class App extends React.Component {
     this.handleRoomChange = this.handleRoomChange.bind(this);
     this.handleDashboardClick = this.handleDashboardClick.bind(this);
 
+
     this.handleJobBoardClick = this.handleJobBoardClick.bind(this);
     this.handleJobpostClick = this.handleJobpostClick.bind(this);
 
     this.handleUserProfileClick = this.handleUserProfileClick.bind(this);
+
 
   }
 
@@ -147,6 +150,13 @@ class App extends React.Component {
      jobBoard_view: false,
      dashboard_view: false,
      chat_view: false
+   })
+ }
+
+ handleUserProfileClick() {
+   console.log('up clicked, up view is', this.state.userprofile_view)
+   this.setState({
+     userprofile_view: true
    })
  }
 

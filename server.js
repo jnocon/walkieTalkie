@@ -9,7 +9,7 @@ var Interest = require('./db/schema/Interests.js')
 var UserInterests = require('./db/schema/UserInterests.js')
 var dataHandler = require('./db/data_handler.js')
 var http = require('http');
-var routes = require('./core/')
+// var routes = require('./core/')
 var socketIo = require('socket.io');
 var port = process.env.PORT || 3000;
 
@@ -32,7 +32,7 @@ app.use(session({
   activeDuration : 15 * 60 * 1000
 }));
 
-app.use('/core', routes);
+// app.use('/core', routes);
 
 
 app.get('/', (req, res) => {

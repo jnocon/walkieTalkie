@@ -51,7 +51,8 @@ class Dashboard extends Component {
                      <p>
                        <Button bsStyle="primary"
                          onClick={() => { this.props.showJobs() }}>View Jobs</Button>&nbsp;
-                       <Button bsStyle="default">Post Job</Button>
+                       <Button bsStyle="default"
+                         onClick={() => { this.props.postJob() }}>Post Job</Button>
                      </p>
                    </Thumbnail>
                  </Col>

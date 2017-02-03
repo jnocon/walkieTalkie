@@ -1,8 +1,12 @@
 let express = require('express');
-
-let dashboardController = require('../controllers/dashboardController.js')
-
 let router = express.Router();
 
-// router
-//   .route('/')
+let JobsCtrl = require('../controllers/JobsController.js')
+
+
+router
+  .route('/jobs')
+  .get(JobsCtrl.jobsGetAll);
+
+
+module.exports = router;

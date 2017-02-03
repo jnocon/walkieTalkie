@@ -5,6 +5,7 @@ import ViewNavBar from './ViewNavbar.js';
 import Chatroom from './Chatroom.js';
 import ChatSelection from './ChatSelection.js';
 import Dashboard from './Dashboard.js'
+import JobBoard from './JobBoard.js'
 
 
 class App extends React.Component {
@@ -18,7 +19,8 @@ class App extends React.Component {
       login_signup_view : true,
       chat_view : false,
       mounted : false,
-      dashboard_view : false
+      dashboard_view : false,
+      jobBoard_view : false
     }
     this.componentWillMount = this.componentWillMount.bind(this);
     this.handleUserSignupLogin = this.handleUserSignupLogin.bind(this);
@@ -27,6 +29,8 @@ class App extends React.Component {
     this.handleChatExit = this.handleChatExit.bind(this);
     this.handleRoomChange = this.handleRoomChange.bind(this);
     this.handleDashboardClick = this.handleDashboardClick.bind(this);
+    this.handleJobBoardClick = this.handleJobBoardClick.bind(this);
+
   }
 
   componentWillMount(){
@@ -116,8 +120,18 @@ class App extends React.Component {
  handleDashboardClick() {
    console.log('dashboard clicked, dashbord view is', this.state.dashboard_view)
    this.setState({
-     dashboard_view: true
+     dashboard_view: true,
+     chat_view: false
    })
+ }
+
+ handleJobBoardClick() {
+   this.setState({
+     jobBoard_view: true,
+     dashboard_view: false,
+     chat_view: false
+   })
+
  }
 
  handleRoomChange(newRoom) {
@@ -145,8 +159,10 @@ class App extends React.Component {
                                            name = {this.state.name}
                                            searchResults = {this.state.roomSearch}/>
          :
-         this.state.dashboard_view ? <Dashboard/>
-         : <ChatSelection selectRoom = {this.handleChatSelection}/>))
+         this.state.dashboard_view ? <Dashboard showJobs = {this.handleJobBoardClick}/>
+         :
+         this.state.jobBoard_view ? <JobBoard/>
+       : <ChatSelection selectRoom = {this.handleChatSelection}/>))
          :(<div></div>)
        }
       </div>

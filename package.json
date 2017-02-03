@@ -24,6 +24,7 @@
     "express-session": "^1.15.0",
     "google-maps-react": "^1.0.19",
     "invariant": "^2.2.2",
+    "is-url": "^1.2.2",
     "lodash": "^4.17.4",
     "mysql": "^2.13.0",
     "mysql2": "^1.1.2",
@@ -38,6 +39,7 @@
     "request": "^2.79.0",
     "sequelize": "^3.29.0",
     "socket.io": "^1.7.2",
+    "throttle-debounce": "^1.0.1",
     "url-parse": "^1.1.7",
     "webpack": "^1.14.0"
   },

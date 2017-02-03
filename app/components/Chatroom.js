@@ -21,8 +21,13 @@ import { FormGroup } from 'react-bootstrap';
 import { FormControl } from 'react-bootstrap';
 import { Thumbnail } from 'react-bootstrap';
 
+
+
 import Youtube from 'react-youtube';
 import YoutubePlayer from 'react-youtube-player';
+import isUrl from 'is-url'
+import { debounce } from 'throttle-debounce';
+
 
 var URL = require('url-parse');
 
@@ -154,50 +159,186 @@ class Chatroom extends Component {
   handleNewMessage(event) {
 
 
-    var url = new URL(event.target.value);
-    console.log(url);
-    console.log(url.query.slice(3,url.query.length))
+    // var url = new URL(event.target.value);
 
-    // //regex magic
-    if( /\.(jpg|gif|png)$/.test(event.target.value) ) {
-            this.setState({
-              newMessage: <RenderImage value={event.target.value} />
-            })
-    } 
-    else if (url.host === "www.youtube.com") 
-    {
-            this.setState({
-              newMessage: <RenderYoutube value={event.target.value} />
-            })
+    // // //regex magic
+    // if( /\.(jpg|gif|png)$/.test(event.target.value) && isUrl(event.target.value)) {
+    //         this.setState({
+    //           newMessage: <RenderImage value={event.target.value} />
+    //         })
+    // } 
+    // else if (url.host === "www.youtube.com" && event.target.value.length === 43 ) 
+    // {
+    //         this.setState({
+    //           newMessage: <RenderYoutube value={event.target.value} />
+    //         })
 
-    } 
-    else {
+    // } 
+    // else if (event.target.value[0] === '\\' && event.target.value[1] === 'g' && event.target.value.includes("\\giphy")) {
+
+
+    //   // var query = "\giphy otra vez";
+    //   // var noGiphyQuery = query.replace("\giphy ", '');
+    //   // var noGiphyQueryNPlus = noGiphyQuery.replace(' ', '+');
+    //   // console.log(noGiphyQueryNPlus);
+
+    //   var apiUrl = 'http://api.giphy.com/v1/gifs/search?q=';
+    //   var query = event.target.value
+    //   var noGiphyQuery = query.replace("\giphy ", '');
+    //   var noGiphyQueryNPlus = noGiphyQuery.replace(' ', '+');
+
+    //   var apiURLNQuery = apiUrl+noGiphyQueryNPlus+"&api_key=dc6zaTOxFJmzC&limit=5&fmt=json";
+
+    //   //http://api.giphy.com/v1/gifs/search?q=pokemon&api_key=dc6zaTOxFJmzC&limit=5&fmt=json
+
+    //   axios.get(apiURLNQuery)
+    //   .then(function(response){
+    //     var meLlames = response.data.data;
+    //     console.log(response.data.data); // ex.: { user: 'Your User'} json info
+    //             this.setState({
+    //       newMessage: ''
+    //     })
+
+    //   }).then(function() {
+    //     meLlames = meLlames[0].images.fixed_height.url;
+    //     this.setState({
+    //       newMessage: <RenderImage value={meLlames} />
+    //     })
+
+    //   })
+      
+    //   .catch(err => {
+    //     console.log('error getting data from giphy: ', err);
+    //   })
+
+    //     this.setState({
+    //       newMessage: <RenderImage value={'http://media3.giphy.com/media/d3mnJyfNLmguwILe/200.gif'} />
+    //     })
+
+
+    //   console.log('GIPHY!!!!!');
+
+    // } 
+    // else {
     this.setState({
       newMessage: event.target.value
     })
-    }
+    // }
   };
 
 
   //handle all message submissions
   handleMessageSubmit(event) {
     event.preventDefault();
-    var body = this.state.newMessage;
-    if (body) {
-      var message = {
-        body,
-        from: this.props.name,
-        room: this.props.roomId,
-        user: this.props.userId,
-        socketId: this.socket.json.id
-      };
-      this.setState({
-        messages: [...this.state.messages, message].slice(0, 50),
-        newMessage: ''
-      });
-      //sending message to the server
-      this.socket.emit('message', message);
+
+    //============================================
+    var body = this.state.newMessage
+    var meLlames = null
+    var url = new URL(this.state.newMessage);
+    var arr = [];
+
+    // //regex magic
+    if( /\.(jpg|gif|png)$/.test(this.state.newMessage) && isUrl(this.state.newMessage)) {
+      body = <RenderImage value={this.state.newMessage} />
+      doThis();
+    } 
+    else if (url.host === "www.youtube.com" && this.state.newMessage.length === 43 ) 
+    {
+      body = <RenderYoutube value={this.state.newMessage} />
+      doThis();
+    } 
+
+    if (this.state.newMessage[0] === '\\' && this.state.newMessage[1] === 'g' && this.state.newMessage.includes("\\giphy")) {
+
+      var apiUrl = 'http://api.giphy.com/v1/gifs/search?q=';
+      var query = this.state.newMessage;
+      var noGiphyQuery = query.replace("\giphy ", '');
+      var noGiphyQueryNPlus = noGiphyQuery.replace(' ', '+');
+
+      var apiURLNQuery = apiUrl+noGiphyQueryNPlus+"&api_key=dc6zaTOxFJmzC&limit=5&fmt=json";
+
+      //http://api.giphy.com/v1/gifs/search?q=pokemon&api_key=dc6zaTOxFJmzC&limit=5&fmt=json
+
+      var doThis = () => {
+              if (body) {
+        var message = {
+          body,
+          from: this.props.name,
+          room: this.props.roomId,
+          user: this.props.userId,
+          socketId: this.socket.json.id
+        };
+        this.setState({
+          messages: [...this.state.messages, message].slice(0, 50),
+          newMessage: ''
+        });
+        //sending message to the server
+        this.socket.emit('message', message);
+      }
+
+      }
+
+      function getGiphy(link) {
+        return axios.get(apiURLNQuery);
+      }
+
+       var promiseObj = getGiphy(apiURLNQuery);
+       promiseObj.then((resp) => {
+       console.log('inside promiseObj', resp.data.data["0"].images.original.url);
+       body = <RenderImage value={resp.data.data["0"].images.original.url} />
+       doThis();
+       })
+
+      // axios.get(apiURLNQuery) {}
+      // .then(function(response){
+      //   meLlames = response.data.data[0].images.fixed_height.url;
+      //   console.log('inside get axios then', response.data.data); // ex.: { user: 'Your User'} json info
+      //   console.log('this is meLlames', meLlames)
+      //   body = <RenderImage value={meLlames} />;  
+      //   arr.push(body);
+      //   })
+      // .catch(err => {
+      //   console.log('error getting data from giphy: ', err);
+      // })
+
+      // function getRepos(username){
+      //   return axios.get('https://api.github.com/users/' + username + '/repos');
+      // }
+
+      // var promiseObj = getRepos(‘test’);
+      // promiseObj.then(function(data){
+      // console.log(‘data’);
+      // });
+      
+
+
+    } else {
+      doThis();
     }
+
+    console.log('outside of axios in the submit');
+    //============================================
+    // var body = <RenderImage value={'http://media3.giphy.com/media/d3mnJyfNLmguwILe/200.gif'} />
+
+    // var body = this.state.newMessage;
+
+
+    //REMOVED because checked earlier
+    // if (body && boolGiphy !== true) {
+    //   var message = {
+    //     body,
+    //     from: this.props.name,
+    //     room: this.props.roomId,
+    //     user: this.props.userId,
+    //     socketId: this.socket.json.id
+    //   };
+    //   this.setState({
+    //     messages: [...this.state.messages, message].slice(0, 50),
+    //     newMessage: ''
+    //   });
+    //   //sending message to the server
+    //   this.socket.emit('message', message);
+    // }
   }
 
   //handle a private chat request click (initiated by user)
@@ -350,8 +491,8 @@ class Chatroom extends Component {
                       <FormGroup>
                         <FormControl type="text" placeholder="Enter a Message" value={this.state.newMessage} onChange={this.handleNewMessage}
                         />
-                        <div onChange={this.handleNewMessage} >
-                        w.e
+                        <div>
+                        {this.state.newMessage}
                         </div>
                       </FormGroup>
                     </Form>

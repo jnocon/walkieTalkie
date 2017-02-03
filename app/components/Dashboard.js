@@ -48,6 +48,17 @@ class Dashboard extends Component {
                      <h3>Jobs</h3>
                      <p>Description</p>
 
+
+
+                       <div className="gdWidget">
+                       <a href="https://www.glassdoor.com/api/api.htm?version=1&action=search-salaries&t.s=w-m&t.a=c&format=300x250" target="_blank">
+                       Search Salaries</a> or see
+                       <a href="https://www.glassdoor.com/Reviews/index.htm?&t.s=w-m&t.a=c" target="_blank">company reviews</a>,
+                       <a href="https://www.glassdoor.com/Salaries/index.htm?&t.s=w-m&t.a=c" target="_blank">salary</a> info,
+                       and <a href="https://www.glassdoor.com/Interview/index.htm?&t.s=w-m&t.a=c" target="_blank">interview questions</a>
+                       for thousands of <a href="https://www.glassdoor.com/index.htm?&t.s=w-m&t.a=c" target="_blank">jobs</a>.
+                       </div>
+
                      <p>
                        <Button bsStyle="primary"
                          onClick={() => { this.props.showJobs() }}>View Jobs</Button>&nbsp;

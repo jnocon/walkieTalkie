@@ -5,8 +5,13 @@ import ViewNavBar from './ViewNavbar.js';
 import Chatroom from './Chatroom.js';
 import ChatSelection from './ChatSelection.js';
 import Dashboard from './Dashboard.js'
+
 import JobBoard from './JobBoard.js'
 import Jobpost from './jobpost.js'
+
+import UserProfile from './userProfile.js'
+
+
 
 
 class App extends React.Component {
@@ -21,8 +26,12 @@ class App extends React.Component {
       chat_view : false,
       mounted : false,
       dashboard_view : false,
+
       jobBoard_view : false,
       jobpost_view : false
+
+
+      userprofile_view: false
 
     }
     this.componentWillMount = this.componentWillMount.bind(this);
@@ -32,8 +41,12 @@ class App extends React.Component {
     this.handleChatExit = this.handleChatExit.bind(this);
     this.handleRoomChange = this.handleRoomChange.bind(this);
     this.handleDashboardClick = this.handleDashboardClick.bind(this);
+
     this.handleJobBoardClick = this.handleJobBoardClick.bind(this);
     this.handleJobpostClick = this.handleJobpostClick.bind(this);
+
+    this.handleUserProfileClick = this.handleUserProfileClick.bind(this);
+
   }
 
   componentWillMount(){
@@ -128,6 +141,7 @@ class App extends React.Component {
    })
  }
 
+
  handleJobBoardClick() {
    this.setState({
      jobBoard_view: true,
@@ -142,6 +156,13 @@ class App extends React.Component {
      jobBoard_view: false,
      dashboard_view: false,
      chat_view: false
+   })
+
+
+ handleUserProfileClick() {
+   console.log('up clicked, up view is', this.state.userprofile_view)
+   this.setState({
+     userprofile_view: true
    })
 
  }
@@ -160,7 +181,8 @@ class App extends React.Component {
         <ViewNavBar logout = {this.handleUserLogout}
                     home = {this.handleChatExit}
                     userId = {this.state.userId}
-                    handleDashboardClick = {this.handleDashboardClick}/>
+                    handleDashboardClick = {this.handleDashboardClick}
+                    handleUserProfileClick = {this.handleUserProfileClick}/>
        {
          this.state.mounted ?
          (this.state.login_signup_view ?
@@ -171,6 +193,7 @@ class App extends React.Component {
                                            name = {this.state.name}
                                            searchResults = {this.state.roomSearch}/>
          :
+
          this.state.dashboard_view ? <Dashboard showJobs = {this.handleJobBoardClick}
                                                 postJob = {this.handleJobpostClick}/>
          :
@@ -178,6 +201,12 @@ class App extends React.Component {
        :
        this.state.jobpost_view ? <Jobpost/>
        : <ChatSelection selectRoom = {this.handleChatSelection}/>))
+
+         this.state.dashboard_view ? <Dashboard />
+         :
+         this.state.userprofile_view ? <UserProfile />
+         : <ChatSelection selectRoom = {this.handleChatSelection}/>))
+
          :(<div></div>)
        }
       </div>

@@ -19,7 +19,7 @@ import { Thumbnail } from 'react-bootstrap';
 import { ControlLabel, HelpBlock } from 'react-bootstrap';
 
 
-class Jobpost extends Component {
+class JobPostModal extends Component {
   constructor(props){
     super(props);
     this.submitJob = this.submitJob.bind(this)
@@ -32,7 +32,7 @@ class Jobpost extends Component {
     let jobLocation=document.getElementById('jobLocation')
     let jobSalary=document.getElementById('jobSalary')
     let jobLink=document.getElementById('jobLink')
-
+    let scope = this;
 
     console.log('got this title', jobTitle.value)
     console.log('got this company', jobCompany.value)
@@ -42,6 +42,7 @@ class Jobpost extends Component {
     console.log('got this url', jobSalary.value)
 
     console.log('got this url', jobLink.value)
+
 
 
     axios.post('/core/saveJob', {
@@ -55,6 +56,8 @@ class Jobpost extends Component {
     })
     .then(result => {
       console.log('result is', result)
+      scope.props.toggleModal();
+      scope.props.showJobs();
     })
     .catch(error => {
       console.log('error in posting Job to database', error)
@@ -66,7 +69,7 @@ class Jobpost extends Component {
         onHide={this.props.toggleModal}>
         <Modal.Body>
             <h1>Post A Job</h1>
-            {/* <p>Help others find a job by posting to our comunity</p> */}
+            <p>Help others find a job by posting to our comunity</p>
                 <Form horizontal>
                   <FormGroup controlId="formHorizontalJobTitle">
                     <Col componentClass={ControlLabel} sm={2}>
@@ -129,4 +132,4 @@ class Jobpost extends Component {
 
 
 
-export default Jobpost;
+export default JobPostModal;

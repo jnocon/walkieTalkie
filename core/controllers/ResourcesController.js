@@ -28,17 +28,11 @@ module.exports.resourcesAddOne = function(req, res) {
 		title: title,
     subject: subject,
 		link: link
-	}, function (err, resources){
-    if (err) {
-      console.log('error creating resource');
-      res
-      .status(400)
-      .json(err);
-    } else {
-      console.log('Resource created', resources);
-      res
-      .status(201)
-      .json(resources);
-          }
-    });
-  };
+	})
+  .then(result => {
+    res.status(200).send(result)
+  })
+  .catch(err => {
+    res.status(500).send(err)
+  })
+};

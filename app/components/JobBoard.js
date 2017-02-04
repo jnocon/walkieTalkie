@@ -80,11 +80,9 @@ document.body.appendChild(script2);
                 </ListGroup>
                   </Col>
                   <Col xs={6} md={4} >
-                    <Image src="/images/Logo-2C-128px-TM.png" responsive />
+                    <h2>Search for Jobs</h2>
 
-                    <script src="//platform.linkedin.com/in.js" type="text/javascript"></script>
                     <script type="IN/JYMBII" data-format="inline"></script>
-                      <Image src="/images/glassdoor.png" responsive />
 
                 <div className="gdWidget">
                   <a href="https://www.glassdoor.com/api/api.htm?version=1&action=search-salaries&t.s=w-m&t.a=c&format=300x250" target="_blank">Search Salaries </a> or see

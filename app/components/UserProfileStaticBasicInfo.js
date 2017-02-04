@@ -32,7 +32,7 @@ class UserProfileStaticBasicInfo extends Component {
       <div>
         <Col xs={6}>
           <div >
-             <div className='basicInfo'>
+             <div className='basicInfo' className='userStatic'>
                 <h1> {this.props.userProfile.upName} </h1>
             </div>
           </div>
@@ -48,16 +48,16 @@ class UserProfileStaticBasicInfo extends Component {
         <Col xs={3}>
           <div>
              <div className='basicInfo'>
-                <h4>Location</h4>
-                <p> {this.props.userProfile.upLocation} </p>
+                <h3 className= 'header'>Location</h3>
+                <h4> {this.props.userProfile.upLocation} </h4>
             </div>
           </div>
         </Col>
         <Col xs={3}>
           <div>
             <div className='basicInfo'>
-                <h4>Handle</h4>
-                <p> {this.props.userProfile.firstname} </p>
+                <h3 className= 'header'>Handle</h3>
+                <h4> {this.props.userProfile.firstname} </h4>
             </div>
           </div>
         </Col>

@@ -44,7 +44,7 @@ class UserProfileStatic extends Component {
 
   render () {
     return (
-      <div>
+      <div className = 'fontUserProfile'>
         <Col xs={4}>
           <div>
               <UserProfileStaticPicture userProfile={this.state.userProfile} success={this.state.success} />

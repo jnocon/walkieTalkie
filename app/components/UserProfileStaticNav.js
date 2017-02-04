@@ -29,23 +29,23 @@ class UserProfileStaticNav extends Component {
        <Col xs={8}>
        <div>
     <div className='basicInfo'>
-        <h5> Email: {this.props.userProfile.upEmail} </h5>
+        <h4> Email: {this.props.userProfile.upEmail} </h4>
     </div>
 
      <div className='basicInfo'>
-        <h5> Phone Number: {this.props.userProfile.upPhone} </h5>
+        <h4> Phone Number: {this.props.userProfile.upPhone} </h4>
     </div>
 
        <div className='basicInfo'>
-        <h5> Skype Handle: {this.props.userProfile.upSkype} </h5>
+        <h4> Skype Handle: {this.props.userProfile.upSkype} </h4>
     </div>
 
      <div className='basicInfo'>
-        <h5> GitHub Username: {this.props.userProfile.upGitHub} </h5>
+        <h4> GitHub Username: {this.props.userProfile.upGitHub} </h4>
     </div>
 
      <div className='basicInfo'>
-        <h5> LinkedIn: {this.props.userProfile.upLinkedIn} </h5>
+        <h4 > LinkedIn: <a href={this.props.userProfile.upLinkedIn}>{this.props.userProfile.upLinkedIn} </a> </h4>
     </div>
 
   </div>

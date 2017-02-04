@@ -9,6 +9,10 @@ import JobBoard from './JobBoard.js'
 import UserProfile from './userProfile.js'
 import ResourceList from './resourceList.js'
 import UserProfileStatic from './userProfileStatic.js'
+<<<<<<< HEAD
+=======
+import Popout from 'react-popout'
+>>>>>>> feat/pleaseWork
 
 
 class App extends React.Component {
@@ -24,14 +28,12 @@ class App extends React.Component {
       mounted : false,
       dashboard_view : false,
       jobBoard_view : false,
-
       resource_view : false,
-
       jobpost_view : false,
       userprofile_view: false,
       userprofilestatic_view: false
     }
-    
+
     this.componentWillMount = this.componentWillMount.bind(this);
     this.handleUserSignupLogin = this.handleUserSignupLogin.bind(this);
     this.handleUserLogout = this.handleUserLogout.bind(this);
@@ -100,7 +102,7 @@ class App extends React.Component {
        roomId : null,
        name : null,
        chat_view : false,
-       login_signup_view : true
+       login_signup_view : true,
      })
    })
    .catch(err => {
@@ -116,7 +118,8 @@ class App extends React.Component {
      userprofile_view: false,
      resource_view: false,
      jobBoard_view: false,
-     dashboard_view: false
+     dashboard_view: false,
+     userprofilestatic_view: false
    })
  }
 
@@ -126,7 +129,8 @@ class App extends React.Component {
      userprofile_view: false,
      resource_view: false,
      jobBoard_view: false,
-     dashboard_view: false
+     dashboard_view: false,
+     userprofilestatic_view: false
    })
    if (this.state.roomId) {
     axios.post('/exitChat', {id : this.state.userId})
@@ -149,7 +153,8 @@ class App extends React.Component {
      userprofile_view: false,
      resource_view: false,
      jobBoard_view: false,
-     chat_view: false
+     chat_view: false,
+     userprofilestatic_view: false
    })
  }
 
@@ -159,7 +164,8 @@ class App extends React.Component {
      userprofile_view: false,
      resource_view: false,
      dashboard_view: false,
-     chat_view: false
+     chat_view: false,
+     userprofilestatic_view: false
    })
 
  }
@@ -170,7 +176,8 @@ class App extends React.Component {
      jobBoard_view: false,
      dashboard_view: false,
      chat_view: false,
-     userprofile_view: false
+     userprofile_view: false,
+     userprofilestatic_view: false
    })
 
 
@@ -185,7 +192,21 @@ class App extends React.Component {
      resource_view: false,
      jobBoard_view: false,
      dashboard_view: false,
-     chat_view: false
+     chat_view: false,
+     userprofilestatic_view: false
+   })
+ }
+
+  handleUserProfileStaticClick() {
+   console.log('up clicked, up view is', this.state.userprofile_view)
+   let context = this
+   this.setState({
+     userprofilestatic_view: true,
+     jobpost_view: false,
+     jobBoard_view: false,
+     dashboard_view: false,
+     chat_view: false,
+     userprofile_view: false
    })
  }
 
@@ -240,7 +261,7 @@ class App extends React.Component {
         : this.state.jobBoard_view ? <JobBoard/>
         : this.state.jobpost_view ? <Jobpost/>
 
-        : <ChatSelection selectRoom = {this.handleChatSelection}/>))
+        : <ChatSelection selectRoom = {this.handleChatSelection} handleUserProfileStaticClick = {this.handleUserProfileStaticClick}/>))
         :(<div></div>)
        }
       </div>

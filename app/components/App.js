@@ -8,6 +8,8 @@ import Dashboard from './Dashboard.js'
 import JobBoard from './JobBoard.js'
 import UserProfile from './userProfile.js'
 import ResourceList from './resourceList.js'
+import UserProfileStatic from './userProfileStatic.js'
+
 
 class App extends React.Component {
   constructor(props){
@@ -22,15 +24,12 @@ class App extends React.Component {
       mounted : false,
       dashboard_view : false,
       jobBoard_view : false,
-
       resource_view : false,
-
       jobpost_view : false,
-
-
-      userprofile_view: false
-
+      userprofile_view: false,
+      userprofilestatic_view: false
     }
+    
     this.componentWillMount = this.componentWillMount.bind(this);
     this.handleUserSignupLogin = this.handleUserSignupLogin.bind(this);
     this.handleUserLogout = this.handleUserLogout.bind(this);
@@ -44,6 +43,7 @@ class App extends React.Component {
     this.handleResourceClick = this.handleResourceClick.bind(this);
 
     this.handleUserProfileClick = this.handleUserProfileClick.bind(this);
+    this.handleUserProfileStaticClick = this.handleUserProfileStaticClick.bind(this);
 
 
   }
@@ -187,6 +187,18 @@ class App extends React.Component {
    })
  }
 
+  handleUserProfileStaticClick() {
+   console.log('up clicked, up view is', this.state.userprofile_view)
+   this.setState({
+     userprofilestatic_view: true,
+     jobpost_view: false,
+     jobBoard_view: false,
+     dashboard_view: false,
+     chat_view: false,
+     userprofile_view: false
+   })
+ }
+
 
  handleRoomChange(newRoom) {
    this.setState({
@@ -201,7 +213,8 @@ class App extends React.Component {
                     home = {this.handleChatExit}
                     userId = {this.state.userId}
                     handleDashboardClick = {this.handleDashboardClick}
-                    handleUserProfileClick = {this.handleUserProfileClick}/>
+                    handleUserProfileClick = {this.handleUserProfileClick}
+                    handleUserProfileStaticClick = {this.handleUserProfileStaticClick}/>
        {
          this.state.mounted ?
          (this.state.login_signup_view ?
@@ -213,6 +226,7 @@ class App extends React.Component {
                                              searchResults = {this.state.roomSearch}/>
 
         : this.state.userprofile_view ? <UserProfile userId = {this.state.userId} />
+        : this.state.userprofilestatic_view ? <UserProfileStatic userId = {this.state.userId} />
         : this.state.dashboard_view ? <Dashboard showJobs = {this.handleJobBoardClick}
                                                  showResources = {this.handleResourceClick}/>
         : this.state.jobBoard_view ? <JobBoard/>

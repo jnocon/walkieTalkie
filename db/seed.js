@@ -31,12 +31,9 @@ U.destroy({truncate: true})
 
 
 
-let iI = [
-  
-  'Soccer', 'Basketball', 'Football', 'Baseball', 'Hockey', 
-  'Beer', 'Wine', 'Tequila', 'Vodka', 'Whiskey', 'Shopping', 'Shoes', 'Style',
-  'Country', 'Hiphop', 'RnB', 'Jazz', 'EDM', 'Classical', 'Rock', 
-  'Java', 'C', 'Node', 'Ruby', 'Javascript', 'Photography'
+let iI = [ 
+  'Java', 'C', 'Node', 'Ruby', 'Javascript', 'Angular', 'React', 'Backbone', 
+  'C++', "React-Native", 'Ionic', "Swift", "Express"
 ];
 
 iI.forEach(int => {

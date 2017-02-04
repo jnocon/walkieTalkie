@@ -29,15 +29,15 @@ render () {
     return (
       <div>
          <Col xs={8}>
-          <Thumbnail className='userPic' src={image} />
+          <Thumbnail width={171} height={180} className='userPic' src={image} />
           <div>
             <div className='pictureInfo'>
-                <h3>Languages</h3>
-                <p> {this.props.userProfile.upLanguages} </p>
+                <h2 className='header'>Languages</h2>
+                <h4> {this.props.userProfile.upLanguages} </h4>
             </div>
             <div className='pictureInfo'>
-                <h3>Frameworks</h3>
-                <p> {this.props.userProfile.upFrameworks} </p>
+                <h2 className='header'>Frameworks</h2>
+                <h4> {this.props.userProfile.upFrameworks} </h4>
             </div>
           </div>
         </Col>

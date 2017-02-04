@@ -1,5 +1,5 @@
 body {
-  background-image: url("http://zonewallpaper.net/wp-content/uploads/2016/11/4K-Wallpapers-HD.jpg");
+  background-image: url("http://cdn30.us1.fansshare.com/image/backgroundforpictures/more-tumblr-backgrounds-for-guys-light-gray-1331227725.jpg");
   background-repeat: no-repeat;
   background-position: right top;
   background-attachment: fixed;
@@ -144,17 +144,32 @@ button {
 }
 
 .pictureInfo {
-  color: red;
   padding-bottom: 75px;
 }
 
 .basicInfo {
-  color: red;
   padding-bottom: 25px;
   padding-top: 10px;
 }
 
 .userPic {
   margin-bottom: 75px;
+}
+
+popout-content-container {
+  font-family: 'Crimson Text', serif;
+}
+
+.fontUserProfile {
+  font-family: 'Crimson Text', serif;
+}
+
+.header {
+  font-family: 'Crimson Text', serif;
+  font-weight: bold;
+}
+
+.userStatic {
+  font-family: 'Indie Flower', cursive;
 }
 

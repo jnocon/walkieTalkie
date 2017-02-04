@@ -135,6 +135,26 @@ button {
 }
 
 .userNav {
-  padding-top: 100px;
-
+  padding-top: 150px;
 }
+
+.userStaticNav {
+  padding-top: 200px;
+  
+}
+
+.pictureInfo {
+  color: red;
+  padding-bottom: 75px;
+}
+
+.basicInfo {
+  color: red;
+  padding-bottom: 25px;
+  padding-top: 10px;
+}
+
+.userPic {
+  margin-bottom: 75px;
+}
+

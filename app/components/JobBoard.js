@@ -23,8 +23,12 @@ class JobBoard extends Component {
 
   }
   componentDidMount() {
+    console.log('in Job list')
     var context = this;
-    axios.get('')
+    axios.get('/core/jobs')
+    .then(result=>{
+      console.log('got the jobs ', result.data)
+    })
   }
 
   render() {

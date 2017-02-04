@@ -21,6 +21,7 @@ class UserProfilePictureColumn extends Component {
   }
 
 
+
 render () {
   var image = 'http://www.rknrmedia.com/wp-content/uploads/2015/08/iStock_Man-in-blue-top.jpg'
   if (this.props.userProfile.upImage !== "Put Image URL Here") {
@@ -35,7 +36,6 @@ render () {
             <ControlLabel>New Image Source</ControlLabel>
             <FormControl componentClass='textarea' placeholder={this.props.userProfile.upImage} id='upImage' />
           </FormGroup>
-
           <FormGroup controlId='formControlsTextarea'>
             <ControlLabel>Languages</ControlLabel>
             <FormControl componentClass='textarea' placeholder={this.props.userProfile.upLanguages} id='upLanguages' />

@@ -86,7 +86,6 @@ class Dashboard extends Component {
                    <Thumbnail  alt="242x200" src="/images/resource.png">
                      <h3>Resources</h3>
                      <p>Description</p>
-
                      <p>
                        <Button bsStyle="primary"
                          onClick={() => { this.props.showResources() }}>View Resources</Button>&nbsp;

@@ -11,7 +11,6 @@ import { HelpBlock } from 'react-bootstrap';
 import { ControlLabel, Form, Checkbox } from 'react-bootstrap';
 
 
-
 class UserProfileNav extends Component {
   constructor(props){
     super(props);

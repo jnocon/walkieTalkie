@@ -45,6 +45,7 @@ class ViewNavBar extends Component {
               <NavItem onClick={this.props.handleUserProfileClick}>Edit User Profile</NavItem>
               <NavItem onClick={this.props.handleUserProfileStaticClick}>My User Profile</NavItem>
 
+
             </Nav>
             <Nav pullRight>
               <NavItem onClick={this.props.logout}>Logout</NavItem>

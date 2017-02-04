@@ -9,10 +9,7 @@ import JobBoard from './JobBoard.js'
 import UserProfile from './userProfile.js'
 import ResourceList from './resourceList.js'
 import UserProfileStatic from './userProfileStatic.js'
-<<<<<<< HEAD
-=======
 import Popout from 'react-popout'
->>>>>>> feat/pleaseWork
 
 
 class App extends React.Component {
@@ -41,15 +38,10 @@ class App extends React.Component {
     this.handleChatExit = this.handleChatExit.bind(this);
     this.handleRoomChange = this.handleRoomChange.bind(this);
     this.handleDashboardClick = this.handleDashboardClick.bind(this);
-
-
     this.handleJobBoardClick = this.handleJobBoardClick.bind(this);
     this.handleResourceClick = this.handleResourceClick.bind(this);
-
     this.handleUserProfileClick = this.handleUserProfileClick.bind(this);
     this.handleUserProfileStaticClick = this.handleUserProfileStaticClick.bind(this);
-
-
   }
 
   componentWillMount(){

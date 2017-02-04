@@ -1,4 +1,7 @@
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 <<<<<<< HEAD
+=======
+>>>>>>> youtube link - Image - Giphy Button
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -21529,6 +21532,7 @@
 
 	var _Chatroom2 = _interopRequireDefault(_Chatroom);
 
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 	var _ChatSelection = __webpack_require__(658);
 
 	var _ChatSelection2 = _interopRequireDefault(_ChatSelection);
@@ -21546,6 +21550,25 @@
 	var _jobpost2 = _interopRequireDefault(_jobpost);
 
 	var _userProfile = __webpack_require__(666);
+=======
+	var _ChatSelection = __webpack_require__(663);
+
+	var _ChatSelection2 = _interopRequireDefault(_ChatSelection);
+
+	var _Dashboard = __webpack_require__(665);
+
+	var _Dashboard2 = _interopRequireDefault(_Dashboard);
+
+	var _JobBoard = __webpack_require__(669);
+
+	var _JobBoard2 = _interopRequireDefault(_JobBoard);
+
+	var _jobpost = __webpack_require__(670);
+
+	var _jobpost2 = _interopRequireDefault(_jobpost);
+
+	var _userProfile = __webpack_require__(671);
+>>>>>>> youtube link - Image - Giphy Button
 
 	var _userProfile2 = _interopRequireDefault(_userProfile);
 
@@ -21574,8 +21597,15 @@
 	      chat_view: false,
 	      mounted: false,
 	      dashboard_view: false,
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 	      jobBoard_view: false,
 	      jobpost_view: false,
+=======
+
+	      jobBoard_view: false,
+	      jobpost_view: false,
+
+>>>>>>> youtube link - Image - Giphy Button
 	      userprofile_view: false
 
 	    };
@@ -29243,10 +29273,17 @@
 /* 330 */
 /***/ function(module, exports, __webpack_require__) {
 
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 	/**
 	 * Copyright 2014-2015, Facebook, Inc.
 	 * All rights reserved.
 	 * https://github.com/facebook/react/blob/2aeb8a2a6beb00617a4217f7f8284924fa2ad819/src/vendor/core/camelizeStyleName.js
+=======
+	/**
+	 * Copyright 2014-2015, Facebook, Inc.
+	 * All rights reserved.
+	 * https://github.com/facebook/react/blob/2aeb8a2a6beb00617a4217f7f8284924fa2ad819/src/vendor/core/camelizeStyleName.js
+>>>>>>> youtube link - Image - Giphy Button
 	 */
 
 	'use strict';
@@ -29275,10 +29312,17 @@
 /* 332 */
 /***/ function(module, exports, __webpack_require__) {
 
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 	/**
 	 * Copyright 2013-2014, Facebook, Inc.
 	 * All rights reserved.
 	 * https://github.com/facebook/react/blob/2aeb8a2a6beb00617a4217f7f8284924fa2ad819/src/vendor/core/hyphenateStyleName.js
+=======
+	/**
+	 * Copyright 2013-2014, Facebook, Inc.
+	 * All rights reserved.
+	 * https://github.com/facebook/react/blob/2aeb8a2a6beb00617a4217f7f8284924fa2ad819/src/vendor/core/hyphenateStyleName.js
+>>>>>>> youtube link - Image - Giphy Button
 	 */
 
 	"use strict";
@@ -30294,8 +30338,13 @@
 
 	exports.__esModule = true;
 
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 	/**
 	 * document.activeElement
+=======
+	/**
+	 * document.activeElement
+>>>>>>> youtube link - Image - Giphy Button
 	 */
 	exports['default'] = activeElement;
 
@@ -45305,7 +45354,15 @@
 
 	var _RenderYoutube2 = _interopRequireDefault(_RenderYoutube);
 
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 	var _socket = __webpack_require__(604);
+=======
+	var _GiphyModal = __webpack_require__(604);
+
+	var _GiphyModal2 = _interopRequireDefault(_GiphyModal);
+
+	var _socket = __webpack_require__(605);
+>>>>>>> youtube link - Image - Giphy Button
 
 	var _socket2 = _interopRequireDefault(_socket);
 
@@ -45323,11 +45380,19 @@
 
 	var _reactYoutubePlayer2 = _interopRequireDefault(_reactYoutubePlayer);
 
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 	var _isUrl = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"is-url\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
 	var _isUrl2 = _interopRequireDefault(_isUrl);
 
 	var _throttleDebounce = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"throttle-debounce\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+=======
+	var _isUrl = __webpack_require__(655);
+
+	var _isUrl2 = _interopRequireDefault(_isUrl);
+
+	var _throttleDebounce = __webpack_require__(656);
+>>>>>>> youtube link - Image - Giphy Button
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -45342,7 +45407,11 @@
 	//i made this
 
 
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 	var URL = __webpack_require__(654);
+=======
+	var URL = __webpack_require__(659);
+>>>>>>> youtube link - Image - Giphy Button
 
 	var Chatroom = function (_Component) {
 	  _inherits(Chatroom, _Component);
@@ -45359,7 +45428,13 @@
 	      pcData: {},
 	      newMessage: '',
 	      roommates: [],
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 	      userSockets: {}
+=======
+	      userSockets: {},
+	      GiphyModal_view: false,
+	      buttonIsToggleOn: false
+>>>>>>> youtube link - Image - Giphy Button
 	    };
 	    _this.handleMessageSubmit = _this.handleMessageSubmit.bind(_this);
 	    _this.componentDidMount = _this.componentDidMount.bind(_this);
@@ -45374,6 +45449,12 @@
 	    _this.componentWillUnmount = _this.componentWillUnmount.bind(_this);
 	    _this.scrollToBottom = _this.scrollToBottom.bind(_this);
 	    _this.componentDidUpdate = _this.componentDidUpdate.bind(_this);
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
+=======
+	    _this.handleGiphyModalClick = _this.handleGiphyModalClick.bind(_this);
+	    _this.handleGiphySubmit = _this.handleGiphySubmit.bind(_this);
+	    _this.handleGiphyClick = _this.handleGiphyClick.bind(_this);
+>>>>>>> youtube link - Image - Giphy Button
 	    return _this;
 	  }
 
@@ -45494,6 +45575,7 @@
 	    key: 'handleNewMessage',
 	    value: function handleNewMessage(event) {
 
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 	      // var url = new URL(event.target.value);
 
 	      // // //regex magic
@@ -45570,6 +45652,107 @@
 
 	      event.preventDefault();
 
+=======
+	      this.setState({
+	        newMessage: event.target.value
+	      });
+	    }
+	  }, {
+	    key: 'handleGiphyClick',
+
+
+	    //handle all message submissions
+
+
+	    value: function handleGiphyClick() {
+	      console.log('this.handleGiphyClick!!!');
+	      this.setState(function (prevState) {
+	        return {
+	          buttonIsToggleOn: !prevState.buttonIsToggleOn
+	        };
+	      });
+	    }
+	  }, {
+	    key: 'handleGiphySubmit',
+	    value: function handleGiphySubmit(event) {
+	      var _this4 = this;
+
+	      event.preventDefault();
+
+	      var body = this.state.newMessage;
+
+	      var doThis = function doThis() {
+	        if (body) {
+	          var message = {
+	            body: body,
+	            from: _this4.props.name,
+	            room: _this4.props.roomId,
+	            user: _this4.props.userId,
+	            socketId: _this4.socket.json.id
+	          };
+	          _this4.setState({
+	            messages: [].concat(_toConsumableArray(_this4.state.messages), [message]).slice(0, 50),
+	            newMessage: ''
+	          });
+	          //sending message to the server
+	          _this4.socket.emit('message', message);
+	        }
+	      };
+
+	      var apiUrl = 'http://api.giphy.com/v1/gifs/search?q=';
+	      var query = this.state.newMessage;
+	      var noGiphyQuery = query.replace("\giphy ", '');
+	      var noGiphyQueryNPlus = noGiphyQuery.replace(' ', '+');
+
+	      var apiURLNQuery = apiUrl + noGiphyQueryNPlus + "&api_key=dc6zaTOxFJmzC&limit=5&fmt=json";
+
+	      function getGiphy(link) {
+	        return _axios2.default.get(apiURLNQuery);
+	      }
+
+	      var promiseObj = getGiphy(apiURLNQuery);
+	      promiseObj.then(function (resp) {
+	        console.log('inside promiseObj', resp.data.data["0"].images.original.url);
+
+	        if (resp.data.data["0"].images.original.url) {
+	          body = _react2.default.createElement(_RenderImage2.default, { value: resp.data.data["0"].images.original.url });
+	          doThis();
+	        } else if (resp.data.data["0"].images.original.url === undefined) {
+	          alert('Query had no Match!');
+	          console.log('nothing!!');
+	        }
+	      }).catch(function (reason) {
+	        alert('Bad Query!');
+	      });
+
+	      //console.log(this.state.newMessage);
+	    }
+	  }, {
+	    key: 'handleMessageSubmit',
+	    value: function handleMessageSubmit(event) {
+	      var _this5 = this;
+
+	      event.preventDefault();
+
+	      var doThis = function doThis() {
+	        if (body) {
+	          var message = {
+	            body: body,
+	            from: _this5.props.name,
+	            room: _this5.props.roomId,
+	            user: _this5.props.userId,
+	            socketId: _this5.socket.json.id
+	          };
+	          _this5.setState({
+	            messages: [].concat(_toConsumableArray(_this5.state.messages), [message]).slice(0, 50),
+	            newMessage: ''
+	          });
+	          //sending message to the server
+	          _this5.socket.emit('message', message);
+	        }
+	      };
+
+>>>>>>> youtube link - Image - Giphy Button
 	      //============================================
 	      var body = this.state.newMessage;
 	      var meLlames = null;
@@ -45586,6 +45769,13 @@
 	      }
 
 	      if (this.state.newMessage[0] === '\\' && this.state.newMessage[1] === 'g' && this.state.newMessage.includes("\\giphy")) {
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
+=======
+
+	        //http://api.giphy.com/v1/gifs/search?q=pokemon&api_key=dc6zaTOxFJmzC&limit=5&fmt=json
+
+
+>>>>>>> youtube link - Image - Giphy Button
 	        var getGiphy = function getGiphy(link) {
 	          return _axios2.default.get(apiURLNQuery);
 	        };
@@ -45597,6 +45787,7 @@
 
 	        var apiURLNQuery = apiUrl + noGiphyQueryNPlus + "&api_key=dc6zaTOxFJmzC&limit=5&fmt=json";
 
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 	        //http://api.giphy.com/v1/gifs/search?q=pokemon&api_key=dc6zaTOxFJmzC&limit=5&fmt=json
 
 	        var doThis = function doThis() {
@@ -45617,12 +45808,15 @@
 	          }
 	        };
 
+=======
+>>>>>>> youtube link - Image - Giphy Button
 	        var promiseObj = getGiphy(apiURLNQuery);
 	        promiseObj.then(function (resp) {
 	          console.log('inside promiseObj', resp.data.data["0"].images.original.url);
 	          body = _react2.default.createElement(_RenderImage2.default, { value: resp.data.data["0"].images.original.url });
 	          doThis();
 	        });
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 
 	        // axios.get(apiURLNQuery) {}
 	        // .then(function(response){
@@ -45645,11 +45839,14 @@
 	        // console.log(‘data’);
 	        // });
 
+=======
+>>>>>>> youtube link - Image - Giphy Button
 	      } else {
 	        doThis();
 	      }
 
 	      console.log('outside of axios in the submit');
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 	      //============================================
 	      // var body = <RenderImage value={'http://media3.giphy.com/media/d3mnJyfNLmguwILe/200.gif'} />
 
@@ -45672,6 +45869,19 @@
 	      //   //sending message to the server
 	      //   this.socket.emit('message', message);
 	      // }
+=======
+	    }
+
+	    //=============================================
+
+	  }, {
+	    key: 'handleGiphyModalClick',
+	    value: function handleGiphyModalClick() {
+	      console.log('Giphy Modal clicked!', this.state.GiphyModal_view);
+	      this.setState({
+	        GiphyModal_view: true
+	      });
+>>>>>>> youtube link - Image - Giphy Button
 	    }
 
 	    //handle a private chat request click (initiated by user)
@@ -45693,7 +45903,11 @@
 
 	    //accept a received private chat request
 	    value: function acceptPrivateChat() {
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 	      var _this5 = this;
+=======
+	      var _this6 = this;
+>>>>>>> youtube link - Image - Giphy Button
 
 	      //leave current room before joining new room
 	      this.socket.emit('leaveRoom', {
@@ -45704,14 +45918,24 @@
 	      //logging out user from active users to join private room
 	      _axios2.default.post('/privateRoom', { id: priv.privateRoom }).then(function (res) {
 	        //emit to server that the request has been accepted
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 	        _this5.socket.emit('acceptedRequest', priv);
 	        //update state to remove messages and hide modal
 	        _this5.setState({
+=======
+	        _this6.socket.emit('acceptedRequest', priv);
+	        //update state to remove messages and hide modal
+	        _this6.setState({
+>>>>>>> youtube link - Image - Giphy Button
 	          messages: [],
 	          showRequest: false
 	        });
 	        //initiate a room change in parent for recipient
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 	        _this5.props.roomChange(priv.privateRoom);
+=======
+	        _this6.props.roomChange(priv.privateRoom);
+>>>>>>> youtube link - Image - Giphy Button
 	      }).catch(function (err) {
 	        console.log('error in creating private chat: ', err);
 	      });
@@ -45734,7 +45958,11 @@
 
 	    //sender joins the private chat after receiver accepted and created a room
 	    value: function joinPrivate() {
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 	      var _this6 = this;
+=======
+	      var _this7 = this;
+>>>>>>> youtube link - Image - Giphy Button
 
 	      //leave current room before joining new private room
 	      this.socket.emit('leaveRoom', {
@@ -45745,11 +45973,19 @@
 	      //request to logout as active user to join a private chat
 	      _axios2.default.post('/privateRoom', { id: priv.privateRoom }).then(function (res) {
 	        //resetting all messages for private chat
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 	        _this6.setState({
 	          messages: []
 	        });
 	        //initiate a room change in parent for sender
 	        _this6.props.roomChange(priv.privateRoom);
+=======
+	        _this7.setState({
+	          messages: []
+	        });
+	        //initiate a room change in parent for sender
+	        _this7.props.roomChange(priv.privateRoom);
+>>>>>>> youtube link - Image - Giphy Button
 	      }).catch(function (err) {
 	        console.log('error in joining private chat: ', err);
 	      });
@@ -45768,7 +46004,11 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 	      var _this7 = this;
+=======
+	      var _this8 = this;
+>>>>>>> youtube link - Image - Giphy Button
 
 	      var messages = this.state.messages;
 	      var roomTitle = '';
@@ -45867,11 +46107,19 @@
 	                        'div',
 	                        null,
 	                        this.state.roommates.map(function (user) {
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 	                          var tempSocketId = _this7.state.userSockets[user.id];
 	                          return _react2.default.createElement(_UserItem2.default, {
 	                            key: user.id,
 	                            user: user,
 	                            privateChat: _this7.handlePrivateChat,
+=======
+	                          var tempSocketId = _this8.state.userSockets[user.id];
+	                          return _react2.default.createElement(_UserItem2.default, {
+	                            key: user.id,
+	                            user: user,
+	                            privateChat: _this8.handlePrivateChat,
+>>>>>>> youtube link - Image - Giphy Button
 	                            socketId: tempSocketId });
 	                        })
 	                      )
@@ -45882,7 +46130,11 @@
 	                      _react2.default.createElement(
 	                        'div',
 	                        { id: 'chatbox', ref: function ref(div) {
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 	                            _this7.chatList = div;
+=======
+	                            _this8.chatList = div;
+>>>>>>> youtube link - Image - Giphy Button
 	                          } },
 	                        messages.map(function (message, index) {
 	                          return _react2.default.createElement(
@@ -45893,7 +46145,11 @@
 	                              { xs: 12, md: 12 },
 	                              _react2.default.createElement(_ChatLineItem2.default, {
 	                                message: message,
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 	                                privateChat: _this7.handlePrivateChat })
+=======
+	                                privateChat: _this8.handlePrivateChat })
+>>>>>>> youtube link - Image - Giphy Button
 	                            )
 	                          );
 	                        })
@@ -45913,7 +46169,15 @@
 	                          _react2.default.createElement(
 	                            'div',
 	                            null,
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 	                            this.state.newMessage
+=======
+	                            _react2.default.createElement(
+	                              _reactBootstrap.Button,
+	                              { onClick: this.handleGiphySubmit },
+	                              _react2.default.createElement('img', { height: '42.75', width: '81', src: 'http://ec2-50-19-249-57.compute-1.amazonaws.com/system/companies/158-logo-giphy_l.jpg?1400273381' })
+	                            )
+>>>>>>> youtube link - Image - Giphy Button
 	                          )
 	                        )
 	                      )
@@ -46426,11 +46690,19 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 	/**
 	 * Check whether a `props` change should result in the video being updated.
 	 *
 	 * @param {Object} prevProps
 	 * @param {Object} props
+=======
+	/**
+	 * Check whether a `props` change should result in the video being updated.
+	 *
+	 * @param {Object} prevProps
+	 * @param {Object} props
+>>>>>>> youtube link - Image - Giphy Button
 	 */
 	function shouldUpdateVideo(prevProps, props) {
 	  // A changing video should always trigger an update
@@ -46446,12 +46718,21 @@
 	  return prevVars.start !== vars.start || prevVars.end !== vars.end;
 	}
 
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 	/**
 	 * Neutralise API options that only require a video update, leaving only options
 	 * that require a player reset. The results can then be compared to see if a
 	 * player reset is necessary.
 	 *
 	 * @param {Object} opts
+=======
+	/**
+	 * Neutralise API options that only require a video update, leaving only options
+	 * that require a player reset. The results can then be compared to see if a
+	 * player reset is necessary.
+	 *
+	 * @param {Object} opts
+>>>>>>> youtube link - Image - Giphy Button
 	 */
 	function filterResetOptions(opts) {
 	  return _extends({}, opts, {
@@ -46463,6 +46744,7 @@
 	  });
 	}
 
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 	/**
 	 * Check whether a `props` change should result in the player being reset.
 	 * The player is reset when the `props.opts` change, except if the only change
@@ -46471,16 +46753,34 @@
 	 *
 	 * @param {Object} prevProps
 	 * @param {Object} props
+=======
+	/**
+	 * Check whether a `props` change should result in the player being reset.
+	 * The player is reset when the `props.opts` change, except if the only change
+	 * is in the `start` and `end` playerVars, because a video update can deal with
+	 * those.
+	 *
+	 * @param {Object} prevProps
+	 * @param {Object} props
+>>>>>>> youtube link - Image - Giphy Button
 	 */
 	function shouldResetPlayer(prevProps, props) {
 	  return !(0, _lodash2.default)(filterResetOptions(prevProps.opts), filterResetOptions(props.opts));
 	}
 
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 	/**
 	 * Check whether a props change should result in an id or className update.
 	 *
 	 * @param {Object} prevProps
 	 * @param {Object} props
+=======
+	/**
+	 * Check whether a props change should result in an id or className update.
+	 *
+	 * @param {Object} prevProps
+	 * @param {Object} props
+>>>>>>> youtube link - Image - Giphy Button
 	 */
 	function shouldUpdatePlayer(prevProps, props) {
 	  return prevProps.id === props.id || prevProps.className === props.className;
@@ -46598,10 +46898,17 @@
 	    return _this;
 	  }
 
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 	  /**
 	    * Expose PlayerState constants for convenience. These constants can also be
 	    * accessed through the global YT object after the YouTube IFrame API is instantiated.
 	    * https://developers.google.com/youtube/iframe_api_reference#onStateChange
+=======
+	  /**
+	    * Expose PlayerState constants for convenience. These constants can also be
+	    * accessed through the global YT object after the YouTube IFrame API is instantiated.
+	    * https://developers.google.com/youtube/iframe_api_reference#onStateChange
+>>>>>>> youtube link - Image - Giphy Button
 	    */
 
 
@@ -46628,15 +46935,24 @@
 	  }, {
 	    key: 'componentWillUnmount',
 	    value: function componentWillUnmount() {
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 	      /**
 	       * Note: The `youtube-player` package that is used promisifies all Youtube
 	       * Player API calls, which introduces a delay of a tick before it actually
 	       * gets destroyed. Since React attempts to remove the element instantly
 	       * this method isn't quick enough to reset the container element.
+=======
+	      /**
+	       * Note: The `youtube-player` package that is used promisifies all Youtube
+	       * Player API calls, which introduces a delay of a tick before it actually
+	       * gets destroyed. Since React attempts to remove the element instantly
+	       * this method isn't quick enough to reset the container element.
+>>>>>>> youtube link - Image - Giphy Button
 	       */
 	      this.internalPlayer.destroy();
 	    }
 
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 	    /**
 	     * https://developers.google.com/youtube/iframe_api_reference#onReady
 	     *
@@ -46702,6 +47018,73 @@
 	     * Call Youtube Player API methods to update the currently playing video.
 	     * Depeding on the `opts.playerVars.autoplay` this function uses one of two
 	     * Youtube Player API methods to update the video.
+=======
+	    /**
+	     * https://developers.google.com/youtube/iframe_api_reference#onReady
+	     *
+	     * @param {Object} event
+	     *   @param {Object} target - player object
+	     */
+
+
+	    /**
+	     * https://developers.google.com/youtube/iframe_api_reference#onError
+	     *
+	     * @param {Object} event
+	     *   @param {Integer} data  - error type
+	     *   @param {Object} target - player object
+	     */
+
+
+	    /**
+	     * https://developers.google.com/youtube/iframe_api_reference#onStateChange
+	     *
+	     * @param {Object} event
+	     *   @param {Integer} data  - status change type
+	     *   @param {Object} target - actual YT player
+	     */
+
+
+	    /**
+	     * https://developers.google.com/youtube/iframe_api_reference#onPlaybackRateChange
+	     *
+	     * @param {Object} event
+	     *   @param {Float} data    - playback rate
+	     *   @param {Object} target - actual YT player
+	     */
+
+
+	    /**
+	     * https://developers.google.com/youtube/iframe_api_reference#onPlaybackQualityChange
+	     *
+	     * @param {Object} event
+	     *   @param {String} data   - playback quality
+	     *   @param {Object} target - actual YT player
+	     */
+
+
+	    /**
+	     * Initialize the Youtube Player API on the container and attach event handlers
+	     */
+
+
+	    /**
+	     * Shorthand for destroying and then re-creating the Youtube Player
+	     */
+
+
+	    /**
+	     * Method to update the id and class of the Youtube Player iframe.
+	     * React should update this automatically but since the Youtube Player API
+	     * replaced the DIV that is mounted by React we need to do this manually.
+	     */
+
+
+	    /**
+	     * Call Youtube Player API methods to update the currently playing video.
+	     * Depeding on the `opts.playerVars.autoplay` this function uses one of two
+	     * Youtube Player API methods to update the video.
+>>>>>>> youtube link - Image - Giphy Button
 	     */
 
 	  }, {
@@ -48620,6 +49003,7 @@
 /* 491 */
 /***/ function(module, exports) {
 
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 	module.exports = function(module) {
 		if(!module.webpackPolyfill) {
 			module.deprecate = function() {};
@@ -48630,6 +49014,18 @@
 		}
 		return module;
 	}
+=======
+	module.exports = function(module) {
+		if(!module.webpackPolyfill) {
+			module.deprecate = function() {};
+			module.paths = [];
+			// module.parent = undefined by default
+			module.children = [];
+			module.webpackPolyfill = 1;
+		}
+		return module;
+	}
+>>>>>>> youtube link - Image - Giphy Button
 
 
 /***/ },
@@ -58943,15 +59339,142 @@
 /* 604 */
 /***/ function(module, exports, __webpack_require__) {
 
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
+=======
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _Container = __webpack_require__(463);
+
+	var _Container2 = _interopRequireDefault(_Container);
+
+	var _reactBootstrap = __webpack_require__(206);
+
+	var _axios = __webpack_require__(179);
+
+	var _axios2 = _interopRequireDefault(_axios);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	//from PostEventModal
+
+	var Example = _react2.default.createClass({
+	  displayName: 'Example',
+	  getInitialState: function getInitialState() {
+	    return { showModal: false };
+	  },
+	  close: function close() {
+	    this.setState({ showModal: false });
+	  },
+	  open: function open() {
+	    this.setState({ showModal: true });
+	  },
+	  render: function render() {
+	    var popover = _react2.default.createElement(
+	      _reactBootstrap.Popover,
+	      { id: 'modal-popover', title: 'popover' },
+	      'very popover. such engagement'
+	    );
+	    var tooltip = _react2.default.createElement(
+	      _reactBootstrap.Tooltip,
+	      { id: 'modal-tooltip' },
+	      'wow.'
+	    );
+
+	    return _react2.default.createElement(
+	      'div',
+	      null,
+	      _react2.default.createElement(
+	        _reactBootstrap.Button
+	        // bsStyle="primary"
+	        ,
+	        { bsSize: 'small',
+	          onClick: this.open
+	        },
+	        _react2.default.createElement('img', { height: '42.75', width: '81', src: 'http://ec2-50-19-249-57.compute-1.amazonaws.com/system/companies/158-logo-giphy_l.jpg?1400273381' })
+	      ),
+	      _react2.default.createElement(
+	        _reactBootstrap.Modal,
+	        { show: this.state.showModal, onHide: this.close },
+	        _react2.default.createElement(
+	          _reactBootstrap.Modal.Header,
+	          { closeButton: true },
+	          _react2.default.createElement(
+	            _reactBootstrap.Modal.Title,
+	            null,
+	            'Search Giphy'
+	          )
+	        ),
+	        _react2.default.createElement(
+	          _reactBootstrap.Modal.Body,
+	          null,
+	          _react2.default.createElement(
+	            'div',
+	            { style: { "height": "100%", "width": "568px" } },
+	            _react2.default.createElement('img', { src: 'http://ec2-50-19-249-57.compute-1.amazonaws.com/system/companies/158-logo-giphy_l.jpg?1400273381' })
+	          ),
+	          _react2.default.createElement(
+	            'h4',
+	            null,
+	            'Text in a modal'
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            'Created by: 4Bros1Appp'
+	          ),
+	          _react2.default.createElement('hr', null),
+	          _react2.default.createElement(
+	            _reactBootstrap.FormGroup,
+	            null,
+	            _react2.default.createElement(_reactBootstrap.FormControl, { type: 'text', placeholder: this.props.valueExample })
+	          )
+	        ),
+	        _react2.default.createElement(
+	          _reactBootstrap.Modal.Footer,
+	          null,
+	          'Some Footer Text',
+	          _react2.default.createElement(
+	            _reactBootstrap.Button,
+	            { onClick: this.close },
+	            'Close'
+	          )
+	        )
+	      )
+	    );
+	  }
+	});
+
+	exports.default = Example;
+
+/***/ },
+/* 605 */
+/***/ function(module, exports, __webpack_require__) {
+
+>>>>>>> youtube link - Image - Giphy Button
 	
 	/**
 	 * Module dependencies.
 	 */
 
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 	var url = __webpack_require__(605);
 	var parser = __webpack_require__(610);
 	var Manager = __webpack_require__(620);
 	var debug = __webpack_require__(607)('socket.io-client');
+=======
+	var url = __webpack_require__(606);
+	var parser = __webpack_require__(611);
+	var Manager = __webpack_require__(621);
+	var debug = __webpack_require__(608)('socket.io-client');
+>>>>>>> youtube link - Image - Giphy Button
 
 	/**
 	 * Module exports.
@@ -59050,12 +59573,21 @@
 	 * @api public
 	 */
 
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 	exports.Manager = __webpack_require__(620);
 	exports.Socket = __webpack_require__(649);
 
 
 /***/ },
 /* 605 */
+=======
+	exports.Manager = __webpack_require__(621);
+	exports.Socket = __webpack_require__(650);
+
+
+/***/ },
+/* 606 */
+>>>>>>> youtube link - Image - Giphy Button
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {
@@ -59063,8 +59595,13 @@
 	 * Module dependencies.
 	 */
 
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 	var parseuri = __webpack_require__(606);
 	var debug = __webpack_require__(607)('socket.io-client:url');
+=======
+	var parseuri = __webpack_require__(607);
+	var debug = __webpack_require__(608)('socket.io-client:url');
+>>>>>>> youtube link - Image - Giphy Button
 
 	/**
 	 * Module exports.
@@ -59137,6 +59674,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 /* 606 */
 /***/ function(module, exports) {
 
@@ -59183,6 +59721,54 @@
 
 /***/ },
 /* 607 */
+=======
+/* 607 */
+/***/ function(module, exports) {
+
+	/**
+	 * Parses an URI
+	 *
+	 * @author Steven Levithan <stevenlevithan.com> (MIT license)
+	 * @api private
+	 */
+
+	var re = /^(?:(?![^:@]+:[^:@\/]*@)(http|https|ws|wss):\/\/)?((?:(([^:@]*)(?::([^:@]*))?)?@)?((?:[a-f0-9]{0,4}:){2,7}[a-f0-9]{0,4}|[^:\/?#]*)(?::(\d*))?)(((\/(?:[^?#](?![^?#\/]*\.[^?#\/.]+(?:[?#]|$)))*\/?)?([^?#\/]*))(?:\?([^#]*))?(?:#(.*))?)/;
+
+	var parts = [
+	    'source', 'protocol', 'authority', 'userInfo', 'user', 'password', 'host', 'port', 'relative', 'path', 'directory', 'file', 'query', 'anchor'
+	];
+
+	module.exports = function parseuri(str) {
+	    var src = str,
+	        b = str.indexOf('['),
+	        e = str.indexOf(']');
+
+	    if (b != -1 && e != -1) {
+	        str = str.substring(0, b) + str.substring(b, e).replace(/:/g, ';') + str.substring(e, str.length);
+	    }
+
+	    var m = re.exec(str || ''),
+	        uri = {},
+	        i = 14;
+
+	    while (i--) {
+	        uri[parts[i]] = m[i] || '';
+	    }
+
+	    if (b != -1 && e != -1) {
+	        uri.source = src;
+	        uri.host = uri.host.substring(1, uri.host.length - 1).replace(/;/g, ':');
+	        uri.authority = uri.authority.replace('[', '').replace(']', '').replace(/;/g, ':');
+	        uri.ipv6uri = true;
+	    }
+
+	    return uri;
+	};
+
+
+/***/ },
+/* 608 */
+>>>>>>> youtube link - Image - Giphy Button
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {
@@ -59192,7 +59778,11 @@
 	 * Expose `debug()` as the module.
 	 */
 
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 	exports = module.exports = __webpack_require__(608);
+=======
+	exports = module.exports = __webpack_require__(609);
+>>>>>>> youtube link - Image - Giphy Button
 	exports.log = log;
 	exports.formatArgs = formatArgs;
 	exports.save = save;
@@ -59366,7 +59956,11 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 /* 608 */
+=======
+/* 609 */
+>>>>>>> youtube link - Image - Giphy Button
 /***/ function(module, exports, __webpack_require__) {
 
 	
@@ -59382,7 +59976,11 @@
 	exports.disable = disable;
 	exports.enable = enable;
 	exports.enabled = enabled;
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 	exports.humanize = __webpack_require__(609);
+=======
+	exports.humanize = __webpack_require__(610);
+>>>>>>> youtube link - Image - Giphy Button
 
 	/**
 	 * The currently active debug mode names, and names to skip.
@@ -59572,7 +60170,11 @@
 
 
 /***/ },
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 /* 609 */
+=======
+/* 610 */
+>>>>>>> youtube link - Image - Giphy Button
 /***/ function(module, exports) {
 
 	/**
@@ -59727,7 +60329,11 @@
 
 
 /***/ },
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 /* 610 */
+=======
+/* 611 */
+>>>>>>> youtube link - Image - Giphy Button
 /***/ function(module, exports, __webpack_require__) {
 
 	
@@ -59735,11 +60341,19 @@
 	 * Module dependencies.
 	 */
 
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 	var debug = __webpack_require__(611)('socket.io-parser');
 	var json = __webpack_require__(614);
 	var Emitter = __webpack_require__(616);
 	var binary = __webpack_require__(617);
 	var isBuf = __webpack_require__(619);
+=======
+	var debug = __webpack_require__(612)('socket.io-parser');
+	var json = __webpack_require__(615);
+	var Emitter = __webpack_require__(617);
+	var binary = __webpack_require__(618);
+	var isBuf = __webpack_require__(620);
+>>>>>>> youtube link - Image - Giphy Button
 
 	/**
 	 * Protocol version.
@@ -60137,7 +60751,11 @@
 
 
 /***/ },
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 /* 611 */
+=======
+/* 612 */
+>>>>>>> youtube link - Image - Giphy Button
 /***/ function(module, exports, __webpack_require__) {
 
 	
@@ -60147,7 +60765,11 @@
 	 * Expose `debug()` as the module.
 	 */
 
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 	exports = module.exports = __webpack_require__(612);
+=======
+	exports = module.exports = __webpack_require__(613);
+>>>>>>> youtube link - Image - Giphy Button
 	exports.log = log;
 	exports.formatArgs = formatArgs;
 	exports.save = save;
@@ -60311,7 +60933,11 @@
 
 
 /***/ },
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 /* 612 */
+=======
+/* 613 */
+>>>>>>> youtube link - Image - Giphy Button
 /***/ function(module, exports, __webpack_require__) {
 
 	
@@ -60327,7 +60953,11 @@
 	exports.disable = disable;
 	exports.enable = enable;
 	exports.enabled = enabled;
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 	exports.humanize = __webpack_require__(613);
+=======
+	exports.humanize = __webpack_require__(614);
+>>>>>>> youtube link - Image - Giphy Button
 
 	/**
 	 * The currently active debug mode names, and names to skip.
@@ -60514,7 +61144,11 @@
 
 
 /***/ },
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 /* 613 */
+=======
+/* 614 */
+>>>>>>> youtube link - Image - Giphy Button
 /***/ function(module, exports) {
 
 	/**
@@ -60645,14 +61279,22 @@
 
 
 /***/ },
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 /* 614 */
+=======
+/* 615 */
+>>>>>>> youtube link - Image - Giphy Button
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(module, global) {/*! JSON v3.3.2 | http://bestiejs.github.io/json3 | Copyright 2012-2014, Kit Cambridge | http://kit.mit-license.org */
 	;(function () {
 	  // Detect the `define` function exposed by asynchronous module loaders. The
 	  // strict `define` check is necessary for compatibility with `r.js`.
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 	  var isLoader = "function" === "function" && __webpack_require__(615);
+=======
+	  var isLoader = "function" === "function" && __webpack_require__(616);
+>>>>>>> youtube link - Image - Giphy Button
 
 	  // A set of types used to distinguish objects from primitives.
 	  var objectTypes = {
@@ -61554,15 +62196,26 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(491)(module), (function() { return this; }())))
 
 /***/ },
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 /* 615 */
 /***/ function(module, exports) {
 
 	/* WEBPACK VAR INJECTION */(function(__webpack_amd_options__) {module.exports = __webpack_amd_options__;
+=======
+/* 616 */
+/***/ function(module, exports) {
+
+	/* WEBPACK VAR INJECTION */(function(__webpack_amd_options__) {module.exports = __webpack_amd_options__;
+>>>>>>> youtube link - Image - Giphy Button
 
 	/* WEBPACK VAR INJECTION */}.call(exports, {}))
 
 /***/ },
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 /* 616 */
+=======
+/* 617 */
+>>>>>>> youtube link - Image - Giphy Button
 /***/ function(module, exports) {
 
 	
@@ -61732,7 +62385,11 @@
 
 
 /***/ },
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 /* 617 */
+=======
+/* 618 */
+>>>>>>> youtube link - Image - Giphy Button
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/*global Blob,File*/
@@ -61741,8 +62398,13 @@
 	 * Module requirements
 	 */
 
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 	var isArray = __webpack_require__(618);
 	var isBuf = __webpack_require__(619);
+=======
+	var isArray = __webpack_require__(619);
+	var isBuf = __webpack_require__(620);
+>>>>>>> youtube link - Image - Giphy Button
 
 	/**
 	 * Replaces every Buffer | ArrayBuffer in packet with a numbered placeholder.
@@ -61880,7 +62542,11 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 /* 618 */
+=======
+/* 619 */
+>>>>>>> youtube link - Image - Giphy Button
 /***/ function(module, exports) {
 
 	module.exports = Array.isArray || function (arr) {
@@ -61889,7 +62555,11 @@
 
 
 /***/ },
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 /* 619 */
+=======
+/* 620 */
+>>>>>>> youtube link - Image - Giphy Button
 /***/ function(module, exports) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {
@@ -61909,7 +62579,11 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 /* 620 */
+=======
+/* 621 */
+>>>>>>> youtube link - Image - Giphy Button
 /***/ function(module, exports, __webpack_require__) {
 
 	
@@ -61917,6 +62591,7 @@
 	 * Module dependencies.
 	 */
 
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 	var eio = __webpack_require__(621);
 	var Socket = __webpack_require__(649);
 	var Emitter = __webpack_require__(638);
@@ -61926,6 +62601,17 @@
 	var debug = __webpack_require__(607)('socket.io-client:manager');
 	var indexOf = __webpack_require__(647);
 	var Backoff = __webpack_require__(653);
+=======
+	var eio = __webpack_require__(622);
+	var Socket = __webpack_require__(650);
+	var Emitter = __webpack_require__(639);
+	var parser = __webpack_require__(611);
+	var on = __webpack_require__(652);
+	var bind = __webpack_require__(653);
+	var debug = __webpack_require__(608)('socket.io-client:manager');
+	var indexOf = __webpack_require__(648);
+	var Backoff = __webpack_require__(654);
+>>>>>>> youtube link - Image - Giphy Button
 
 	/**
 	 * IE6+ hasOwnProperty
@@ -62475,6 +63161,7 @@
 
 
 /***/ },
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 /* 621 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -62488,6 +63175,21 @@
 
 	
 	module.exports = __webpack_require__(623);
+=======
+/* 622 */
+/***/ function(module, exports, __webpack_require__) {
+
+	
+	module.exports = __webpack_require__(623);
+
+
+/***/ },
+/* 623 */
+/***/ function(module, exports, __webpack_require__) {
+
+	
+	module.exports = __webpack_require__(624);
+>>>>>>> youtube link - Image - Giphy Button
 
 	/**
 	 * Exports parser
@@ -62495,17 +63197,26 @@
 	 * @api public
 	 *
 	 */
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 	module.exports.parser = __webpack_require__(630);
 
 
 /***/ },
 /* 623 */
+=======
+	module.exports.parser = __webpack_require__(631);
+
+
+/***/ },
+/* 624 */
+>>>>>>> youtube link - Image - Giphy Button
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/**
 	 * Module dependencies.
 	 */
 
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 	var transports = __webpack_require__(624);
 	var Emitter = __webpack_require__(638);
 	var debug = __webpack_require__(642)('engine.io-client:socket');
@@ -62514,6 +63225,16 @@
 	var parseuri = __webpack_require__(606);
 	var parsejson = __webpack_require__(648);
 	var parseqs = __webpack_require__(639);
+=======
+	var transports = __webpack_require__(625);
+	var Emitter = __webpack_require__(639);
+	var debug = __webpack_require__(643)('engine.io-client:socket');
+	var index = __webpack_require__(648);
+	var parser = __webpack_require__(631);
+	var parseuri = __webpack_require__(607);
+	var parsejson = __webpack_require__(649);
+	var parseqs = __webpack_require__(640);
+>>>>>>> youtube link - Image - Giphy Button
 
 	/**
 	 * Module exports.
@@ -62645,9 +63366,15 @@
 	 */
 
 	Socket.Socket = Socket;
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 	Socket.Transport = __webpack_require__(629);
 	Socket.transports = __webpack_require__(624);
 	Socket.parser = __webpack_require__(630);
+=======
+	Socket.Transport = __webpack_require__(630);
+	Socket.transports = __webpack_require__(625);
+	Socket.parser = __webpack_require__(631);
+>>>>>>> youtube link - Image - Giphy Button
 
 	/**
 	 * Creates transport of the given type.
@@ -63244,17 +63971,28 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 /* 624 */
+=======
+/* 625 */
+>>>>>>> youtube link - Image - Giphy Button
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/**
 	 * Module dependencies
 	 */
 
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 	var XMLHttpRequest = __webpack_require__(625);
 	var XHR = __webpack_require__(627);
 	var JSONP = __webpack_require__(644);
 	var websocket = __webpack_require__(645);
+=======
+	var XMLHttpRequest = __webpack_require__(626);
+	var XHR = __webpack_require__(628);
+	var JSONP = __webpack_require__(645);
+	var websocket = __webpack_require__(646);
+>>>>>>> youtube link - Image - Giphy Button
 
 	/**
 	 * Export transports.
@@ -63304,12 +64042,20 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 /* 625 */
+=======
+/* 626 */
+>>>>>>> youtube link - Image - Giphy Button
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {// browser shim for xmlhttprequest module
 
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 	var hasCORS = __webpack_require__(626);
+=======
+	var hasCORS = __webpack_require__(627);
+>>>>>>> youtube link - Image - Giphy Button
 
 	module.exports = function (opts) {
 	  var xdomain = opts.xdomain;
@@ -63348,7 +64094,11 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 /* 626 */
+=======
+/* 627 */
+>>>>>>> youtube link - Image - Giphy Button
 /***/ function(module, exports) {
 
 	
@@ -63371,18 +64121,30 @@
 
 
 /***/ },
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 /* 627 */
+=======
+/* 628 */
+>>>>>>> youtube link - Image - Giphy Button
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/**
 	 * Module requirements.
 	 */
 
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 	var XMLHttpRequest = __webpack_require__(625);
 	var Polling = __webpack_require__(628);
 	var Emitter = __webpack_require__(638);
 	var inherit = __webpack_require__(640);
 	var debug = __webpack_require__(642)('engine.io-client:polling-xhr');
+=======
+	var XMLHttpRequest = __webpack_require__(626);
+	var Polling = __webpack_require__(629);
+	var Emitter = __webpack_require__(639);
+	var inherit = __webpack_require__(641);
+	var debug = __webpack_require__(643)('engine.io-client:polling-xhr');
+>>>>>>> youtube link - Image - Giphy Button
 
 	/**
 	 * Module exports.
@@ -63802,19 +64564,32 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 /* 628 */
+=======
+/* 629 */
+>>>>>>> youtube link - Image - Giphy Button
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Module dependencies.
 	 */
 
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 	var Transport = __webpack_require__(629);
 	var parseqs = __webpack_require__(639);
 	var parser = __webpack_require__(630);
 	var inherit = __webpack_require__(640);
 	var yeast = __webpack_require__(641);
 	var debug = __webpack_require__(642)('engine.io-client:polling');
+=======
+	var Transport = __webpack_require__(630);
+	var parseqs = __webpack_require__(640);
+	var parser = __webpack_require__(631);
+	var inherit = __webpack_require__(641);
+	var yeast = __webpack_require__(642);
+	var debug = __webpack_require__(643)('engine.io-client:polling');
+>>>>>>> youtube link - Image - Giphy Button
 
 	/**
 	 * Module exports.
@@ -63827,7 +64602,11 @@
 	 */
 
 	var hasXHR2 = (function () {
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 	  var XMLHttpRequest = __webpack_require__(625);
+=======
+	  var XMLHttpRequest = __webpack_require__(626);
+>>>>>>> youtube link - Image - Giphy Button
 	  var xhr = new XMLHttpRequest({ xdomain: false });
 	  return null != xhr.responseType;
 	})();
@@ -64053,15 +64832,24 @@
 
 
 /***/ },
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 /* 629 */
+=======
+/* 630 */
+>>>>>>> youtube link - Image - Giphy Button
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Module dependencies.
 	 */
 
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 	var parser = __webpack_require__(630);
 	var Emitter = __webpack_require__(638);
+=======
+	var parser = __webpack_require__(631);
+	var Emitter = __webpack_require__(639);
+>>>>>>> youtube link - Image - Giphy Button
 
 	/**
 	 * Module exports.
@@ -64216,13 +65004,18 @@
 
 
 /***/ },
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 /* 630 */
+=======
+/* 631 */
+>>>>>>> youtube link - Image - Giphy Button
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/**
 	 * Module dependencies.
 	 */
 
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 	var keys = __webpack_require__(631);
 	var hasBinary = __webpack_require__(632);
 	var sliceBuffer = __webpack_require__(633);
@@ -64232,6 +65025,17 @@
 	var base64encoder;
 	if (global && global.ArrayBuffer) {
 	  base64encoder = __webpack_require__(636);
+=======
+	var keys = __webpack_require__(632);
+	var hasBinary = __webpack_require__(633);
+	var sliceBuffer = __webpack_require__(634);
+	var after = __webpack_require__(635);
+	var utf8 = __webpack_require__(636);
+
+	var base64encoder;
+	if (global && global.ArrayBuffer) {
+	  base64encoder = __webpack_require__(637);
+>>>>>>> youtube link - Image - Giphy Button
 	}
 
 	/**
@@ -64289,7 +65093,11 @@
 	 * Create a blob api even for blob builder when vendor prefixes exist
 	 */
 
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 	var Blob = __webpack_require__(637);
+=======
+	var Blob = __webpack_require__(638);
+>>>>>>> youtube link - Image - Giphy Button
 
 	/**
 	 * Encodes a packet.
@@ -64832,7 +65640,11 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 /* 631 */
+=======
+/* 632 */
+>>>>>>> youtube link - Image - Giphy Button
 /***/ function(module, exports) {
 
 	
@@ -64857,7 +65669,11 @@
 
 
 /***/ },
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 /* 632 */
+=======
+/* 633 */
+>>>>>>> youtube link - Image - Giphy Button
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {
@@ -64865,7 +65681,11 @@
 	 * Module requirements.
 	 */
 
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 	var isArray = __webpack_require__(618);
+=======
+	var isArray = __webpack_require__(619);
+>>>>>>> youtube link - Image - Giphy Button
 
 	/**
 	 * Module exports.
@@ -64923,7 +65743,11 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 /* 633 */
+=======
+/* 634 */
+>>>>>>> youtube link - Image - Giphy Button
 /***/ function(module, exports) {
 
 	/**
@@ -64958,7 +65782,11 @@
 
 
 /***/ },
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 /* 634 */
+=======
+/* 635 */
+>>>>>>> youtube link - Image - Giphy Button
 /***/ function(module, exports) {
 
 	module.exports = after
@@ -64992,7 +65820,11 @@
 
 
 /***/ },
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 /* 635 */
+=======
+/* 636 */
+>>>>>>> youtube link - Image - Giphy Button
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(module, global) {/*! https://mths.be/wtf8 v1.0.0 by @mathias */
@@ -65231,7 +66063,11 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(491)(module), (function() { return this; }())))
 
 /***/ },
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 /* 636 */
+=======
+/* 637 */
+>>>>>>> youtube link - Image - Giphy Button
 /***/ function(module, exports) {
 
 	/*
@@ -65304,7 +66140,11 @@
 
 
 /***/ },
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 /* 637 */
+=======
+/* 638 */
+>>>>>>> youtube link - Image - Giphy Button
 /***/ function(module, exports) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/**
@@ -65407,6 +66247,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 /* 638 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -65620,6 +66461,221 @@
 
 /***/ },
 /* 640 */
+=======
+/* 639 */
+/***/ function(module, exports, __webpack_require__) {
+
+	
+	/**
+	 * Expose `Emitter`.
+	 */
+
+	if (true) {
+	  module.exports = Emitter;
+	}
+
+	/**
+	 * Initialize a new `Emitter`.
+	 *
+	 * @api public
+	 */
+
+	function Emitter(obj) {
+	  if (obj) return mixin(obj);
+	};
+
+	/**
+	 * Mixin the emitter properties.
+	 *
+	 * @param {Object} obj
+	 * @return {Object}
+	 * @api private
+	 */
+
+	function mixin(obj) {
+	  for (var key in Emitter.prototype) {
+	    obj[key] = Emitter.prototype[key];
+	  }
+	  return obj;
+	}
+
+	/**
+	 * Listen on the given `event` with `fn`.
+	 *
+	 * @param {String} event
+	 * @param {Function} fn
+	 * @return {Emitter}
+	 * @api public
+	 */
+
+	Emitter.prototype.on =
+	Emitter.prototype.addEventListener = function(event, fn){
+	  this._callbacks = this._callbacks || {};
+	  (this._callbacks['$' + event] = this._callbacks['$' + event] || [])
+	    .push(fn);
+	  return this;
+	};
+
+	/**
+	 * Adds an `event` listener that will be invoked a single
+	 * time then automatically removed.
+	 *
+	 * @param {String} event
+	 * @param {Function} fn
+	 * @return {Emitter}
+	 * @api public
+	 */
+
+	Emitter.prototype.once = function(event, fn){
+	  function on() {
+	    this.off(event, on);
+	    fn.apply(this, arguments);
+	  }
+
+	  on.fn = fn;
+	  this.on(event, on);
+	  return this;
+	};
+
+	/**
+	 * Remove the given callback for `event` or all
+	 * registered callbacks.
+	 *
+	 * @param {String} event
+	 * @param {Function} fn
+	 * @return {Emitter}
+	 * @api public
+	 */
+
+	Emitter.prototype.off =
+	Emitter.prototype.removeListener =
+	Emitter.prototype.removeAllListeners =
+	Emitter.prototype.removeEventListener = function(event, fn){
+	  this._callbacks = this._callbacks || {};
+
+	  // all
+	  if (0 == arguments.length) {
+	    this._callbacks = {};
+	    return this;
+	  }
+
+	  // specific event
+	  var callbacks = this._callbacks['$' + event];
+	  if (!callbacks) return this;
+
+	  // remove all handlers
+	  if (1 == arguments.length) {
+	    delete this._callbacks['$' + event];
+	    return this;
+	  }
+
+	  // remove specific handler
+	  var cb;
+	  for (var i = 0; i < callbacks.length; i++) {
+	    cb = callbacks[i];
+	    if (cb === fn || cb.fn === fn) {
+	      callbacks.splice(i, 1);
+	      break;
+	    }
+	  }
+	  return this;
+	};
+
+	/**
+	 * Emit `event` with the given args.
+	 *
+	 * @param {String} event
+	 * @param {Mixed} ...
+	 * @return {Emitter}
+	 */
+
+	Emitter.prototype.emit = function(event){
+	  this._callbacks = this._callbacks || {};
+	  var args = [].slice.call(arguments, 1)
+	    , callbacks = this._callbacks['$' + event];
+
+	  if (callbacks) {
+	    callbacks = callbacks.slice(0);
+	    for (var i = 0, len = callbacks.length; i < len; ++i) {
+	      callbacks[i].apply(this, args);
+	    }
+	  }
+
+	  return this;
+	};
+
+	/**
+	 * Return array of callbacks for `event`.
+	 *
+	 * @param {String} event
+	 * @return {Array}
+	 * @api public
+	 */
+
+	Emitter.prototype.listeners = function(event){
+	  this._callbacks = this._callbacks || {};
+	  return this._callbacks['$' + event] || [];
+	};
+
+	/**
+	 * Check if this emitter has `event` handlers.
+	 *
+	 * @param {String} event
+	 * @return {Boolean}
+	 * @api public
+	 */
+
+	Emitter.prototype.hasListeners = function(event){
+	  return !! this.listeners(event).length;
+	};
+
+
+/***/ },
+/* 640 */
+/***/ function(module, exports) {
+
+	/**
+	 * Compiles a querystring
+	 * Returns string representation of the object
+	 *
+	 * @param {Object}
+	 * @api private
+	 */
+
+	exports.encode = function (obj) {
+	  var str = '';
+
+	  for (var i in obj) {
+	    if (obj.hasOwnProperty(i)) {
+	      if (str.length) str += '&';
+	      str += encodeURIComponent(i) + '=' + encodeURIComponent(obj[i]);
+	    }
+	  }
+
+	  return str;
+	};
+
+	/**
+	 * Parses a simple querystring into an object
+	 *
+	 * @param {String} qs
+	 * @api private
+	 */
+
+	exports.decode = function(qs){
+	  var qry = {};
+	  var pairs = qs.split('&');
+	  for (var i = 0, l = pairs.length; i < l; i++) {
+	    var pair = pairs[i].split('=');
+	    qry[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1]);
+	  }
+	  return qry;
+	};
+
+
+/***/ },
+/* 641 */
+>>>>>>> youtube link - Image - Giphy Button
 /***/ function(module, exports) {
 
 	
@@ -65631,7 +66687,11 @@
 	};
 
 /***/ },
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 /* 641 */
+=======
+/* 642 */
+>>>>>>> youtube link - Image - Giphy Button
 /***/ function(module, exports) {
 
 	'use strict';
@@ -65705,7 +66765,11 @@
 
 
 /***/ },
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 /* 642 */
+=======
+/* 643 */
+>>>>>>> youtube link - Image - Giphy Button
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {
@@ -65715,7 +66779,11 @@
 	 * Expose `debug()` as the module.
 	 */
 
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 	exports = module.exports = __webpack_require__(643);
+=======
+	exports = module.exports = __webpack_require__(644);
+>>>>>>> youtube link - Image - Giphy Button
 	exports.log = log;
 	exports.formatArgs = formatArgs;
 	exports.save = save;
@@ -65889,7 +66957,11 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 /* 643 */
+=======
+/* 644 */
+>>>>>>> youtube link - Image - Giphy Button
 /***/ function(module, exports, __webpack_require__) {
 
 	
@@ -65905,7 +66977,11 @@
 	exports.disable = disable;
 	exports.enable = enable;
 	exports.enabled = enabled;
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 	exports.humanize = __webpack_require__(609);
+=======
+	exports.humanize = __webpack_require__(610);
+>>>>>>> youtube link - Image - Giphy Button
 
 	/**
 	 * The currently active debug mode names, and names to skip.
@@ -66095,7 +67171,11 @@
 
 
 /***/ },
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 /* 644 */
+=======
+/* 645 */
+>>>>>>> youtube link - Image - Giphy Button
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {
@@ -66103,8 +67183,13 @@
 	 * Module requirements.
 	 */
 
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 	var Polling = __webpack_require__(628);
 	var inherit = __webpack_require__(640);
+=======
+	var Polling = __webpack_require__(629);
+	var inherit = __webpack_require__(641);
+>>>>>>> youtube link - Image - Giphy Button
 
 	/**
 	 * Module exports.
@@ -66333,24 +67418,41 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 /* 645 */
+=======
+/* 646 */
+>>>>>>> youtube link - Image - Giphy Button
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/**
 	 * Module dependencies.
 	 */
 
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 	var Transport = __webpack_require__(629);
 	var parser = __webpack_require__(630);
 	var parseqs = __webpack_require__(639);
 	var inherit = __webpack_require__(640);
 	var yeast = __webpack_require__(641);
 	var debug = __webpack_require__(642)('engine.io-client:websocket');
+=======
+	var Transport = __webpack_require__(630);
+	var parser = __webpack_require__(631);
+	var parseqs = __webpack_require__(640);
+	var inherit = __webpack_require__(641);
+	var yeast = __webpack_require__(642);
+	var debug = __webpack_require__(643)('engine.io-client:websocket');
+>>>>>>> youtube link - Image - Giphy Button
 	var BrowserWebSocket = global.WebSocket || global.MozWebSocket;
 	var NodeWebSocket;
 	if (typeof window === 'undefined') {
 	  try {
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 	    NodeWebSocket = __webpack_require__(646);
+=======
+	    NodeWebSocket = __webpack_require__(647);
+>>>>>>> youtube link - Image - Giphy Button
 	  } catch (e) { }
 	}
 
@@ -66625,13 +67727,21 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 /* 646 */
+=======
+/* 647 */
+>>>>>>> youtube link - Image - Giphy Button
 /***/ function(module, exports) {
 
 	/* (ignored) */
 
 /***/ },
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 /* 647 */
+=======
+/* 648 */
+>>>>>>> youtube link - Image - Giphy Button
 /***/ function(module, exports) {
 
 	
@@ -66646,6 +67756,7 @@
 	};
 
 /***/ },
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 /* 648 */
 /***/ function(module, exports) {
 
@@ -66680,11 +67791,51 @@
 	      .replace(rvalidbraces, ''))) {
 	    return (new Function('return ' + data))();
 	  }
+=======
+/* 649 */
+/***/ function(module, exports) {
+
+	/* WEBPACK VAR INJECTION */(function(global) {/**
+	 * JSON parse.
+	 *
+	 * @see Based on jQuery#parseJSON (MIT) and JSON2
+	 * @api private
+	 */
+
+	var rvalidchars = /^[\],:{}\s]*$/;
+	var rvalidescape = /\\(?:["\\\/bfnrt]|u[0-9a-fA-F]{4})/g;
+	var rvalidtokens = /"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g;
+	var rvalidbraces = /(?:^|:|,)(?:\s*\[)+/g;
+	var rtrimLeft = /^\s+/;
+	var rtrimRight = /\s+$/;
+
+	module.exports = function parsejson(data) {
+	  if ('string' != typeof data || !data) {
+	    return null;
+	  }
+
+	  data = data.replace(rtrimLeft, '').replace(rtrimRight, '');
+
+	  // Attempt to parse using the native JSON parser first
+	  if (global.JSON && JSON.parse) {
+	    return JSON.parse(data);
+	  }
+
+	  if (rvalidchars.test(data.replace(rvalidescape, '@')
+	      .replace(rvalidtokens, ']')
+	      .replace(rvalidbraces, ''))) {
+	    return (new Function('return ' + data))();
+	  }
+>>>>>>> youtube link - Image - Giphy Button
 	};
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 /* 649 */
+=======
+/* 650 */
+>>>>>>> youtube link - Image - Giphy Button
 /***/ function(module, exports, __webpack_require__) {
 
 	
@@ -66692,6 +67843,7 @@
 	 * Module dependencies.
 	 */
 
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 	var parser = __webpack_require__(610);
 	var Emitter = __webpack_require__(638);
 	var toArray = __webpack_require__(650);
@@ -66699,6 +67851,15 @@
 	var bind = __webpack_require__(652);
 	var debug = __webpack_require__(607)('socket.io-client:socket');
 	var hasBin = __webpack_require__(632);
+=======
+	var parser = __webpack_require__(611);
+	var Emitter = __webpack_require__(639);
+	var toArray = __webpack_require__(651);
+	var on = __webpack_require__(652);
+	var bind = __webpack_require__(653);
+	var debug = __webpack_require__(608)('socket.io-client:socket');
+	var hasBin = __webpack_require__(633);
+>>>>>>> youtube link - Image - Giphy Button
 
 	/**
 	 * Module exports.
@@ -67109,7 +68270,11 @@
 
 
 /***/ },
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 /* 650 */
+=======
+/* 651 */
+>>>>>>> youtube link - Image - Giphy Button
 /***/ function(module, exports) {
 
 	module.exports = toArray
@@ -67128,7 +68293,11 @@
 
 
 /***/ },
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 /* 651 */
+=======
+/* 652 */
+>>>>>>> youtube link - Image - Giphy Button
 /***/ function(module, exports) {
 
 	
@@ -67158,7 +68327,11 @@
 
 
 /***/ },
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 /* 652 */
+=======
+/* 653 */
+>>>>>>> youtube link - Image - Giphy Button
 /***/ function(module, exports) {
 
 	/**
@@ -67187,7 +68360,11 @@
 
 
 /***/ },
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 /* 653 */
+=======
+/* 654 */
+>>>>>>> youtube link - Image - Giphy Button
 /***/ function(module, exports) {
 
 	
@@ -67278,14 +68455,190 @@
 
 
 /***/ },
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 /* 654 */
+=======
+/* 655 */
+/***/ function(module, exports) {
+
+	
+	/**
+	 * Expose `isUrl`.
+	 */
+
+	module.exports = isUrl;
+
+	/**
+	 * Matcher.
+	 */
+
+	var matcher = /^(?:\w+:)?\/\/([^\s\.]+\.\S{2}|localhost[\:?\d]*)\S*$/;
+
+	/**
+	 * Loosely validate a URL `string`.
+	 *
+	 * @param {String} string
+	 * @return {Boolean}
+	 */
+
+	function isUrl(string){
+	  return matcher.test(string);
+	}
+
+
+/***/ },
+/* 656 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var throttle = __webpack_require__(657);
+	var debounce = __webpack_require__(658);
+
+	module.exports = {
+		throttle: throttle,
+		debounce: debounce
+	};
+
+
+/***/ },
+/* 657 */
+/***/ function(module, exports) {
+
+	/* eslint-disable no-undefined,no-param-reassign,no-shadow */
+
+	/**
+	 * Throttle execution of a function. Especially useful for rate limiting
+	 * execution of handlers on events like resize and scroll.
+	 *
+	 * @param  {Number}    delay          A zero-or-greater delay in milliseconds. For event callbacks, values around 100 or 250 (or even higher) are most useful.
+	 * @param  {Boolean}   noTrailing     Optional, defaults to false. If noTrailing is true, callback will only execute every `delay` milliseconds while the
+	 *                                    throttled-function is being called. If noTrailing is false or unspecified, callback will be executed one final time
+	 *                                    after the last throttled-function call. (After the throttled-function has not been called for `delay` milliseconds,
+	 *                                    the internal counter is reset)
+	 * @param  {Function}  callback       A function to be executed after delay milliseconds. The `this` context and all arguments are passed through, as-is,
+	 *                                    to `callback` when the throttled-function is executed.
+	 * @param  {Boolean}   debounceMode   If `debounceMode` is true (at begin), schedule `clear` to execute after `delay` ms. If `debounceMode` is false (at end),
+	 *                                    schedule `callback` to execute after `delay` ms.
+	 *
+	 * @return {Function}  A new, throttled, function.
+	 */
+	module.exports = function ( delay, noTrailing, callback, debounceMode ) {
+
+		// After wrapper has stopped being called, this timeout ensures that
+		// `callback` is executed at the proper times in `throttle` and `end`
+		// debounce modes.
+		var timeoutID;
+
+		// Keep track of the last time `callback` was executed.
+		var lastExec = 0;
+
+		// `noTrailing` defaults to falsy.
+		if ( typeof noTrailing !== 'boolean' ) {
+			debounceMode = callback;
+			callback = noTrailing;
+			noTrailing = undefined;
+		}
+
+		// The `wrapper` function encapsulates all of the throttling / debouncing
+		// functionality and when executed will limit the rate at which `callback`
+		// is executed.
+		function wrapper () {
+
+			var self = this;
+			var elapsed = Number(new Date()) - lastExec;
+			var args = arguments;
+
+			// Execute `callback` and update the `lastExec` timestamp.
+			function exec () {
+				lastExec = Number(new Date());
+				callback.apply(self, args);
+			}
+
+			// If `debounceMode` is true (at begin) this is used to clear the flag
+			// to allow future `callback` executions.
+			function clear () {
+				timeoutID = undefined;
+			}
+
+			if ( debounceMode && !timeoutID ) {
+				// Since `wrapper` is being called for the first time and
+				// `debounceMode` is true (at begin), execute `callback`.
+				exec();
+			}
+
+			// Clear any existing timeout.
+			if ( timeoutID ) {
+				clearTimeout(timeoutID);
+			}
+
+			if ( debounceMode === undefined && elapsed > delay ) {
+				// In throttle mode, if `delay` time has been exceeded, execute
+				// `callback`.
+				exec();
+
+			} else if ( noTrailing !== true ) {
+				// In trailing throttle mode, since `delay` time has not been
+				// exceeded, schedule `callback` to execute `delay` ms after most
+				// recent execution.
+				//
+				// If `debounceMode` is true (at begin), schedule `clear` to execute
+				// after `delay` ms.
+				//
+				// If `debounceMode` is false (at end), schedule `callback` to
+				// execute after `delay` ms.
+				timeoutID = setTimeout(debounceMode ? clear : exec, debounceMode === undefined ? delay - elapsed : delay);
+			}
+
+		}
+
+		// Return the wrapper function.
+		return wrapper;
+
+	};
+
+
+/***/ },
+/* 658 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* eslint-disable no-undefined */
+
+	var throttle = __webpack_require__(657);
+
+	/**
+	 * Debounce execution of a function. Debouncing, unlike throttling,
+	 * guarantees that a function is only executed a single time, either at the
+	 * very beginning of a series of calls, or at the very end.
+	 *
+	 * @param  {Number}   delay         A zero-or-greater delay in milliseconds. For event callbacks, values around 100 or 250 (or even higher) are most useful.
+	 * @param  {Boolean}  atBegin       Optional, defaults to false. If atBegin is false or unspecified, callback will only be executed `delay` milliseconds
+	 *                                  after the last debounced-function call. If atBegin is true, callback will be executed only at the first debounced-function call.
+	 *                                  (After the throttled-function has not been called for `delay` milliseconds, the internal counter is reset).
+	 * @param  {Function} callback      A function to be executed after delay milliseconds. The `this` context and all arguments are passed through, as-is,
+	 *                                  to `callback` when the debounced-function is executed.
+	 *
+	 * @return {Function} A new, debounced function.
+	 */
+	module.exports = function ( delay, atBegin, callback ) {
+		return callback === undefined ? throttle(delay, atBegin, false) : throttle(delay, callback, atBegin !== false);
+	};
+
+
+/***/ },
+/* 659 */
+>>>>>>> youtube link - Image - Giphy Button
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 	var required = __webpack_require__(655)
 	  , lolcation = __webpack_require__(656)
 	  , qs = __webpack_require__(657)
+=======
+	var required = __webpack_require__(660)
+	  , lolcation = __webpack_require__(661)
+	  , qs = __webpack_require__(662)
+>>>>>>> youtube link - Image - Giphy Button
 	  , protocolre = /^([a-z][a-z0-9.+-]*:)?(\/\/)?([\S\s]*)/i;
 
 	/**
@@ -67641,7 +68994,11 @@
 
 
 /***/ },
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 /* 655 */
+=======
+/* 660 */
+>>>>>>> youtube link - Image - Giphy Button
 /***/ function(module, exports) {
 
 	'use strict';
@@ -67685,7 +69042,11 @@
 
 
 /***/ },
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 /* 656 */
+=======
+/* 661 */
+>>>>>>> youtube link - Image - Giphy Button
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {'use strict';
@@ -67717,7 +69078,11 @@
 	 */
 	module.exports = function lolcation(loc) {
 	  loc = loc || global.location || {};
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 	  URL = URL || __webpack_require__(654);
+=======
+	  URL = URL || __webpack_require__(659);
+>>>>>>> youtube link - Image - Giphy Button
 
 	  var finaldestination = {}
 	    , type = typeof loc
@@ -67745,7 +69110,11 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 /* 657 */
+=======
+/* 662 */
+>>>>>>> youtube link - Image - Giphy Button
 /***/ function(module, exports) {
 
 	'use strict';
@@ -67812,7 +69181,11 @@
 
 
 /***/ },
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 /* 658 */
+=======
+/* 663 */
+>>>>>>> youtube link - Image - Giphy Button
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -67833,7 +69206,11 @@
 
 	var _reactBootstrap = __webpack_require__(206);
 
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 	var _reactLoading = __webpack_require__(659);
+=======
+	var _reactLoading = __webpack_require__(664);
+>>>>>>> youtube link - Image - Giphy Button
 
 	var _reactLoading2 = _interopRequireDefault(_reactLoading);
 
@@ -68039,7 +69416,11 @@
 	exports.default = ChatSelection;
 
 /***/ },
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 /* 659 */
+=======
+/* 664 */
+>>>>>>> youtube link - Image - Giphy Button
 /***/ function(module, exports, __webpack_require__) {
 
 	(function webpackUniversalModuleDefinition(root, factory) {
@@ -68308,7 +69689,11 @@
 	;
 
 /***/ },
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 /* 660 */
+=======
+/* 665 */
+>>>>>>> youtube link - Image - Giphy Button
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -68335,6 +69720,7 @@
 
 	var _ChatJoinModal2 = _interopRequireDefault(_ChatJoinModal);
 
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 	var _PostEventModal = __webpack_require__(661);
 
 	var _PostEventModal2 = _interopRequireDefault(_PostEventModal);
@@ -68344,6 +69730,17 @@
 	var _EventList2 = _interopRequireDefault(_EventList);
 
 	var _socket = __webpack_require__(604);
+=======
+	var _PostEventModal = __webpack_require__(666);
+
+	var _PostEventModal2 = _interopRequireDefault(_PostEventModal);
+
+	var _EventList = __webpack_require__(667);
+
+	var _EventList2 = _interopRequireDefault(_EventList);
+
+	var _socket = __webpack_require__(605);
+>>>>>>> youtube link - Image - Giphy Button
 
 	var _socket2 = _interopRequireDefault(_socket);
 
@@ -68469,6 +69866,43 @@
 	                    'Description'
 	                  ),
 	                  _react2.default.createElement(
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
+=======
+	                    'div',
+	                    { className: 'gdWidget' },
+	                    _react2.default.createElement(
+	                      'a',
+	                      { href: 'https://www.glassdoor.com/api/api.htm?version=1&action=search-salaries&t.s=w-m&t.a=c&format=300x250', target: '_blank' },
+	                      'Search Salaries'
+	                    ),
+	                    ' or see',
+	                    _react2.default.createElement(
+	                      'a',
+	                      { href: 'https://www.glassdoor.com/Reviews/index.htm?&t.s=w-m&t.a=c', target: '_blank' },
+	                      'company reviews'
+	                    ),
+	                    ',',
+	                    _react2.default.createElement(
+	                      'a',
+	                      { href: 'https://www.glassdoor.com/Salaries/index.htm?&t.s=w-m&t.a=c', target: '_blank' },
+	                      'salary'
+	                    ),
+	                    ' info, and ',
+	                    _react2.default.createElement(
+	                      'a',
+	                      { href: 'https://www.glassdoor.com/Interview/index.htm?&t.s=w-m&t.a=c', target: '_blank' },
+	                      'interview questions'
+	                    ),
+	                    'for thousands of ',
+	                    _react2.default.createElement(
+	                      'a',
+	                      { href: 'https://www.glassdoor.com/index.htm?&t.s=w-m&t.a=c', target: '_blank' },
+	                      'jobs'
+	                    ),
+	                    '.'
+	                  ),
+	                  _react2.default.createElement(
+>>>>>>> youtube link - Image - Giphy Button
 	                    'p',
 	                    null,
 	                    _react2.default.createElement(
@@ -68538,7 +69972,11 @@
 	exports.default = Dashboard;
 
 /***/ },
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 /* 661 */
+=======
+/* 666 */
+>>>>>>> youtube link - Image - Giphy Button
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -68641,7 +70079,11 @@
 	exports.default = PostEventModal;
 
 /***/ },
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 /* 662 */
+=======
+/* 667 */
+>>>>>>> youtube link - Image - Giphy Button
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -68662,7 +70104,11 @@
 
 	var _axios2 = _interopRequireDefault(_axios);
 
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 	var _EventEntry = __webpack_require__(663);
+=======
+	var _EventEntry = __webpack_require__(668);
+>>>>>>> youtube link - Image - Giphy Button
 
 	var _EventEntry2 = _interopRequireDefault(_EventEntry);
 
@@ -68731,7 +70177,11 @@
 	exports.default = EventList;
 
 /***/ },
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 /* 663 */
+=======
+/* 668 */
+>>>>>>> youtube link - Image - Giphy Button
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -68816,7 +70266,11 @@
 	exports.default = EventEntry;
 
 /***/ },
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 /* 664 */
+=======
+/* 669 */
+>>>>>>> youtube link - Image - Giphy Button
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -68843,7 +70297,11 @@
 
 	var _ChatJoinModal2 = _interopRequireDefault(_ChatJoinModal);
 
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 	var _socket = __webpack_require__(604);
+=======
+	var _socket = __webpack_require__(605);
+>>>>>>> youtube link - Image - Giphy Button
 
 	var _socket2 = _interopRequireDefault(_socket);
 
@@ -68952,7 +70410,11 @@
 	exports.default = JobBoard;
 
 /***/ },
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 /* 665 */
+=======
+/* 670 */
+>>>>>>> youtube link - Image - Giphy Button
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -68979,7 +70441,11 @@
 
 	var _ChatJoinModal2 = _interopRequireDefault(_ChatJoinModal);
 
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 	var _socket = __webpack_require__(604);
+=======
+	var _socket = __webpack_require__(605);
+>>>>>>> youtube link - Image - Giphy Button
 
 	var _socket2 = _interopRequireDefault(_socket);
 
@@ -69003,6 +70469,7 @@
 	  function Jobpost(props) {
 	    _classCallCheck(this, Jobpost);
 
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 	    var _this = _possibleConstructorReturn(this, (Jobpost.__proto__ || Object.getPrototypeOf(Jobpost)).call(this, props));
 
 	    _this.submitJob = _this.submitJob.bind(_this);
@@ -69044,6 +70511,12 @@
 	      });
 	    }
 	  }, {
+=======
+	    return _possibleConstructorReturn(this, (Jobpost.__proto__ || Object.getPrototypeOf(Jobpost)).call(this, props));
+	  }
+
+	  _createClass(Jobpost, [{
+>>>>>>> youtube link - Image - Giphy Button
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
@@ -69085,6 +70558,7 @@
 	                    _react2.default.createElement(
 	                      _reactBootstrap.Col,
 	                      { sm: 10 },
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 	                      _react2.default.createElement(_reactBootstrap.FormControl, { type: 'jobTitle', id: 'jobTitle', placeholder: 'Enter Job Title' })
 	                    )
 	                  ),
@@ -69128,6 +70602,9 @@
 	                      _reactBootstrap.Col,
 	                      { sm: 10 },
 	                      _react2.default.createElement(_reactBootstrap.FormControl, { type: 'jobSalary', id: 'jobSalary', placeholder: 'Enter Job Salary ' })
+=======
+	                      _react2.default.createElement(_reactBootstrap.FormControl, { type: 'jobTitle', placeholder: 'JobTitle' })
+>>>>>>> youtube link - Image - Giphy Button
 	                    )
 	                  ),
 	                  _react2.default.createElement(
@@ -69141,7 +70618,11 @@
 	                    _react2.default.createElement(
 	                      _reactBootstrap.Col,
 	                      { sm: 10 },
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 	                      _react2.default.createElement(_reactBootstrap.FormControl, { type: 'jobLink', id: 'jobLink', placeholder: 'Enter Job Posting Link' })
+=======
+	                      _react2.default.createElement(_reactBootstrap.FormControl, { type: 'jobLink', placeholder: 'jobLink' })
+>>>>>>> youtube link - Image - Giphy Button
 	                    )
 	                  ),
 	                  _react2.default.createElement(
@@ -69152,7 +70633,11 @@
 	                      { smOffset: 2, sm: 10 },
 	                      _react2.default.createElement(
 	                        _reactBootstrap.Button,
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 	                        { onClick: this.submitJob, type: 'submit' },
+=======
+	                        { type: 'submit' },
+>>>>>>> youtube link - Image - Giphy Button
 	                        'Post Job'
 	                      )
 	                    )
@@ -69172,7 +70657,11 @@
 	exports.default = Jobpost;
 
 /***/ },
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 /* 666 */
+=======
+/* 671 */
+>>>>>>> youtube link - Image - Giphy Button
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -69199,6 +70688,7 @@
 
 	var _ChatJoinModal2 = _interopRequireDefault(_ChatJoinModal);
 
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 	var _UserProfileBasicInfoContainer = __webpack_require__(667);
 
 	var _UserProfileBasicInfoContainer2 = _interopRequireDefault(_UserProfileBasicInfoContainer);
@@ -69212,6 +70702,21 @@
 	var _UserProfilePictureColumn2 = _interopRequireDefault(_UserProfilePictureColumn);
 
 	var _socket = __webpack_require__(604);
+=======
+	var _UserProfileBasicInfoContainer = __webpack_require__(672);
+
+	var _UserProfileBasicInfoContainer2 = _interopRequireDefault(_UserProfileBasicInfoContainer);
+
+	var _UserProfileNav = __webpack_require__(673);
+
+	var _UserProfileNav2 = _interopRequireDefault(_UserProfileNav);
+
+	var _UserProfilePictureColumn = __webpack_require__(674);
+
+	var _UserProfilePictureColumn2 = _interopRequireDefault(_UserProfilePictureColumn);
+
+	var _socket = __webpack_require__(605);
+>>>>>>> youtube link - Image - Giphy Button
 
 	var _socket2 = _interopRequireDefault(_socket);
 
@@ -69277,7 +70782,11 @@
 	exports.default = UserProfile;
 
 /***/ },
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 /* 667 */
+=======
+/* 672 */
+>>>>>>> youtube link - Image - Giphy Button
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -69304,7 +70813,11 @@
 
 	var _ChatJoinModal2 = _interopRequireDefault(_ChatJoinModal);
 
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 	var _socket = __webpack_require__(604);
+=======
+	var _socket = __webpack_require__(605);
+>>>>>>> youtube link - Image - Giphy Button
 
 	var _socket2 = _interopRequireDefault(_socket);
 
@@ -69409,7 +70922,11 @@
 	exports.default = UserProfileBasicInfo;
 
 /***/ },
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 /* 668 */
+=======
+/* 673 */
+>>>>>>> youtube link - Image - Giphy Button
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -69628,7 +71145,11 @@
 	//       </Col>
 
 /***/ },
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 /* 669 */
+=======
+/* 674 */
+>>>>>>> youtube link - Image - Giphy Button
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -69722,6 +71243,10 @@
 	exports.default = UserProfilePictureColumn;
 
 /***/ }
+<<<<<<< cab722ab76753ede4eace00f2cbe0a4535ba373f
 /******/ ]);
 =======
 >>>>>>> added in create a user view
+=======
+/******/ ]);
+>>>>>>> youtube link - Image - Giphy Button

@@ -62,13 +62,11 @@ class Jobpost extends Component {
   }
   render() {
     return (
-      <div>
-        <Jumbotron>
-          <div className="container">
-            <h1>Know of a Job?!</h1>
-            <p>Help others find a job by posting to our comunity</p>
-            <Grid>
-              <Row>
+      <Modal show={this.props.show}
+        onHide={this.props.toggleModal}>
+        <Modal.Body>
+            <h1>Post A Job</h1>
+            {/* <p>Help others find a job by posting to our comunity</p> */}
                 <Form horizontal>
                   <FormGroup controlId="formHorizontalJobTitle">
                     <Col componentClass={ControlLabel} sm={2}>
@@ -121,11 +119,9 @@ class Jobpost extends Component {
                     </Col>
                   </FormGroup>
                 </Form>
-              </Row>
-            </Grid>
-          </div>
-        </Jumbotron>
-      </div>
+        </Modal.Body>
+
+      </Modal>
     )
   }
 }

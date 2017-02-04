@@ -4,6 +4,9 @@ import UserItem from './UserItem';
 import ChatJoinModal from './ChatJoinModal.js';
 import PostEventModal from './PostEventModal.js'
 import EventList from './EventList.js'
+import PostJobModal from './Jobpost.js'
+import PostResourceModal from './ResourcePost.js'
+
 import io from 'socket.io-client';
 import axios from 'axios';
 import { Modal } from 'react-bootstrap';
@@ -27,10 +30,15 @@ class Dashboard extends Component {
 
     this.state={
       showPostEventModal: false,
-      showEventlist: false
+      showEventlist: false,
+      showPostJobModal: false,
+      showPostResourceModal: false
     }
     this.togglePostEventModal = this.togglePostEventModal.bind(this)
     this.toggleEventList = this.toggleEventList.bind(this)
+    this.togglePostJobModal = this.togglePostJobModal.bind(this)
+    this.togglePostResourceModal = this.togglePostResourceModal.bind(this)
+
   }
 
   togglePostEventModal() {
@@ -44,6 +52,16 @@ class Dashboard extends Component {
       showEventlist: !this.state.showEventlist
     })
   }
+  togglePostJobModal() {
+    this.setState({
+      showPostJobModal: !this.state.showPostJobModal
+    })
+  }
+  togglePostResourceModal() {
+    this.setState({
+      showPostResourceModal: !this.state.showPostResourceModal
+    })
+  }
 
   render() {
     return (
@@ -53,7 +71,8 @@ class Dashboard extends Component {
             <h1>Dashboard</h1>
             <p>Fast track your goals using our resource dashboard</p>
             <Grid>
-              <Col xs={6} md={4}>
+              <Row>
+              <Col xs={6} md={6}>
                    <Thumbnail alt="242x200" src="/images/events.jpeg">
                      <h3>Events</h3>
                      <p>Description</p>
@@ -63,19 +82,21 @@ class Dashboard extends Component {
                      </p>
                    </Thumbnail>
                  </Col>
-                 <Col xs={6} md={4}>
-                   <Thumbnail alt="242x200" src="/images/job.jpg">
-                     <h3>Jobs</h3>
+                 <Col xs={6} md={6}>
+                   <Thumbnail  alt="242x200" src="/images/resource.png">
+                     <h3>Resources</h3>
                      <p>Description</p>
+
                      <p>
-                       <Button bsStyle="primary"
-                         onClick={() => { this.props.showJobs() }}>View Jobs</Button>&nbsp;
-                       <Button bsStyle="default"
-                         onClick={() => { this.props.postJob() }}>Post Job</Button>
+                       <Button bsStyle="primary">View Resource</Button>&nbsp;
+                       <Button onClick={this.togglePostResourceModal} bsStyle="default">Post Resource</Button>
                      </p>
                    </Thumbnail>
+
                  </Col>
-                 <Col xs={6} md={4}>
+               </Row>
+               <Row>
+                 <Col xs={6} md={6}>
                    <Thumbnail  alt="242x200" src="/images/codeshare.png">
                      <h3>Lectures</h3>
                      <p>Description</p>
@@ -86,6 +107,19 @@ class Dashboard extends Component {
                      </p>
                    </Thumbnail>
                  </Col>
+                 <Col xs={6} md={6}>
+                   <Thumbnail alt="242x200" src="/images/job.jpg">
+                     <h3>Jobs</h3>
+                     <p>Description</p>
+                     <p>
+                       <Button bsStyle="primary"
+                         onClick={() => { this.props.showJobs() }}>View Jobs</Button>&nbsp;
+                       <Button bsStyle="default"
+                         onClick={() => { this.togglePostJobModal() }}>Post Job</Button>
+                     </p>
+                   </Thumbnail>
+                 </Col>
+               </Row>
             </Grid>
           </div>
         </Jumbotron>
@@ -93,7 +127,12 @@ class Dashboard extends Component {
         <PostEventModal show={this.state.showPostEventModal} toggleModal={this.togglePostEventModal}/>
         : this.state.showEventlist ?
         <EventList />
-        : <div></div>}
+        : this.state.showPostJobModal ?
+        <PostJobModal show={this.state.showPostJobModal} toggleModal={this.togglePostResourceModal}/>
+        : this.state.showPostResourceModal ?
+        <PostResourceModal show={this.state.showPostResourceModal} toggleModal={this.togglePostResourceModal}/>
+        :
+        <div></div>}
       </div>
 
     )

@@ -15,11 +15,14 @@ import { Form } from 'react-bootstrap';
 import { FormGroup } from 'react-bootstrap';
 import { FormControl } from 'react-bootstrap';
 import { Jumbotron } from 'react-bootstrap';
-import { Thumbnail } from 'react-bootstrap';
+import { Thumbnail, ListGroup, ListGroupItem } from 'react-bootstrap';
 
 class JobBoard extends Component {
   constructor(props){
     super(props);
+    this.state={
+      jobs: []
+    }
 
   }
   componentDidMount() {
@@ -28,18 +31,40 @@ class JobBoard extends Component {
     axios.get('/core/jobs')
     .then(result=>{
       console.log('got the jobs ', result.data)
+      context.setState({
+        jobs: result.data
+      })
+    })
+    .catch(err=> {
+      console.log('error fetching jobs', err)
     })
   }
 
   render() {
+    console.log('in render of joblist and jobs are ', this.state.jobs)
+    var jobs = this.state.jobs
     return (
       <div>
         <Jumbotron>
-          <div className="container">
+          <div className="container jobContainer">
             <h1>Job Board</h1>
             <Grid>
               <Row>
                 <Col xs={12} md={8}>
+
+                  <ListGroup>
+                  {jobs.map((job, i) => (
+                    <ListGroupItem key={i}>
+                      <a href={job.link} target="_blank"><h3>{job.title}</h3></a>
+
+
+                      <h4>{job.company}</h4>
+                        <h5>{job.location}</h5>
+                          <h5>{job.salary}</h5>
+
+                    </ListGroupItem>
+                  ))}
+                </ListGroup>
                   </Col>
                   <Col xs={6} md={4} >
                 <div className="gdWidget">

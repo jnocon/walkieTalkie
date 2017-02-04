@@ -30,8 +30,7 @@ class EventList extends Component {
     console.log('in render of eventlist and events are', this.state.events)
     var events = this.state.events
     return (    
-      <div> 
-        <p>hello world</p>
+      <div className = "eventList"> 
         {events.map((event, i) => (
           <EventEntry 
           event = {event}

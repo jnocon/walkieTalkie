@@ -21529,23 +21529,23 @@
 
 	var _Chatroom2 = _interopRequireDefault(_Chatroom);
 
-	var _ChatSelection = __webpack_require__(658);
+	var _ChatSelection = __webpack_require__(662);
 
 	var _ChatSelection2 = _interopRequireDefault(_ChatSelection);
 
-	var _Dashboard = __webpack_require__(660);
+	var _Dashboard = __webpack_require__(664);
 
 	var _Dashboard2 = _interopRequireDefault(_Dashboard);
 
-	var _JobBoard = __webpack_require__(664);
+	var _JobBoard = __webpack_require__(668);
 
 	var _JobBoard2 = _interopRequireDefault(_JobBoard);
 
-	var _jobpost = __webpack_require__(665);
+	var _jobpost = __webpack_require__(669);
 
 	var _jobpost2 = _interopRequireDefault(_jobpost);
 
-	var _userProfile = __webpack_require__(666);
+	var _userProfile = __webpack_require__(670);
 
 	var _userProfile2 = _interopRequireDefault(_userProfile);
 
@@ -21577,7 +21577,6 @@
 	      jobBoard_view: false,
 	      jobpost_view: false,
 	      userprofile_view: false
-
 	    };
 	    _this.componentWillMount = _this.componentWillMount.bind(_this);
 	    _this.handleUserSignupLogin = _this.handleUserSignupLogin.bind(_this);
@@ -45323,11 +45322,11 @@
 
 	var _reactYoutubePlayer2 = _interopRequireDefault(_reactYoutubePlayer);
 
-	var _isUrl = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"is-url\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+	var _isUrl = __webpack_require__(654);
 
 	var _isUrl2 = _interopRequireDefault(_isUrl);
 
-	var _throttleDebounce = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"throttle-debounce\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+	var _throttleDebounce = __webpack_require__(655);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -45342,7 +45341,7 @@
 	//i made this
 
 
-	var URL = __webpack_require__(654);
+	var URL = __webpack_require__(658);
 
 	var Chatroom = function (_Component) {
 	  _inherits(Chatroom, _Component);
@@ -67279,13 +67278,179 @@
 
 /***/ },
 /* 654 */
+/***/ function(module, exports) {
+
+	
+	/**
+	 * Expose `isUrl`.
+	 */
+
+	module.exports = isUrl;
+
+	/**
+	 * Matcher.
+	 */
+
+	var matcher = /^(?:\w+:)?\/\/([^\s\.]+\.\S{2}|localhost[\:?\d]*)\S*$/;
+
+	/**
+	 * Loosely validate a URL `string`.
+	 *
+	 * @param {String} string
+	 * @return {Boolean}
+	 */
+
+	function isUrl(string){
+	  return matcher.test(string);
+	}
+
+
+/***/ },
+/* 655 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var throttle = __webpack_require__(656);
+	var debounce = __webpack_require__(657);
+
+	module.exports = {
+		throttle: throttle,
+		debounce: debounce
+	};
+
+
+/***/ },
+/* 656 */
+/***/ function(module, exports) {
+
+	/* eslint-disable no-undefined,no-param-reassign,no-shadow */
+
+	/**
+	 * Throttle execution of a function. Especially useful for rate limiting
+	 * execution of handlers on events like resize and scroll.
+	 *
+	 * @param  {Number}    delay          A zero-or-greater delay in milliseconds. For event callbacks, values around 100 or 250 (or even higher) are most useful.
+	 * @param  {Boolean}   noTrailing     Optional, defaults to false. If noTrailing is true, callback will only execute every `delay` milliseconds while the
+	 *                                    throttled-function is being called. If noTrailing is false or unspecified, callback will be executed one final time
+	 *                                    after the last throttled-function call. (After the throttled-function has not been called for `delay` milliseconds,
+	 *                                    the internal counter is reset)
+	 * @param  {Function}  callback       A function to be executed after delay milliseconds. The `this` context and all arguments are passed through, as-is,
+	 *                                    to `callback` when the throttled-function is executed.
+	 * @param  {Boolean}   debounceMode   If `debounceMode` is true (at begin), schedule `clear` to execute after `delay` ms. If `debounceMode` is false (at end),
+	 *                                    schedule `callback` to execute after `delay` ms.
+	 *
+	 * @return {Function}  A new, throttled, function.
+	 */
+	module.exports = function ( delay, noTrailing, callback, debounceMode ) {
+
+		// After wrapper has stopped being called, this timeout ensures that
+		// `callback` is executed at the proper times in `throttle` and `end`
+		// debounce modes.
+		var timeoutID;
+
+		// Keep track of the last time `callback` was executed.
+		var lastExec = 0;
+
+		// `noTrailing` defaults to falsy.
+		if ( typeof noTrailing !== 'boolean' ) {
+			debounceMode = callback;
+			callback = noTrailing;
+			noTrailing = undefined;
+		}
+
+		// The `wrapper` function encapsulates all of the throttling / debouncing
+		// functionality and when executed will limit the rate at which `callback`
+		// is executed.
+		function wrapper () {
+
+			var self = this;
+			var elapsed = Number(new Date()) - lastExec;
+			var args = arguments;
+
+			// Execute `callback` and update the `lastExec` timestamp.
+			function exec () {
+				lastExec = Number(new Date());
+				callback.apply(self, args);
+			}
+
+			// If `debounceMode` is true (at begin) this is used to clear the flag
+			// to allow future `callback` executions.
+			function clear () {
+				timeoutID = undefined;
+			}
+
+			if ( debounceMode && !timeoutID ) {
+				// Since `wrapper` is being called for the first time and
+				// `debounceMode` is true (at begin), execute `callback`.
+				exec();
+			}
+
+			// Clear any existing timeout.
+			if ( timeoutID ) {
+				clearTimeout(timeoutID);
+			}
+
+			if ( debounceMode === undefined && elapsed > delay ) {
+				// In throttle mode, if `delay` time has been exceeded, execute
+				// `callback`.
+				exec();
+
+			} else if ( noTrailing !== true ) {
+				// In trailing throttle mode, since `delay` time has not been
+				// exceeded, schedule `callback` to execute `delay` ms after most
+				// recent execution.
+				//
+				// If `debounceMode` is true (at begin), schedule `clear` to execute
+				// after `delay` ms.
+				//
+				// If `debounceMode` is false (at end), schedule `callback` to
+				// execute after `delay` ms.
+				timeoutID = setTimeout(debounceMode ? clear : exec, debounceMode === undefined ? delay - elapsed : delay);
+			}
+
+		}
+
+		// Return the wrapper function.
+		return wrapper;
+
+	};
+
+
+/***/ },
+/* 657 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* eslint-disable no-undefined */
+
+	var throttle = __webpack_require__(656);
+
+	/**
+	 * Debounce execution of a function. Debouncing, unlike throttling,
+	 * guarantees that a function is only executed a single time, either at the
+	 * very beginning of a series of calls, or at the very end.
+	 *
+	 * @param  {Number}   delay         A zero-or-greater delay in milliseconds. For event callbacks, values around 100 or 250 (or even higher) are most useful.
+	 * @param  {Boolean}  atBegin       Optional, defaults to false. If atBegin is false or unspecified, callback will only be executed `delay` milliseconds
+	 *                                  after the last debounced-function call. If atBegin is true, callback will be executed only at the first debounced-function call.
+	 *                                  (After the throttled-function has not been called for `delay` milliseconds, the internal counter is reset).
+	 * @param  {Function} callback      A function to be executed after delay milliseconds. The `this` context and all arguments are passed through, as-is,
+	 *                                  to `callback` when the debounced-function is executed.
+	 *
+	 * @return {Function} A new, debounced function.
+	 */
+	module.exports = function ( delay, atBegin, callback ) {
+		return callback === undefined ? throttle(delay, atBegin, false) : throttle(delay, callback, atBegin !== false);
+	};
+
+
+/***/ },
+/* 658 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var required = __webpack_require__(655)
-	  , lolcation = __webpack_require__(656)
-	  , qs = __webpack_require__(657)
+	var required = __webpack_require__(659)
+	  , lolcation = __webpack_require__(660)
+	  , qs = __webpack_require__(661)
 	  , protocolre = /^([a-z][a-z0-9.+-]*:)?(\/\/)?([\S\s]*)/i;
 
 	/**
@@ -67641,7 +67806,7 @@
 
 
 /***/ },
-/* 655 */
+/* 659 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -67685,7 +67850,7 @@
 
 
 /***/ },
-/* 656 */
+/* 660 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {'use strict';
@@ -67717,7 +67882,7 @@
 	 */
 	module.exports = function lolcation(loc) {
 	  loc = loc || global.location || {};
-	  URL = URL || __webpack_require__(654);
+	  URL = URL || __webpack_require__(658);
 
 	  var finaldestination = {}
 	    , type = typeof loc
@@ -67745,7 +67910,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 657 */
+/* 661 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -67812,7 +67977,7 @@
 
 
 /***/ },
-/* 658 */
+/* 662 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -67833,7 +67998,7 @@
 
 	var _reactBootstrap = __webpack_require__(206);
 
-	var _reactLoading = __webpack_require__(659);
+	var _reactLoading = __webpack_require__(663);
 
 	var _reactLoading2 = _interopRequireDefault(_reactLoading);
 
@@ -68039,7 +68204,7 @@
 	exports.default = ChatSelection;
 
 /***/ },
-/* 659 */
+/* 663 */
 /***/ function(module, exports, __webpack_require__) {
 
 	(function webpackUniversalModuleDefinition(root, factory) {
@@ -68308,7 +68473,7 @@
 	;
 
 /***/ },
-/* 660 */
+/* 664 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -68335,11 +68500,11 @@
 
 	var _ChatJoinModal2 = _interopRequireDefault(_ChatJoinModal);
 
-	var _PostEventModal = __webpack_require__(661);
+	var _PostEventModal = __webpack_require__(665);
 
 	var _PostEventModal2 = _interopRequireDefault(_PostEventModal);
 
-	var _EventList = __webpack_require__(662);
+	var _EventList = __webpack_require__(666);
 
 	var _EventList2 = _interopRequireDefault(_EventList);
 
@@ -68538,7 +68703,7 @@
 	exports.default = Dashboard;
 
 /***/ },
-/* 661 */
+/* 665 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -68600,10 +68765,10 @@
 	        }
 	      }).then(function (result) {
 	        console.log('result is', result);
+	        url.value = '';
 	      }).catch(function (error) {
 	        console.log('error in posting event to database', error);
 	      });
-	      url.value = '';
 	    }
 	  }, {
 	    key: 'render',
@@ -68641,7 +68806,7 @@
 	exports.default = PostEventModal;
 
 /***/ },
-/* 662 */
+/* 666 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -68662,7 +68827,7 @@
 
 	var _axios2 = _interopRequireDefault(_axios);
 
-	var _EventEntry = __webpack_require__(663);
+	var _EventEntry = __webpack_require__(667);
 
 	var _EventEntry2 = _interopRequireDefault(_EventEntry);
 
@@ -68696,7 +68861,7 @@
 	      _axios2.default.get('/findAllEvents').then(function (result) {
 	        console.log('received these events from eventlist axios call', result.data);
 	        context.setState({
-	          events: result.data[0]
+	          events: result.data
 	        });
 	      }).catch(function (err) {
 	        console.log('error fetching events', err);
@@ -68709,15 +68874,10 @@
 	      var events = this.state.events;
 	      return _react2.default.createElement(
 	        'div',
-	        null,
-	        _react2.default.createElement(
-	          'p',
-	          null,
-	          'hello world'
-	        ),
+	        { className: 'eventList' },
 	        events.map(function (event, i) {
 	          return _react2.default.createElement(_EventEntry2.default, {
-	            eventUrl: event.url,
+	            event: event,
 	            key: i
 	          });
 	        })
@@ -68731,7 +68891,7 @@
 	exports.default = EventList;
 
 /***/ },
-/* 663 */
+/* 667 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -68789,13 +68949,57 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
+	      var event = this.props.event;
 	      return _react2.default.createElement(
 	        'div',
-	        null,
+	        { className: 'event' },
 	        _react2.default.createElement(
-	          _reactBootstrap.Button,
-	          { onClick: this.toggleModal },
-	          'show event'
+	          _reactBootstrap.Grid,
+	          null,
+	          _react2.default.createElement(
+	            _reactBootstrap.Row,
+	            null,
+	            _react2.default.createElement(
+	              _reactBootstrap.Col,
+	              { xs: 5, md: 5 },
+	              _react2.default.createElement(
+	                'h2',
+	                null,
+	                event.title
+	              ),
+	              _react2.default.createElement(
+	                'p',
+	                null,
+	                event.organizer,
+	                ' at ',
+	                event.location
+	              ),
+	              _react2.default.createElement(
+	                _reactBootstrap.Button,
+	                { onClick: this.toggleModal },
+	                'show event'
+	              ),
+	              _react2.default.createElement(
+	                'a',
+	                { href: event.url, target: '_blank', style: { padding: 20 + 'px' } },
+	                'See on eventbrite'
+	              )
+	            ),
+	            _react2.default.createElement(
+	              _reactBootstrap.Col,
+	              { xs: 7, md: 7 },
+	              _react2.default.createElement(
+	                'h2',
+	                null,
+	                'Description'
+	              ),
+	              _react2.default.createElement(
+	                'p',
+	                null,
+	                event.description
+	              )
+	            )
+	          )
 	        ),
 	        this.state.showModal ? _react2.default.createElement(
 	          _reactBootstrap.Modal,
@@ -68803,7 +69007,7 @@
 	          _react2.default.createElement(
 	            _reactBootstrap.Modal.Body,
 	            null,
-	            _react2.default.createElement('iframe', { src: this.props.eventUrl, width: '98%', height: '600px' })
+	            _react2.default.createElement('iframe', { src: event.url, width: '98%', height: '600px' })
 	          )
 	        ) : _react2.default.createElement('div', null)
 	      );
@@ -68816,7 +69020,7 @@
 	exports.default = EventEntry;
 
 /***/ },
-/* 664 */
+/* 668 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -68952,7 +69156,7 @@
 	exports.default = JobBoard;
 
 /***/ },
-/* 665 */
+/* 669 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -69172,7 +69376,7 @@
 	exports.default = Jobpost;
 
 /***/ },
-/* 666 */
+/* 670 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -69199,15 +69403,15 @@
 
 	var _ChatJoinModal2 = _interopRequireDefault(_ChatJoinModal);
 
-	var _UserProfileBasicInfoContainer = __webpack_require__(667);
+	var _UserProfileBasicInfoContainer = __webpack_require__(671);
 
 	var _UserProfileBasicInfoContainer2 = _interopRequireDefault(_UserProfileBasicInfoContainer);
 
-	var _UserProfileNav = __webpack_require__(668);
+	var _UserProfileNav = __webpack_require__(672);
 
 	var _UserProfileNav2 = _interopRequireDefault(_UserProfileNav);
 
-	var _UserProfilePictureColumn = __webpack_require__(669);
+	var _UserProfilePictureColumn = __webpack_require__(673);
 
 	var _UserProfilePictureColumn2 = _interopRequireDefault(_UserProfilePictureColumn);
 
@@ -69277,7 +69481,7 @@
 	exports.default = UserProfile;
 
 /***/ },
-/* 667 */
+/* 671 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -69409,7 +69613,7 @@
 	exports.default = UserProfileBasicInfo;
 
 /***/ },
-/* 668 */
+/* 672 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -69628,7 +69832,7 @@
 	//       </Col>
 
 /***/ },
-/* 669 */
+/* 673 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';

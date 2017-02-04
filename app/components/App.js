@@ -22,7 +22,12 @@ class App extends React.Component {
       mounted : false,
       dashboard_view : false,
       jobBoard_view : false,
+
       resource_view : false,
+
+      jobpost_view : false,
+
+
       userprofile_view: false
 
     }
@@ -165,6 +170,10 @@ class App extends React.Component {
      chat_view: false,
      userprofile_view: false
    })
+
+
+
+
  }
 
  handleUserProfileClick() {
@@ -187,7 +196,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+            <div>
         <ViewNavBar logout = {this.handleUserLogout}
                     home = {this.handleChatExit}
                     userId = {this.state.userId}
@@ -202,11 +211,19 @@ class App extends React.Component {
                                              roomId = {this.state.roomId}
                                              name = {this.state.name}
                                              searchResults = {this.state.roomSearch}/>
+
         : this.state.userprofile_view ? <UserProfile userId = {this.state.userId} />
         : this.state.dashboard_view ? <Dashboard showJobs = {this.handleJobBoardClick}
                                                  showResources = {this.handleResourceClick}/>
         : this.state.jobBoard_view ? <JobBoard/>
       : this.state.resource_view ? <ResourceList/>
+
+        : this.state.userprofile_view ? <UserProfile />
+        : this.state.dashboard_view ? <Dashboard showJobs = {this.handleJobBoardClick}
+                                                 postJob = {this.handleJobpostClick}/>
+        : this.state.jobBoard_view ? <JobBoard/>
+        : this.state.jobpost_view ? <Jobpost/>
+
         : <ChatSelection selectRoom = {this.handleChatSelection}/>))
         :(<div></div>)
        }

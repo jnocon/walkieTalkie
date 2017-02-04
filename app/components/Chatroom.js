@@ -6,6 +6,7 @@ import ChatJoinModal from './ChatJoinModal.js';
 //i made this
 import RenderImage from './RenderImage.js';
 import RenderYoutube from './RenderYoutube.js';
+import Example from './GiphyModal.js';
 
 import io from 'socket.io-client';
 import axios from 'axios';
@@ -41,7 +42,9 @@ class Chatroom extends Component {
       pcData: {},
       newMessage: '',
       roommates: [],
-      userSockets: {}
+      userSockets: {},
+      GiphyModal_view : false,  
+      buttonIsToggleOn: false
     }
     this.handleMessageSubmit = this.handleMessageSubmit.bind(this);
     this.componentDidMount = this.componentDidMount.bind(this);
@@ -56,6 +59,9 @@ class Chatroom extends Component {
     this.componentWillUnmount = this.componentWillUnmount.bind(this);
     this.scrollToBottom = this.scrollToBottom.bind(this);
     this.componentDidUpdate = this.componentDidUpdate.bind(this);
+    this.handleGiphyModalClick = this.handleGiphyModalClick.bind(this);
+    this.handleGiphySubmit = this.handleGiphySubmit.bind(this);
+    this.handleGiphyClick = this.handleGiphyClick.bind(this);
     }
 
   componentDidMount() {
@@ -158,78 +164,104 @@ class Chatroom extends Component {
   
   handleNewMessage(event) {
 
-
-    // var url = new URL(event.target.value);
-
-    // // //regex magic
-    // if( /\.(jpg|gif|png)$/.test(event.target.value) && isUrl(event.target.value)) {
-    //         this.setState({
-    //           newMessage: <RenderImage value={event.target.value} />
-    //         })
-    // } 
-    // else if (url.host === "www.youtube.com" && event.target.value.length === 43 ) 
-    // {
-    //         this.setState({
-    //           newMessage: <RenderYoutube value={event.target.value} />
-    //         })
-
-    // } 
-    // else if (event.target.value[0] === '\\' && event.target.value[1] === 'g' && event.target.value.includes("\\giphy")) {
-
-
-    //   // var query = "\giphy otra vez";
-    //   // var noGiphyQuery = query.replace("\giphy ", '');
-    //   // var noGiphyQueryNPlus = noGiphyQuery.replace(' ', '+');
-    //   // console.log(noGiphyQueryNPlus);
-
-    //   var apiUrl = 'http://api.giphy.com/v1/gifs/search?q=';
-    //   var query = event.target.value
-    //   var noGiphyQuery = query.replace("\giphy ", '');
-    //   var noGiphyQueryNPlus = noGiphyQuery.replace(' ', '+');
-
-    //   var apiURLNQuery = apiUrl+noGiphyQueryNPlus+"&api_key=dc6zaTOxFJmzC&limit=5&fmt=json";
-
-    //   //http://api.giphy.com/v1/gifs/search?q=pokemon&api_key=dc6zaTOxFJmzC&limit=5&fmt=json
-
-    //   axios.get(apiURLNQuery)
-    //   .then(function(response){
-    //     var meLlames = response.data.data;
-    //     console.log(response.data.data); // ex.: { user: 'Your User'} json info
-    //             this.setState({
-    //       newMessage: ''
-    //     })
-
-    //   }).then(function() {
-    //     meLlames = meLlames[0].images.fixed_height.url;
-    //     this.setState({
-    //       newMessage: <RenderImage value={meLlames} />
-    //     })
-
-    //   })
-      
-    //   .catch(err => {
-    //     console.log('error getting data from giphy: ', err);
-    //   })
-
-    //     this.setState({
-    //       newMessage: <RenderImage value={'http://media3.giphy.com/media/d3mnJyfNLmguwILe/200.gif'} />
-    //     })
-
-
-    //   console.log('GIPHY!!!!!');
-
-    // } 
-    // else {
     this.setState({
       newMessage: event.target.value
     })
-    // }
   };
 
 
   //handle all message submissions
+
+
+  handleGiphyClick() {
+    console.log('this.handleGiphyClick!!!')
+    this.setState(prevState => ({
+      buttonIsToggleOn: !prevState.buttonIsToggleOn
+    }));
+  }
+
+  handleGiphySubmit(event) {
+    event.preventDefault();
+
+    var body = this.state.newMessage;
+
+    var doThis = () => {
+              if (body) {
+        var message = {
+          body,
+          from: this.props.name,
+          room: this.props.roomId,
+          user: this.props.userId,
+          socketId: this.socket.json.id
+        };
+        this.setState({
+          messages: [...this.state.messages, message].slice(0, 50),
+          newMessage: ''
+        });
+        //sending message to the server
+        this.socket.emit('message', message);
+      }
+
+      }
+
+      var apiUrl = 'http://api.giphy.com/v1/gifs/search?q=';
+      var query = this.state.newMessage;
+      var noGiphyQuery = query.replace("\giphy ", '');
+      var noGiphyQueryNPlus = noGiphyQuery.replace(' ', '+');
+
+      var apiURLNQuery = apiUrl+noGiphyQueryNPlus+"&api_key=dc6zaTOxFJmzC&limit=5&fmt=json";
+
+
+
+      function getGiphy(link) {
+        return axios.get(apiURLNQuery);
+      }
+
+       var promiseObj = getGiphy(apiURLNQuery);
+       promiseObj.then((resp) => {
+       console.log('inside promiseObj', resp.data.data["0"].images.original.url);
+
+       if(resp.data.data["0"].images.original.url) {
+       body = <RenderImage value={resp.data.data["0"].images.original.url} />
+       doThis();
+       } else if (resp.data.data["0"].images.original.url === undefined) {
+       alert('Query had no Match!')
+       console.log('nothing!!')
+       }
+       })
+       .catch( (reason) => {
+        alert('Bad Query!');
+       })
+      
+
+
+    
+
+    //console.log(this.state.newMessage);
+  }
+
   handleMessageSubmit(event) {
     event.preventDefault();
+    
+
+          var doThis = () => {
+              if (body) {
+        var message = {
+          body,
+          from: this.props.name,
+          room: this.props.roomId,
+          user: this.props.userId,
+          socketId: this.socket.json.id
+        };
+        this.setState({
+          messages: [...this.state.messages, message].slice(0, 50),
+          newMessage: ''
+        });
+        //sending message to the server
+        this.socket.emit('message', message);
+      }
+
+      }
 
     //============================================
     var body = this.state.newMessage
@@ -259,24 +291,7 @@ class Chatroom extends Component {
 
       //http://api.giphy.com/v1/gifs/search?q=pokemon&api_key=dc6zaTOxFJmzC&limit=5&fmt=json
 
-      var doThis = () => {
-              if (body) {
-        var message = {
-          body,
-          from: this.props.name,
-          room: this.props.roomId,
-          user: this.props.userId,
-          socketId: this.socket.json.id
-        };
-        this.setState({
-          messages: [...this.state.messages, message].slice(0, 50),
-          newMessage: ''
-        });
-        //sending message to the server
-        this.socket.emit('message', message);
-      }
 
-      }
 
       function getGiphy(link) {
         return axios.get(apiURLNQuery);
@@ -289,57 +304,22 @@ class Chatroom extends Component {
        doThis();
        })
 
-      // axios.get(apiURLNQuery) {}
-      // .then(function(response){
-      //   meLlames = response.data.data[0].images.fixed_height.url;
-      //   console.log('inside get axios then', response.data.data); // ex.: { user: 'Your User'} json info
-      //   console.log('this is meLlames', meLlames)
-      //   body = <RenderImage value={meLlames} />;  
-      //   arr.push(body);
-      //   })
-      // .catch(err => {
-      //   console.log('error getting data from giphy: ', err);
-      // })
-
-      // function getRepos(username){
-      //   return axios.get('https://api.github.com/users/' + username + '/repos');
-      // }
-
-      // var promiseObj = getRepos(‘test’);
-      // promiseObj.then(function(data){
-      // console.log(‘data’);
-      // });
-      
-
-
     } else {
       doThis();
     }
 
     console.log('outside of axios in the submit');
-    //============================================
-    // var body = <RenderImage value={'http://media3.giphy.com/media/d3mnJyfNLmguwILe/200.gif'} />
 
-    // var body = this.state.newMessage;
-
-
-    //REMOVED because checked earlier
-    // if (body && boolGiphy !== true) {
-    //   var message = {
-    //     body,
-    //     from: this.props.name,
-    //     room: this.props.roomId,
-    //     user: this.props.userId,
-    //     socketId: this.socket.json.id
-    //   };
-    //   this.setState({
-    //     messages: [...this.state.messages, message].slice(0, 50),
-    //     newMessage: ''
-    //   });
-    //   //sending message to the server
-    //   this.socket.emit('message', message);
-    // }
   }
+
+  //=============================================
+
+   handleGiphyModalClick() {
+   console.log('Giphy Modal clicked!', this.state.GiphyModal_view)
+   this.setState({
+     GiphyModal_view : true
+   })
+ }
 
   //handle a private chat request click (initiated by user)
   handlePrivateChat(recipSID, recipName) {
@@ -492,7 +472,16 @@ class Chatroom extends Component {
                         <FormControl type="text" placeholder="Enter a Message" value={this.state.newMessage} onChange={this.handleNewMessage}
                         />
                         <div>
-                        {this.state.newMessage}
+                        { //MODAL IS HERE!!!!
+                          }
+
+                        <Button onClick={this.handleGiphySubmit}>
+                        <img height="42.75" width="81" src="http://ec2-50-19-249-57.compute-1.amazonaws.com/system/companies/158-logo-giphy_l.jpg?1400273381" />
+                        </Button>
+
+                        {//<Example />
+                        }
+
                         </div>
                       </FormGroup>
                     </Form>

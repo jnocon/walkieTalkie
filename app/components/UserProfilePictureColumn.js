@@ -20,11 +20,16 @@ class UserProfilePictureColumn extends Component {
     super(props)
   }
 
+
 render () {
+  var image = 'http://www.rknrmedia.com/wp-content/uploads/2015/08/iStock_Man-in-blue-top.jpg'
+  if (this.props.userProfile.upImage !== "Put Image URL Here") {
+    image = this.props.userProfile.upImage
+  }
     return (
       <div>
          <Col xs={8}>
-          <Thumbnail src='http://www.rknrmedia.com/wp-content/uploads/2015/08/iStock_Man-in-blue-top.jpg' />
+          <Thumbnail src={image} />
           <form>
             <FormGroup controlId='formControlsTextarea'>
             <ControlLabel>New Image Source</ControlLabel>

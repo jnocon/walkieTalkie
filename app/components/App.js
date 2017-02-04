@@ -203,7 +203,7 @@ class App extends React.Component {
                                              roomId = {this.state.roomId}
                                              name = {this.state.name}
                                              searchResults = {this.state.roomSearch}/>
-        : this.state.userprofile_view ? <UserProfile />
+        : this.state.userprofile_view ? <UserProfile userId = {this.state.userId} />
         : this.state.dashboard_view ? <Dashboard showJobs = {this.handleJobBoardClick}
                                                  postJob = {this.handleJobpostClick}/>
         : this.state.jobBoard_view ? <JobBoard/>

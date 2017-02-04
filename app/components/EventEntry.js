@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Container from './GoogleMaps/Container.js';
-import { Modal, Button } from 'react-bootstrap';
+import { Modal, Button, Row, Grid, Col } from 'react-bootstrap';
 import axios from 'axios';
 
 class EventEntry extends Component {
@@ -22,12 +22,21 @@ class EventEntry extends Component {
   render(){
     let event = this.props.event
     return (     
-      <div>
-        <h1>{event.title}</h1>
-        <p>By {event.organizer} at {event.location}</p>
-        <p>{event.description}</p>
-        <Button onClick={this.toggleModal}>show event</Button>
-        <a href={event.url} target="_blank">See on eventbrite</a>
+      <div className="event">
+        <Grid>
+          <Row>
+            <Col xs={5} md={5}>
+              <h2>{event.title}</h2>
+              <p>{event.organizer} at {event.location}</p>
+              <Button onClick={this.toggleModal}>show event</Button>
+              <a href={event.url} target="_blank" style={{padding: 20+'px'}}>See on eventbrite</a>
+            </Col>
+            <Col xs={7} md={7}>
+              <h2>Description</h2>
+              <p>{event.description}</p>
+            </Col>
+          </Row>
+        </Grid>
         {this.state.showModal ? 
           <Modal onHide={this.toggleModal} show={this.state.showModal} bsSize="large">
             <Modal.Body>

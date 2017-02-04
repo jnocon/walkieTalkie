@@ -20,7 +20,7 @@ var Event = db.define('Event', {
     allowNull : true
   },
   description: {
-    type: Sequelize.STRING,
+    type: Sequelize.STRING(20000),
     allowNull: true
   }
 });

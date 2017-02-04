@@ -18,7 +18,7 @@ class EventList extends Component {
     .then(result=>{
       console.log('received these events from eventlist axios call', result.data)
       context.setState({
-        events: result.data[0]
+        events: result.data
       })
     })
     .catch(err=>{
@@ -34,7 +34,7 @@ class EventList extends Component {
         <p>hello world</p>
         {events.map((event, i) => (
           <EventEntry 
-          eventUrl = {event.url}
+          event = {event}
           key={i}
           />
         ))}

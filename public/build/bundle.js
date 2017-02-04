@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -69722,3 +69723,5 @@
 
 /***/ }
 /******/ ]);
+=======
+>>>>>>> added in create a user view

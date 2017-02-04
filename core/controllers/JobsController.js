@@ -4,12 +4,16 @@ var Promise = require('bluebird')
 var Jobs = require('../../db/schema/Jobs.js');
 
 module.exports.jobsGetAll = function(req, res) {
-  db.query('select * from Jobs', {type: sequelize.QueryTypes,SELECT})
+  console.log('in jobs ctrl get all')
+  db.query('select * from Jobs', {type: sequelize.QueryTypes.SELECT})
   .then(jobsFound => {
-    cb(null, jobsFound)
+    res
+    .json(jobsFound)
   })
   .catch(error => {
-    cb(error)
+    res
+    .status(500)
+    .json(err)
   })
 }
 

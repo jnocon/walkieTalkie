@@ -76,14 +76,16 @@ var scraper = (url, cb) => {
 				json.time = time
 			})
 
-			// $('.js-xd-read-more-contents').filter(function() {
-			// 	var data = $(this);
+			$('.js-xd-read-more-contents').filter(function() {
+				var data = $(this);
 
-			// 	description = data.children()
+				description = data.children().map(function(i, elem) {
+					if(i<5) return $(this).text();
+				}).get().join(' ')
 
-			// 	console.log('the description of this event is', description)
-			// 	json.description = description
-			// })
+				console.log('the description of this event is', description)
+				json.description = description
+			})
 
 			cb(null, json)
 

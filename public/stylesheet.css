@@ -97,6 +97,17 @@ button {
 
 }
 
+.eventList {
+  padding: 10px;
+  margin: 10px;
+}
+
+.event {
+  background-color: lightgray;
+  margin:10px;
+  padding: 15px;
+}
+
 
 
 .outerPanel {

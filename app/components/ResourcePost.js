@@ -37,8 +37,7 @@ class ResourcePost extends Component {
 
     console.log('got this url', resourceLink.value)
 
-    scope.props.toggleModal();
-    scope.props.showResources();
+
     axios.post('/core/saveResource', {
       resourceObj: {
         title: resourceTitle.value,

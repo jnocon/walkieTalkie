@@ -24,23 +24,23 @@ render () {
     return (
       <div>
          <Col xs={8}>
-          <Thumbnail src='http://www.rknrmedia.com/wp-content/uploads/2015/08/iStock_Man-in-blue-top.jpg' rounded />
+          <Thumbnail src='http://www.rknrmedia.com/wp-content/uploads/2015/08/iStock_Man-in-blue-top.jpg' />
           <form>
             <FormGroup controlId='formControlsTextarea'>
             <ControlLabel>New Image Source</ControlLabel>
-            <FormControl componentClass='textarea' placeholder='Put Image URL Here' />
+            <FormControl componentClass='textarea' placeholder={this.props.userProfile.upImage} id='upImage' />
           </FormGroup>
 
           <FormGroup controlId='formControlsTextarea'>
             <ControlLabel>Languages</ControlLabel>
-            <FormControl componentClass='textarea' placeholder='JavaScript, C++, etc.,' />
+            <FormControl componentClass='textarea' placeholder={this.props.userProfile.upLanguages} id='upLanguages' />
           </FormGroup>
           <FormGroup controlId='formControlsTextarea'>
             <ControlLabel>Frameworks</ControlLabel>
-            <FormControl componentClass='textarea' placeholder='Angular, Express, etc.,' />
+            <FormControl componentClass='textarea' placeholder={this.props.userProfile.upFrameworks} id='upFrameworks'/>
           </FormGroup>
           </form>
-          <Button type="submit">
+          <Button type="submit" onClick = {this.props.handleUserProfileSave}>
             Save Info
           </Button>
         </Col>

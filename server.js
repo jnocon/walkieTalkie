@@ -222,6 +222,25 @@ app.post('/privateRoom', (req, res) => {
 //   })
 // });
 
+app.put('/saveUserProfile', (req, res) => {
+  dataHandler.userProfileSave(req.body)
+  .then(res => {
+  res.status(201).send("Success")
+  })
+  .catch(err => {
+
+  })
+  
+})
+
+app.get('/getUserProfile', (req, res) => {
+  console.log('jesse look here = ', req.headers.id)
+  dataHandler.getUserProfile(req.headers.id)
+  .then(result => {
+    res.status(200).send(result)
+  })
+})
+
 app.get('/findAllEvents', (req, res) => {
   console.log('got into findAllEvents with', req.body)
   eventsHandler.getAllEvents((error, result)=>{

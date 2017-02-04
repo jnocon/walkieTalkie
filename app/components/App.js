@@ -9,6 +9,7 @@ import JobBoard from './JobBoard.js'
 import Jobpost from './jobpost.js'
 import UserProfile from './userProfile.js'
 
+
 class App extends React.Component {
   constructor(props){
     super(props)
@@ -76,6 +77,7 @@ class App extends React.Component {
   }
 
  handleUserSignupLogin(res){
+   console.log("jesse look here", res)
    this.setState({
      userId : res.id,
      name : res.firstname,
@@ -104,14 +106,21 @@ class App extends React.Component {
    this.setState({
      roomId : inputRoomId,
      roomSearch : {'option' : searchOptions, 'res' : result},
-     chat_view : true
+     chat_view : true,
+     userprofile_view: false,
+     jobpost_view: false,
+     jobBoard_view: false,
+     dashboard_view: false
    })
  }
 
  handleChatExit(){
    var self = this;
    self.setState({
-     dashboard_view : false
+     userprofile_view: false,
+     jobpost_view: false,
+     jobBoard_view: false,
+     dashboard_view: false
    })
    if (this.state.roomId) {
     axios.post('/exitChat', {id : this.state.userId})
@@ -131,6 +140,9 @@ class App extends React.Component {
    console.log('dashboard clicked, dashbord view is', this.state.dashboard_view)
    this.setState({
      dashboard_view: true,
+     userprofile_view: false,
+     jobpost_view: false,
+     jobBoard_view: false,
      chat_view: false
    })
  }
@@ -138,6 +150,8 @@ class App extends React.Component {
  handleJobBoardClick() {
    this.setState({
      jobBoard_view: true,
+     userprofile_view: false,
+     jobpost_view: false,
      dashboard_view: false,
      chat_view: false
    })
@@ -149,23 +163,22 @@ class App extends React.Component {
      jobpost_view: true,
      jobBoard_view: false,
      dashboard_view: false,
+     chat_view: false,
+     userprofile_view: false
+   })
+ }
+
+ handleUserProfileClick() {
+   console.log('up clicked, up view is', this.state.userprofile_view)
+   this.setState({
+     userprofile_view: true,
+     jobpost_view: false,
+     jobBoard_view: false,
+     dashboard_view: false,
      chat_view: false
    })
  }
 
- handleUserProfileClick() {
-   console.log('up clicked, up view is', this.state.userprofile_view)
-   this.setState({
-     userprofile_view: true
-   })
- }
-
- handleUserProfileClick() {
-   console.log('up clicked, up view is', this.state.userprofile_view)
-   this.setState({
-     userprofile_view: true
-   })
- }
 
  handleRoomChange(newRoom) {
    this.setState({

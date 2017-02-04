@@ -10,15 +10,6 @@ import { FormGroup } from 'react-bootstrap';
 import { HelpBlock } from 'react-bootstrap';
 import { ControlLabel, Form, Checkbox } from 'react-bootstrap';
 
-function FieldGroup ( { id, label, help, props }) {
-  return (
-    <FormGroup controlId={id}>
-      <ControlLabel>{label}</ControlLabel>
-      <FormControl {...props} />
-      {help && <HelpBlock>{help}</HelpBlock>}
-    </FormGroup>
-  );
-}
 
 
 class UserProfileNav extends Component {
@@ -42,7 +33,7 @@ class UserProfileNav extends Component {
         Email
       </Col>
       <Col sm={10}>
-        <FormControl type="email" placeholder="Email" />
+        <FormControl type="email" placeholder={this.props.userProfile.upEmail} id='upEmail' />
       </Col>
     </FormGroup>
 
@@ -51,25 +42,25 @@ class UserProfileNav extends Component {
         Phone Number
       </Col>
       <Col sm={10}>
-        <FormControl type="phoneNumber" placeholder="Phone Number" />
+        <FormControl type="phoneNumber" placeholder={this.props.userProfile.upPhone}  id='upPhone' />
       </Col>
     </FormGroup>
 
       <FormGroup controlId="formHorizontalPassword">
       <Col componentClass={ControlLabel} sm={2}>
-        Skype ID
+        Skype
       </Col>
       <Col sm={10}>
-        <FormControl type="skype" placeholder="Skype ID" />
+        <FormControl type="skype" placeholder={this.props.userProfile.upSkype} id='upSkype' />
       </Col>
     </FormGroup>
 
     <FormGroup controlId="formHorizontalPassword">
       <Col componentClass={ControlLabel} sm={2}>
-        Github ID
+        Github
       </Col>
       <Col sm={10}>
-        <FormControl type="github" placeholder="gitHub ID" />
+        <FormControl type="github" placeholder={this.props.userProfile.upGitHub}  id='upGitHub' />
       </Col>
     </FormGroup>
 
@@ -78,13 +69,13 @@ class UserProfileNav extends Component {
         LinkedIn
       </Col>
       <Col sm={10}>
-        <FormControl type="linkedIn" placeholder="LinkedIn URL" />
+        <FormControl type="linkedIn" placeholder={this.props.userProfile.upLinkedIn}  id='upLinkedIn' />
       </Col>
     </FormGroup>
 
     <FormGroup>
       <Col smOffset={2} sm={10}>
-        <Button type="submit">
+        <Button type="submit" onClick = {this.props.handleUserProfileSave}>
           Save Info
         </Button>
       </Col>

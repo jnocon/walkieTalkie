@@ -33,14 +33,14 @@ class UserProfileBasicInfo extends Component {
         <Col xs={6}>
           <form >
             <FormGroup bsSize='large'>
-             <FormControl type='text' placeholder='Your Name' />
+             <FormControl type='text' placeholder={this.props.userProfile.upName} id='upName' />
            </FormGroup>
           </form>
           <div>
               <p>Status <Label bsStyle="success">Online</Label></p>
           </div>
           <div>
-            <Button type="submit">
+            <Button type="submit" onClick = {this.props.handleUserProfileSave}>
                 Save Info
             </Button>
           </div>
@@ -48,14 +48,14 @@ class UserProfileBasicInfo extends Component {
         <Col xs={3}>
           <form>
             <FormGroup bsSize='small'>
-               <FormControl type='text' placeholder='Location' />
+               <FormControl type='text' placeholder={this.props.userProfile.upLocation} id='upLocation' />
              </FormGroup>
           </form>
         </Col>
         <Col xs={3}>
           <form>
             <FormGroup bsSize='small'>
-              <FormControl type='text' placeholder='Chat Handle' />
+              <FormControl type='text' placeholder={this.props.userProfile.firstname} id='upHandle' />
             </FormGroup>
           </form>
         </Col>

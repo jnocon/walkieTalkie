@@ -15,7 +15,7 @@ import { Form } from 'react-bootstrap';
 import { FormGroup } from 'react-bootstrap';
 import { FormControl } from 'react-bootstrap';
 import { Jumbotron } from 'react-bootstrap';
-import { Thumbnail, ListGroup, ListGroupItem } from 'react-bootstrap';
+import { Thumbnail, ListGroup, ListGroupItem, Image } from 'react-bootstrap';
 
 class JobBoard extends Component {
   constructor(props){
@@ -23,6 +23,19 @@ class JobBoard extends Component {
     this.state={
       jobs: []
     }
+
+  }
+  componentWillMount() {
+    const script = document.createElement("script");
+    const script2 = document.createElement("script");
+
+script.src = "//platform.linkedin.com/in.js";
+script2.src = "https://www.glassdoor.com/static/js/api/widget/v1.js";
+script.async = true;
+script2.async = true;
+
+document.body.appendChild(script);
+document.body.appendChild(script2);
 
   }
   componentDidMount() {
@@ -42,7 +55,7 @@ class JobBoard extends Component {
 
   render() {
     console.log('in render of joblist and jobs are ', this.state.jobs)
-    var jobs = this.state.jobs
+    var jobs = this.state.jobs.reverse();
     return (
       <div>
         <Jumbotron>
@@ -67,6 +80,12 @@ class JobBoard extends Component {
                 </ListGroup>
                   </Col>
                   <Col xs={6} md={4} >
+                    <Image src="/images/Logo-2C-128px-TM.png" responsive />
+
+                    <script src="//platform.linkedin.com/in.js" type="text/javascript"></script>
+                    <script type="IN/JYMBII" data-format="inline"></script>
+                      <Image src="/images/glassdoor.png" responsive />
+
                 <div className="gdWidget">
                   <a href="https://www.glassdoor.com/api/api.htm?version=1&action=search-salaries&t.s=w-m&t.a=c&format=300x250" target="_blank">Search Salaries </a> or see
                     <a href="https://www.glassdoor.com/Reviews/index.htm?&t.s=w-m&t.a=c" target="_blank"> company reviews</a>,

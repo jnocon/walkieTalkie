@@ -4,7 +4,7 @@ import UserItem from './UserItem';
 import ChatJoinModal from './ChatJoinModal.js';
 import PostEventModal from './PostEventModal.js'
 import EventList from './EventList.js'
-import PostJobModal from './Jobpost.js'
+import PostJobModal from './JobPostModal.js'
 import PostResourceModal from './ResourcePost.js'
 
 import io from 'socket.io-client';
@@ -88,7 +88,8 @@ class Dashboard extends Component {
                      <p>Description</p>
 
                      <p>
-                       <Button bsStyle="primary">View Resource</Button>&nbsp;
+                       <Button bsStyle="primary"
+                         onClick={() => { this.props.showResources() }}>View Resources</Button>&nbsp;
                        <Button onClick={this.togglePostResourceModal} bsStyle="default">Post Resource</Button>
                      </p>
                    </Thumbnail>
@@ -128,9 +129,9 @@ class Dashboard extends Component {
         : this.state.showEventlist ?
         <EventList />
         : this.state.showPostJobModal ?
-        <PostJobModal show={this.state.showPostJobModal} toggleModal={this.togglePostResourceModal}/>
+        <PostJobModal show={this.state.showPostJobModal} toggleModal={this.togglePostJobModal} showJobs={this.props.showJobs}/>
         : this.state.showPostResourceModal ?
-        <PostResourceModal show={this.state.showPostResourceModal} toggleModal={this.togglePostResourceModal}/>
+        <PostResourceModal show={this.state.showPostResourceModal} toggleModal={this.togglePostResourceModal} showResources={this.props.showResources}/>
         :
         <div></div>}
       </div>

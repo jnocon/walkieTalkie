@@ -32,17 +32,11 @@ module.exports.jobsAddOne = function(req, res) {
 		location: location,
     salary: salary,
 		link: link
-	}, function (err, jobs){
-    if (err) {
-      console.log('error creating job');
-      res
-      .status(400)
-      .json(err);
-    } else {
-      console.log('Job created', jobs);
-      res
-      .status(201)
-      .json(jobs);
-          }
-    });
-  };
+	})
+  .then(result => {
+    res.status(200).send(result)
+  })
+  .catch(err => {
+    res.status(500).send(err)
+  })
+};

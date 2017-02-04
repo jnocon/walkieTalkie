@@ -6,9 +6,8 @@ import Chatroom from './Chatroom.js';
 import ChatSelection from './ChatSelection.js';
 import Dashboard from './Dashboard.js'
 import JobBoard from './JobBoard.js'
-import Jobpost from './jobpost.js'
 import UserProfile from './userProfile.js'
-
+import ResourceList from './resourceList.js'
 
 class App extends React.Component {
   constructor(props){
@@ -23,7 +22,7 @@ class App extends React.Component {
       mounted : false,
       dashboard_view : false,
       jobBoard_view : false,
-      jobpost_view : false,
+      resource_view : false,
       userprofile_view: false
 
     }
@@ -37,7 +36,7 @@ class App extends React.Component {
 
 
     this.handleJobBoardClick = this.handleJobBoardClick.bind(this);
-    this.handleJobpostClick = this.handleJobpostClick.bind(this);
+    this.handleResourceClick = this.handleResourceClick.bind(this);
 
     this.handleUserProfileClick = this.handleUserProfileClick.bind(this);
 
@@ -108,7 +107,7 @@ class App extends React.Component {
      roomSearch : {'option' : searchOptions, 'res' : result},
      chat_view : true,
      userprofile_view: false,
-     jobpost_view: false,
+     resource_view: false,
      jobBoard_view: false,
      dashboard_view: false
    })
@@ -118,7 +117,7 @@ class App extends React.Component {
    var self = this;
    self.setState({
      userprofile_view: false,
-     jobpost_view: false,
+     resource_view: false,
      jobBoard_view: false,
      dashboard_view: false
    })
@@ -141,7 +140,7 @@ class App extends React.Component {
    this.setState({
      dashboard_view: true,
      userprofile_view: false,
-     jobpost_view: false,
+     resource_view: false,
      jobBoard_view: false,
      chat_view: false
    })
@@ -151,16 +150,16 @@ class App extends React.Component {
    this.setState({
      jobBoard_view: true,
      userprofile_view: false,
-     jobpost_view: false,
+     resource_view: false,
      dashboard_view: false,
      chat_view: false
    })
 
  }
 
- handleJobpostClick() {
+ handleResourceClick() {
    this.setState({
-     jobpost_view: true,
+     resource_view: true,
      jobBoard_view: false,
      dashboard_view: false,
      chat_view: false,
@@ -172,7 +171,7 @@ class App extends React.Component {
    console.log('up clicked, up view is', this.state.userprofile_view)
    this.setState({
      userprofile_view: true,
-     jobpost_view: false,
+     resource_view: false,
      jobBoard_view: false,
      dashboard_view: false,
      chat_view: false
@@ -185,7 +184,7 @@ class App extends React.Component {
      roomId : newRoom,
    })
  }
- 
+
   render() {
     return (
       <div>
@@ -205,9 +204,9 @@ class App extends React.Component {
                                              searchResults = {this.state.roomSearch}/>
         : this.state.userprofile_view ? <UserProfile userId = {this.state.userId} />
         : this.state.dashboard_view ? <Dashboard showJobs = {this.handleJobBoardClick}
-                                                 postJob = {this.handleJobpostClick}/>
+                                                 showResources = {this.handleResourceClick}/>
         : this.state.jobBoard_view ? <JobBoard/>
-        : this.state.jobpost_view ? <Jobpost/>
+      : this.state.resource_view ? <ResourceList/>
         : <ChatSelection selectRoom = {this.handleChatSelection}/>))
         :(<div></div>)
        }

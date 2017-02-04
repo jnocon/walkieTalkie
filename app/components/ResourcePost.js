@@ -30,14 +30,15 @@ class ResourcePost extends Component {
     let resourceTitle=document.getElementById('resourceTitle')
     let resourceSubject=document.getElementById('resourceSubject')
     let resourceLink=document.getElementById('resourceLink')
-
+    let scope = this;
 
     console.log('got this title', resourceTitle.value)
     console.log('got this Subject', resourceSubject.value)
 
     console.log('got this url', resourceLink.value)
 
-
+    scope.props.toggleModal();
+    scope.props.showResources();
     axios.post('/core/saveResource', {
       resourceObj: {
         title: resourceTitle.value,
@@ -47,6 +48,8 @@ class ResourcePost extends Component {
     })
     .then(result => {
       console.log('result is', result)
+      scope.props.toggleModal();
+      scope.props.showResources();
     })
     .catch(error => {
       console.log('error in posting Resource to database', error)

@@ -14,10 +14,10 @@ router
 
   router
     .route('/resources')
-    .get(JobsCtrl.resourcesGetAll);
+    .get(ResourcesCtrl.resourcesGetAll);
 
   router
     .route('/saveResource')
-    .post(JobsCtrl.resourcesAddOne);
+    .post(ResourcesCtrl.resourcesAddOne);
 
 module.exports = router;

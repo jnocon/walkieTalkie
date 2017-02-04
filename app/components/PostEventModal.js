@@ -34,13 +34,13 @@ class PostEventModal extends Component {
   }
 
   render(){
-    return (     
-        <Modal show={this.props.show} 
+    return (
+        <Modal show={this.props.show}
         onHide={this.props.toggleModal}>
           <Modal.Body>
             <form>
               <p>Paste your EventBrite url here:</p>
-              <input type='text' id='eventUrl' />  
+              <input type='text' id='eventUrl' />
               <button onClick={this.submitEvent}>Submit!</button>
             </form>
           </Modal.Body>

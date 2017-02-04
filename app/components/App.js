@@ -26,11 +26,8 @@ class App extends React.Component {
       chat_view : false,
       mounted : false,
       dashboard_view : false,
-
       jobBoard_view : false,
-      jobpost_view : false
-
-
+      jobpost_view : false,
       userprofile_view: false
 
     }
@@ -157,7 +154,7 @@ class App extends React.Component {
      dashboard_view: false,
      chat_view: false
    })
-
+}
 
  handleUserProfileClick() {
    console.log('up clicked, up view is', this.state.userprofile_view)
@@ -186,28 +183,19 @@ class App extends React.Component {
        {
          this.state.mounted ?
          (this.state.login_signup_view ?
-         (<LoginSignupView userSignupLogin = {this.handleUserSignupLogin}/>) :
-         (this.state.chat_view ? <Chatroom roomChange = {this.handleRoomChange}
-                                           userId = {this.state.userId}
-                                           roomId = {this.state.roomId}
-                                           name = {this.state.name}
-                                           searchResults = {this.state.roomSearch}/>
-         :
-
-         this.state.dashboard_view ? <Dashboard showJobs = {this.handleJobBoardClick}
-                                                postJob = {this.handleJobpostClick}/>
-         :
-         this.state.jobBoard_view ? <JobBoard/>
-       :
-       this.state.jobpost_view ? <Jobpost/>
-       : <ChatSelection selectRoom = {this.handleChatSelection}/>))
-
-         this.state.dashboard_view ? <Dashboard />
-         :
-         this.state.userprofile_view ? <UserProfile />
-         : <ChatSelection selectRoom = {this.handleChatSelection}/>))
-
-         :(<div></div>)
+         (<LoginSignupView userSignupLogin = {this.handleUserSignupLogin}/>)
+         : (this.state.chat_view ? <Chatroom roomChange = {this.handleRoomChange}
+                                             userId = {this.state.userId}
+                                             roomId = {this.state.roomId}
+                                             name = {this.state.name}
+                                             searchResults = {this.state.roomSearch}/>
+        : this.state.userprofile_view ? <UserProfile />
+        : this.state.dashboard_view ? <Dashboard showJobs = {this.handleJobBoardClick}
+                                                 postJob = {this.handleJobpostClick}/>
+        : this.state.jobBoard_view ? <JobBoard/>
+        : this.state.jobpost_view ? <Jobpost/>
+        : <ChatSelection selectRoom = {this.handleChatSelection}/>))
+        :(<div></div>)
        }
       </div>
     )

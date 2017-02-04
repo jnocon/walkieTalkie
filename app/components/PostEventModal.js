@@ -26,11 +26,11 @@ class PostEventModal extends Component {
     })
     .then(result => {
       console.log('result is', result)
+      url.value = ''
     })
     .catch(error => {
       console.log('error in posting event to database', error)
     })
-    url.value = ''
   }
 
   render(){

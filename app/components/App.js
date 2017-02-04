@@ -5,14 +5,9 @@ import ViewNavBar from './ViewNavbar.js';
 import Chatroom from './Chatroom.js';
 import ChatSelection from './ChatSelection.js';
 import Dashboard from './Dashboard.js'
-
 import JobBoard from './JobBoard.js'
 import Jobpost from './jobpost.js'
-
 import UserProfile from './userProfile.js'
-
-
-
 
 class App extends React.Component {
   constructor(props){
@@ -29,7 +24,6 @@ class App extends React.Component {
       jobBoard_view : false,
       jobpost_view : false,
       userprofile_view: false
-
     }
     this.componentWillMount = this.componentWillMount.bind(this);
     this.handleUserSignupLogin = this.handleUserSignupLogin.bind(this);
@@ -138,7 +132,6 @@ class App extends React.Component {
    })
  }
 
-
  handleJobBoardClick() {
    this.setState({
      jobBoard_view: true,
@@ -147,6 +140,7 @@ class App extends React.Component {
    })
 
  }
+
  handleJobpostClick() {
    this.setState({
      jobpost_view: true,
@@ -154,24 +148,21 @@ class App extends React.Component {
      dashboard_view: false,
      chat_view: false
    })
-}
+ }
 
  handleUserProfileClick() {
    console.log('up clicked, up view is', this.state.userprofile_view)
    this.setState({
      userprofile_view: true
    })
-
  }
 
  handleRoomChange(newRoom) {
    this.setState({
      roomId : newRoom,
    })
-
  }
-
-
+ 
   render() {
     return (
       <div>

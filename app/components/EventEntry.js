@@ -20,13 +20,18 @@ class EventEntry extends Component {
 
         
   render(){
+    let event = this.props.event
     return (     
       <div>
+        <h1>{event.title}</h1>
+        <p>By {event.organizer} at {event.location}</p>
+        <p>{event.description}</p>
         <Button onClick={this.toggleModal}>show event</Button>
+        <a href={event.url} target="_blank">See on eventbrite</a>
         {this.state.showModal ? 
           <Modal onHide={this.toggleModal} show={this.state.showModal} bsSize="large">
             <Modal.Body>
-              <iframe src={this.props.eventUrl} width="98%" height="600px"></iframe>
+              <iframe src={event.url} width="98%" height="600px"></iframe>
             </Modal.Body>
           </Modal> : <div></div>
         }
